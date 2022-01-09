@@ -7,10 +7,14 @@ namespace SpaceCarrier.Celestials
 {
     public class CelestialBody : MonoBehaviour
     {
-        public float G = 0.667f;
+        [SerializeField] float g = 0.667f;
+        [SerializeField] SphereCollider gravityField;
+
 
         private void OnTriggerStay(Collider other)
         {
+            if (!other.gameObject.CompareTag("Pullable")) return;
+
             print("Object is in the gravity field");
 
             Rigidbody rb = GetComponent<Rigidbody>();
@@ -19,10 +23,16 @@ namespace SpaceCarrier.Celestials
             Vector3 direction = rb.position - otherRb.position;
             float sqrDistance = direction.sqrMagnitude;
 
-            float forceMagnitude = G * rb.mass * otherRb.mass / sqrDistance;
+            float forceMagnitude = g * rb.mass * otherRb.mass / sqrDistance;
             Vector3 force = direction * forceMagnitude;
 
             otherRb.AddForce(force);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, gravityField.radius * transform.lossyScale.x);
         }
     }
 }

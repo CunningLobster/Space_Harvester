@@ -514,7 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b146aaae196d7448960e1d1d4ccaeb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  G: 0.667
+  g: 0.667
+  gravityField: {fileID: 1108540562}
 --- !u!54 &1108540561
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -732,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 4675350230885518959, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675350230885518959, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: m_TagString
+      value: Pullable
       objectReference: {fileID: 0}
     - target: {fileID: 4680685511973819729, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_RootOrder

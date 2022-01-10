@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.Celestials
 {
-    [RequireComponent(typeof(Orbit), typeof(OrbitMotion))]
+    [RequireComponent(typeof(OrbitPath), typeof(OrbitMotion))]
     public class CelestialBody : MonoBehaviour
     {
         [SerializeField] float g = 0.667f;

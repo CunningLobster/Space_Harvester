@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ae9233a4c65a84489cec49b39c39dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centralBody: {fileID: 0}
   orbitProgress: 0
   orbitPeriod: 3
 --- !u!120 &4486491812697044056
@@ -102,7 +101,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63164601860958659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -244,6 +243,7 @@ MonoBehaviour:
   path:
     xAxis: 5
     yAxis: 3
+  centralBody: {fileID: 0}
 --- !u!1 &2480372109937046578
 GameObject:
   m_ObjectHideFlags: 0

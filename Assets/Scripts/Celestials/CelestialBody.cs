@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace SpaceCarrier.Celestials
 {
+    [RequireComponent(typeof(Orbit), typeof(OrbitMotion))]
     public class CelestialBody : MonoBehaviour
     {
         [SerializeField] float g = 0.667f;
         [SerializeField] SphereCollider gravityField;
-
-        [SerializeField] Transform centralBody;
 
         private void OnTriggerStay(Collider other)
         {

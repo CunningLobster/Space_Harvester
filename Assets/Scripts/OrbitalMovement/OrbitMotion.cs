@@ -2,46 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbitMotion : MonoBehaviour
+namespace SpaceCarrier.Celestials
 {
-    public Transform orbitingObject;
-    public Ellipse orbitPath;
-
-    [Range(0, 1f)] public float orbitProgress = 0f;
-    public float orbitPeriod = 3f;
-    public bool orbitActive = true;
-
-    private void Start()
+    public class OrbitMotion : MonoBehaviour
     {
-        orbitPath.xAxis = transform.position.x;
-        orbitPath.yAxis = transform.position.x;
-        if (orbitingObject == null) 
+        [SerializeField] Transform centralBody = null;
+        Orbit orbitToMoveOn;
+
+        [Range(0, 1f)] public float orbitProgress = 0f;
+        [SerializeField] float orbitPeriod = 3f;
+
+        private void Start()
         {
-            orbitActive = false;
-            return;
-        }
-        SetOrbitingObjectPosition();
-        StartCoroutine(AnimateOrbit());
-    }
-
-    void SetOrbitingObjectPosition()
-    { 
-        Vector2 orbitPos = orbitPath.Evaluate(orbitProgress);
-        orbitingObject.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
-    }
-
-    IEnumerator AnimateOrbit()
-    {
-        if (orbitPeriod < .1f)
-            orbitPeriod = .1f;
-        float orbitSpeed = 1f / orbitPeriod;
-        while (orbitActive)
-        { 
-            orbitProgress += Time.deltaTime * orbitSpeed;
-            orbitProgress %= 1f;
+            if (centralBody == null)
+            {
+                return;
+            }
+            orbitToMoveOn = centralBody.GetComponent<Orbit>();
             SetOrbitingObjectPosition();
-            yield return null;
+            StartCoroutine(AnimateOrbit());
         }
 
+        void SetOrbitingObjectPosition()
+        {
+            Vector2 orbitPos = orbitToMoveOn.path.Evaluate(orbitProgress);
+            transform.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
+        }
+
+        IEnumerator AnimateOrbit()
+        {
+            if (orbitPeriod < .1f)
+                orbitPeriod = .1f;
+            float orbitSpeed = 1f / orbitPeriod;
+            while (true)
+            {
+                orbitProgress += Time.deltaTime * orbitSpeed;
+                orbitProgress %= 1f;
+                SetOrbitingObjectPosition();
+                yield return null;
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ public class OrbitMotion : MonoBehaviour
 
     private void Start()
     {
+        orbitPath.xAxis = transform.position.x;
+        orbitPath.yAxis = transform.position.x;
         if (orbitingObject == null) 
         {
             orbitActive = false;

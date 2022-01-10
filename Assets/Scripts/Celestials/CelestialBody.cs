@@ -10,8 +10,7 @@ namespace SpaceCarrier.Celestials
         [SerializeField] float g = 0.667f;
         [SerializeField] SphereCollider gravityField;
 
-        [SerializeField] CelestialBody[] satelites;
-        [SerializeField] CelestialBody centralBody;
+        [SerializeField] Transform centralBody;
 
         private void OnTriggerStay(Collider other)
         {

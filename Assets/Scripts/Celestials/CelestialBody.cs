@@ -10,11 +10,18 @@ namespace SpaceCarrier.Celestials
         [SerializeField] float g = 0.667f;
         [SerializeField] SphereCollider gravityField;
 
+        [SerializeField] CelestialBody[] satelites;
+        [SerializeField] CelestialBody centralBody;
 
         private void OnTriggerStay(Collider other)
         {
             if (!other.gameObject.CompareTag("Pullable")) return;
 
+            PullObject(other);
+        }
+
+        private void PullObject(Collider other)
+        {
             print("Object is in the gravity field");
 
             Rigidbody rb = GetComponent<Rigidbody>();

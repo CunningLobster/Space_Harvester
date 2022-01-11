@@ -101,7 +101,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63164601860958659}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -243,7 +243,6 @@ MonoBehaviour:
   path:
     xAxis: 5
     yAxis: 3
-  centralBody: {fileID: 0}
 --- !u!1 &2480372109937046578
 GameObject:
   m_ObjectHideFlags: 0

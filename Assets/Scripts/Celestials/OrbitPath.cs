@@ -37,15 +37,16 @@ namespace SpaceCarrier.Celestials
 
         private void Update()
         {
-            if(centralBody != null)
-                CalculateOrbitPath();
+            if (centralBody == null) return;
+            CalculateOrbitPath();
         }
 
         private void OnValidate()
         {
+            centralBody = transform.parent;
             lr = GetComponent<LineRenderer>();
-            if (centralBody != null)
-                CalculateOrbitPath();
+            if (centralBody == null) return;
+            CalculateOrbitPath();
         }
     }
 }

@@ -19,7 +19,8 @@ namespace SpaceCarrier.SpaceShips
         public void MoveShip(Vector3 movingVector)
         {
             rb.angularVelocity = Vector3.zero;
-            rb.velocity = transform.forward * movingVector.magnitude * forwardSpeed;
+            //rb.velocity = transform.forward * movingVector.magnitude * forwardSpeed;
+            rb.AddForce(transform.forward * movingVector.magnitude * forwardSpeed);
             RotateShip(movingVector);
         }
 

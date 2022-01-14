@@ -1,30 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SpaceCarrier.Controls;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class ShipMover : MonoBehaviour
     {
-        [SerializeField] float speed = 10f;
+        [SerializeField] float forwardSpeed = 10f;
+        [SerializeField] float yawSpeed = 2f;
+
         Rigidbody rb;
-        InputProvider inputProvider;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
-            inputProvider = GetComponent<InputProvider>();
         }
 
-        private void FixedUpdate()
+        public void MoveShip(Vector3 movingVector)
         {
             rb.angularVelocity = Vector3.zero;
-            rb.velocity = new Vector3(inputProvider.moveDirection.x, 0, inputProvider.moveDirection.y) * speed;
-            if (inputProvider.moveDirection != Vector2.zero)
-            {
-                transform.rotation = Quaternion.Euler(0, Mathf.Atan2(inputProvider.moveDirection.x, inputProvider.moveDirection.y) / Mathf.PI * 180, 0);
-            }
+            rb.velocity = transform.forward * movingVector.magnitude * forwardSpeed;
+            RotateShip(movingVector);
         }
+
+        private void RotateShip(Vector3 movingVector)
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, Mathf.Atan2(movingVector.x, movingVector.z) * Mathf.Rad2Deg, 0);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed);
+        }
+
     }
 }

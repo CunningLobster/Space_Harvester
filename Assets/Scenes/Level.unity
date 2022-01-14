@@ -872,6 +872,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 126.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8835417566183065645, guid: d203bdb9987040b4c8a27dd7f5d4fe86, type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8835417566183065647, guid: d203bdb9987040b4c8a27dd7f5d4fe86, type: 3}
       propertyPath: m_Name
       value: Star Class G
@@ -3011,10 +3015,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 4675350230885518959, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
-      propertyPath: m_TagString
-      value: Pullable
-      objectReference: {fileID: 0}
     - target: {fileID: 4680685511973819729, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3252,6 +3252,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6260424949556721340, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.0247803
+      objectReference: {fileID: 0}
     - target: {fileID: 6260424950011285179, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Name
       value: Canvas

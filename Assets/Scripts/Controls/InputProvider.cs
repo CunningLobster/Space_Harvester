@@ -14,10 +14,5 @@ namespace SpaceCarrier.Controls
         {
             moveDirection = context.ReadValue<Vector2>();
         }
-
-        private void Update()
-        {
-            print(moveDirection);
-        }
     }
 }

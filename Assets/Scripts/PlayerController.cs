@@ -5,6 +5,7 @@ using SpaceCarrier.Controls;
 
 namespace SpaceCarrier.SpaceShips
 {
+    [RequireComponent(typeof(InputProvider))]
     public class PlayerController : MonoBehaviour
     {
         InputProvider inputProvider;

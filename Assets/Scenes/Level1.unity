@@ -2095,13 +2095,14 @@ GameObject:
   - component: {fileID: 1922726208}
   - component: {fileID: 1922726210}
   - component: {fileID: 1922726209}
+  - component: {fileID: 1922726211}
   m_Layer: 0
   m_Name: Wormhole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1922726208
 Transform:
   m_ObjectHideFlags: 0
@@ -2146,6 +2147,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1922726211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922726207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6f3220a21c15845bb4ebc1dc009573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHome: 0
 --- !u!1001 &2113608813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2231,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8835417566183065647, guid: d203bdb9987040b4c8a27dd7f5d4fe86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d203bdb9987040b4c8a27dd7f5d4fe86, type: 3}

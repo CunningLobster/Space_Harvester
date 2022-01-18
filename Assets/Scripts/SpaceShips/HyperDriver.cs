@@ -8,7 +8,7 @@ namespace SpaceCarrier.SpaceShips
     public class HyperDriver : MonoBehaviour
     {
         Wormhole wormhole;
-        float preparationTime = 3f;
+        [SerializeField] float preparationTime = 3f;
         float timeToJump = 0;
 
         private void OnTriggerStay(Collider other)

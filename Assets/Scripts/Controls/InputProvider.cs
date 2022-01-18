@@ -9,7 +9,7 @@ namespace SpaceCarrier.Controls
     public class InputProvider : MonoBehaviour
     {
         public Vector2 moveDirection { get; private set; }
-        public bool isJumping { get; private set; }
+        public bool isJumping; /*{ get; private set; }*/
 
         public void OnMove(InputAction.CallbackContext context)
         {

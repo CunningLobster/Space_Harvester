@@ -143,17 +143,6 @@
                     "action": "HyperJump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b05a4e46-9985-40f6-bcc0-bd27906a12ce",
-                    "path": "<Pointer>/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HyperJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

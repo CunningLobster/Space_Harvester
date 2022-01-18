@@ -1,3 +1,4 @@
+using SpaceCarrier.Physics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,12 @@ namespace SpaceCarrier.Wormholes
     public class Wormhole : MonoBehaviour
     {
         [SerializeField] bool isHome;
+        public Gravity Gravity { get; private set; }
+
+        private void Awake()
+        {
+            Gravity = GetComponent<Gravity>();
+        }
 
         public void PullShip()
         {

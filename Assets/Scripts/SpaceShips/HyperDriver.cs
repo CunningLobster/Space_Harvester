@@ -11,6 +11,13 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] float preparationTime = 3f;
         float timeToJump = 0;
 
+        Collider shipCollider;
+
+        private void Awake()
+        {
+            shipCollider = GetComponent<Collider>();
+        }
+
         private void OnTriggerStay(Collider other)
         {
             if (!other.TryGetComponent<Wormhole>(out Wormhole wormhole)) return;
@@ -29,6 +36,8 @@ namespace SpaceCarrier.SpaceShips
                 timeToJump = 0;
                 return;
             }
+
+            wormhole.Gravity.PullObject(shipCollider);
 
             timeToJump += Time.deltaTime;
             print(timeToJump);

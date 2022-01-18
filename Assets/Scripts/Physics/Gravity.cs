@@ -8,6 +8,7 @@ namespace SpaceCarrier.Physics
     {
         [SerializeField] float g = 0.667f;
         [SerializeField] SphereCollider gravityField;
+        [SerializeField] float easing = 1f;
 
         public void PullObject(Collider other)
         {
@@ -18,6 +19,7 @@ namespace SpaceCarrier.Physics
 
             Vector3 direction = rb.position - otherRb.position;
             float sqrDistance = direction.sqrMagnitude;
+            sqrDistance = Mathf.Max(sqrDistance, easing);
 
             float forceMagnitude = g * rb.mass * otherRb.mass / sqrDistance;
             Vector3 force = direction * forceMagnitude;

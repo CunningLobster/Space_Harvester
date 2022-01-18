@@ -11,6 +11,11 @@ namespace SpaceCarrier.Celestials
     {
         Gravity gravity;
 
+        private void Awake()
+        {
+            gravity = GetComponent<Gravity>();
+        }
+
         private void OnTriggerStay(Collider other)
         {
             if (!other.gameObject.CompareTag("Pullable")) return;

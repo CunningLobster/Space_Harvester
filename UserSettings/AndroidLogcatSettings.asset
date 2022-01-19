@@ -10,12 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 9142,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
             "name": "com.huawei.android.launcher",
             "processId": 2061,
             "exited": false
@@ -42,6 +36,12 @@
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 1925,
+            "exited": true
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 18352,
             "exited": true
         },
         {

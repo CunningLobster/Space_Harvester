@@ -40,7 +40,6 @@ namespace SpaceCarrier.SpaceShips
             wormhole.Gravity.PullObject(shipCollider);
 
             timeToJump += Time.deltaTime;
-            print(timeToJump);
             if(timeToJump >= preparationTime)
                 wormhole.PullShip();
         }

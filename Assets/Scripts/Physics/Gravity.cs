@@ -12,8 +12,6 @@ namespace SpaceCarrier.Physics
 
         public void PullObject(Collider other)
         {
-            print("Object is in the gravity field");
-
             Rigidbody rb = GetComponent<Rigidbody>();
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
 

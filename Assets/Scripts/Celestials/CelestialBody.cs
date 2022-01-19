@@ -19,7 +19,6 @@ namespace SpaceCarrier.Celestials
         private void OnTriggerStay(Collider other)
         {
             if (!other.gameObject.CompareTag("Pullable")) return;
-            print("Object is in the gravity field");
 
             gravity.PullObject(other);
         }

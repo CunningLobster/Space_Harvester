@@ -1,19 +1,13 @@
 {
     "m_SelectedDeviceId": "CLCDU18921000613",
     "m_SelectedPackage": {
-        "deviceId": "CLCDU18921000613",
-        "name": "com.DefaultCompany.Space_Carrier",
-        "processId": 1925,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "org.telegram.messenger",
-            "processId": 18319,
-            "exited": false
-        },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
@@ -36,19 +30,19 @@
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 30708,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 32487,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 1925,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "192.168.0.100:5555",

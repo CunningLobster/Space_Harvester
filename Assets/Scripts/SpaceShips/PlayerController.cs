@@ -12,8 +12,6 @@ namespace SpaceCarrier.SpaceShips
         ShipMover shipMover;
         HyperDriver hyperDriver;
 
-
-
         void Awake()
         {
             inputProvider = GetComponent<InputProvider>();
@@ -23,13 +21,10 @@ namespace SpaceCarrier.SpaceShips
 
         void FixedUpdate()
         {
+            hyperDriver.Hyperjump(inputProvider.isJumping);
+
             if (inputProvider.moveDirection == Vector2.zero) return;
             shipMover.MoveShip(new Vector3(inputProvider.moveDirection.x, 0, inputProvider.moveDirection.y));
-        }
-
-        private void Update()
-        {
-            hyperDriver.Hyperjump(inputProvider.isJumping);
         }
     }
 }

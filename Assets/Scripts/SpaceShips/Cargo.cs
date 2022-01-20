@@ -9,11 +9,11 @@ public class Cargo : ScriptableObject
     [SerializeField] int maxCapacity = 1000;
     public int currentCapacity = 0;
 
-    public int White { get; private set; }
+    public int Purple { get; private set; }
     public int Red { get; private set; }
     public int Blue { get; private set; }
     public int Green {get; private set; }
-    public int Yellow {get; private set; }
+    public int Brown {get; private set; }
 
     public void Fill(int resourceAmount, ResourceTypes type)
     {
@@ -25,8 +25,8 @@ public class Cargo : ScriptableObject
 
         switch (type)
         {
-            case ResourceTypes.White:
-                White += resourceAmount;
+            case ResourceTypes.Purple:
+                Purple += resourceAmount;
                 break;
             case ResourceTypes.Red:
                 Red += resourceAmount;
@@ -37,11 +37,11 @@ public class Cargo : ScriptableObject
             case ResourceTypes.Green:
                 Green += resourceAmount;
                 break;
-            case ResourceTypes.Yellow:
-                Yellow += resourceAmount;
+            case ResourceTypes.Brown:
+                Brown += resourceAmount;
                 break;
         }
-        currentCapacity = White + Red + Blue + Green + Yellow;
+        currentCapacity = Purple + Red + Blue + Green + Brown;
 
 
         Debug.Log("Harvested: " + resourceAmount);
@@ -50,10 +50,10 @@ public class Cargo : ScriptableObject
     public void ResetResources()
     {
         currentCapacity = 0;
-        White = 0;
+        Purple = 0;
         Red = 0;
         Green = 0;
-        Yellow = 0;
+        Brown = 0;
         Blue = 0;
     }
 }

@@ -75,5 +75,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c290855501a5a124f94622f56c0adad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 10
-  yawSpeed: 2
+  forwardSpeed: 70
+  yawSpeed: 2.5

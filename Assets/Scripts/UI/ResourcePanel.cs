@@ -21,11 +21,11 @@ public class ResourcePanel : MonoBehaviour
 
     private void Update()
     {
-        UpdateResourceAmount(white, cargo.White);
+        UpdateResourceAmount(white, cargo.Purple);
         UpdateResourceAmount(red, cargo.Red);
         UpdateResourceAmount(blue, cargo.Blue);
         UpdateResourceAmount(green, cargo.Green);
-        UpdateResourceAmount(yellow, cargo.Yellow);
+        UpdateResourceAmount(yellow, cargo.Brown);
     }
 
     void UpdateResourceAmount(TMP_Text text, int resourceAmount)

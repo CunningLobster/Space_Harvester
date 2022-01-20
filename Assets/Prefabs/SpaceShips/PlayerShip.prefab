@@ -68,10 +68,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 884423013617710490, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
-      propertyPath: forwardSpeed
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 4675350230885518959, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_Name
       value: PlayerShip
@@ -184,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da42b15e218174b4791260b7a4d29249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preparationTime: 3
+  preparationTime: 2
 --- !u!114 &2983678637773982009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +194,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJumping: 0
+--- !u!114 &4173741548064138108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521505153196468617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6be9d19b9b53cc4385adb28356cb1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cargo: {fileID: 11400000, guid: 0d604c6d738efb34597eb4fadec9e086, type: 2}
+  harvestDelay: 1
+  productivity: 5
+  isHarvesting: 0
 --- !u!114 &6750202481641218985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,19 +284,3 @@ MonoBehaviour:
   m_DefaultActionMap: Input
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4173741548064138108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521505153196468617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6be9d19b9b53cc4385adb28356cb1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cargo: {fileID: 11400000, guid: 0d604c6d738efb34597eb4fadec9e086, type: 2}
-  harvestDelay: 0.5
-  productivity: 5
-  isHarvesting: 0

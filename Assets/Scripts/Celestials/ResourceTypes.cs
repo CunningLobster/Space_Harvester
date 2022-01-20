@@ -2,6 +2,6 @@ namespace SpaceCarrier.Celestials
 {
     public enum ResourceTypes
     {
-        White, Red, Blue, Green, Yellow
+        Purple, Red, Blue, Green, Brown
     }
 }

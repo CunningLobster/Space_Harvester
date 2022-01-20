@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using SpaceCarrier.Celestials;
+using UnityEngine.InputSystem;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class Harvester : MonoBehaviour
     {
         [SerializeField] Cargo cargo;
+        public Cargo Cargo { get => cargo; }
+
         [SerializeField] float harvestDelay = .5f;
         [SerializeField] int productivity = 5;
         CelestialResources source;
@@ -22,7 +25,7 @@ namespace SpaceCarrier.SpaceShips
             {
                 yield return new WaitForSeconds(harvestDelay);
                 source.Loose(productivity);
-                cargo.Fill(productivity);
+                cargo.Fill(productivity, source.ResourceType);
             }
         }
 
@@ -43,6 +46,12 @@ namespace SpaceCarrier.SpaceShips
             if (other.gameObject != source.gameObject) return;
             StopAllCoroutines();
             isHarvesting = false;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+                cargo.ResetResources();
         }
     }
 }

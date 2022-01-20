@@ -7,6 +7,8 @@ namespace SpaceCarrier.Celestials
     public class CelestialResources : MonoBehaviour
     {
         [SerializeField] ResourceTypes resourceType;
+        public ResourceTypes ResourceType { get => resourceType; }
+
         [SerializeField] int currentResource = 20;
         public int CurrentResource { get => currentResource; set => currentResource = value; }
 

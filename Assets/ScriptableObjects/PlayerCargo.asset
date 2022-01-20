@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009a4b01b86980347bd519d70197ba8e, type: 3}
   m_Name: PlayerCargo
   m_EditorClassIdentifier: 
-  maxCapacity: 100
-  currentCapacity: 0
+  maxCapacity: 1000
+  currentCapacity: 5

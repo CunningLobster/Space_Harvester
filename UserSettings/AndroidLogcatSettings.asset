@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "CLCDU18921000613",
         "name": "com.DefaultCompany.Space_Carrier",
-        "processId": 32636,
+        "processId": 5750,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,24 @@
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 32636,
+            "exited": false
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 2148,
+            "exited": false
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 3818,
+            "exited": false
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 5750,
             "exited": false
         },
         {

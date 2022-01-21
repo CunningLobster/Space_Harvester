@@ -44,6 +44,10 @@ namespace SpaceCarrier.SpaceShips
         {
             if (source == null) return;
             if (other.gameObject != source.gameObject) return;
+
+            if (HarvestRoutine != null)
+                StopCoroutine(HarvestRoutine);
+
             isHarvesting = false;
         }
 

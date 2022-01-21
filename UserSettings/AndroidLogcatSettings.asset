@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "CLCDU18921000613",
         "name": "com.DefaultCompany.Space_Carrier",
-        "processId": 5750,
+        "processId": 26840,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,61 +17,37 @@
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 32487,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 1925,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 18352,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 21265,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 28647,
-            "exited": true
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
             "processId": 31469,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 32636,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 2148,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 3818,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 5750,
+            "exited": true
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 26840,
             "exited": false
         },
         {

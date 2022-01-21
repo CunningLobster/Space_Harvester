@@ -12,7 +12,7 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] ParticleSystem dieFX;
         [SerializeField] GameObject body;
 
-        public IEnumerable Die()
+        public IEnumerator Die()
         {
             if (IDDQD) yield break;
 
@@ -23,8 +23,7 @@ namespace SpaceCarrier.SpaceShips
 
             if (TryGetComponent<Harvester>(out Harvester harvester))
             {
-                harvester.Cargo.ResetResources();
-                harvester.enabled = false;
+                harvester.OnDie();
             }
 
             yield return new WaitForSeconds(deathDuration);

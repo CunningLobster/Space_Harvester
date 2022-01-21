@@ -42,9 +42,6 @@ public class Cargo : ScriptableObject
                 break;
         }
         currentCapacity = Purple + Red + Blue + Green + Brown;
-
-
-        Debug.Log("Harvested: " + resourceAmount);
     }
 
     public void ResetResources()

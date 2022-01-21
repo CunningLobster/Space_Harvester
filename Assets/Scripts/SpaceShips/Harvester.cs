@@ -17,6 +17,7 @@ namespace SpaceCarrier.SpaceShips
         CelestialResources source;
 
         public bool isHarvesting = false;
+        Coroutine harvestRoutine;
 
         IEnumerator Harvest()
         {
@@ -36,7 +37,7 @@ namespace SpaceCarrier.SpaceShips
 
             print("entered " + other.gameObject.name);
             this.source = source;
-            StartCoroutine(Harvest());
+            harvestRoutine = StartCoroutine(Harvest());
             isHarvesting = true;
         }
 
@@ -44,7 +45,7 @@ namespace SpaceCarrier.SpaceShips
         {
             if (source == null) return;
             if (other.gameObject != source.gameObject) return;
-            StopAllCoroutines();
+            StopCoroutine(harvestRoutine);
             isHarvesting = false;
         }
 

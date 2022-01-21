@@ -12,16 +12,23 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] ParticleSystem dieFX;
         [SerializeField] GameObject body;
 
-        //public IEnumerator Die()
-        //{
-        //    if (IDDQD) return null;
+        public IEnumerable Die()
+        {
+            if (IDDQD) yield break;
 
-        //    dieFX.gameObject.SetActive(true);
+            float deathDuration = 2f;
+            GetComponent<PlayerController>().enabled = false;
+            body.SetActive(false);
+            dieFX.gameObject.SetActive(true);
 
-        //    GetComponent<Harvester>()?.Cargo.ResetResources();
-        //    body.SetActive(false);
-        //    yield return new WaitForSeconds(dieFX.duration);
-        //    Destroy(gameObject);
-        //}
+            if (TryGetComponent<Harvester>(out Harvester harvester))
+            {
+                harvester.Cargo.ResetResources();
+                harvester.enabled = false;
+            }
+
+            yield return new WaitForSeconds(deathDuration);
+            SceneManager.LoadScene(0);
+        }
     }
 }

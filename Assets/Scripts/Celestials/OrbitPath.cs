@@ -9,8 +9,10 @@ namespace SpaceCarrier.Celestials
     public class OrbitPath : MonoBehaviour
     {
         LineRenderer lr;
-        [Range(3, 36)] public int segments;
+        int segments = 36;
+
         public Ellipse path;
+
         Transform centralBody = null;
 
         private void Awake()

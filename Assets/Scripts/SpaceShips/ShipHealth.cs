@@ -7,7 +7,6 @@ namespace SpaceCarrier.SpaceShips
 {
     public class ShipHealth : MonoBehaviour
     {
-        [SerializeField] float maxHP = 100f;
         public bool IDDQD = false;
         [SerializeField] ParticleSystem dieFX;
         [SerializeField] GameObject body;

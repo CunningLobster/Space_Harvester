@@ -7,7 +7,7 @@ namespace SpaceCarrier.Celestials
     public class OrbitMotion : MonoBehaviour
     {
         [Range(0, 1f)] public float orbitProgress = 0f;
-        [SerializeField] float orbitPeriod = 3f;
+        public float orbitPeriod = 3f;
         OrbitPath orbitPath;
 
         private void Start()

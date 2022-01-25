@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6492633c5b87c824bbad8ad57d433c9c, type: 2}
+    - target: {fileID: 2356271793115061204, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4120899668462421689, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
       propertyPath: segments
       value: 36
@@ -22,6 +26,18 @@ PrefabInstance:
     - target: {fileID: 4120899668462421689, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
       propertyPath: ellipse.yAxis
       value: 34.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266778353321095033, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266778353321095033, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266778353321095033, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5107518318325001727, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
       propertyPath: m_Positions.Array.size

@@ -355,6 +355,14 @@ PrefabInstance:
       propertyPath: orbit.xAxis
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8665721244420911206, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665721244420911207, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
+      propertyPath: m_Radius
+      value: 170
+      objectReference: {fileID: 0}
     - target: {fileID: 8665721244420911209, guid: e4559ee43ca7b7747b4c82564b0539db, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -25,8 +25,8 @@ namespace SpaceCarrier.SpaceShips
             while (source.CurrentResource > 0)
             {
                 yield return new WaitForSeconds(harvestDelay);
+                cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType);
                 source.Loose(productivity);
-                cargo.Fill(productivity, source.ResourceType);
             }
         }
 

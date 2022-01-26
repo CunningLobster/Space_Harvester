@@ -63,7 +63,7 @@ namespace SpaceCarrier.Celestials
             {
                 float step = i/ planetCount;
                 float maxRadius = Mathf.Min(this.maxRadius, this.minRadius + (this.maxRadius - this.minRadius) * step);
-                Debug.Log(maxRadius);
+
                 CelestialBody planet = Instantiate(planets[Random.Range(0, planets.Length - 1)], centralBody.transform);
                 SetPlanetPath(planet, Random.Range(minRadius, maxRadius), deltaX);
                 SetOrbitMotion(planet);

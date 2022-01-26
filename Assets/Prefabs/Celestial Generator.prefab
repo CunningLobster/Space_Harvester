@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3669206937831247413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3669206937831247415}
+  - component: {fileID: 3669206937831247412}
+  m_Layer: 0
+  m_Name: Celestial Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3669206937831247415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669206937831247413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3669206937831247412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669206937831247413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f660cf029af9b4c937a328c9aa8638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stars:
+  - {fileID: 8835417566183065646, guid: d203bdb9987040b4c8a27dd7f5d4fe86, type: 3}
+  planets:
+  - {fileID: 8984054330080580069, guid: 775c6ab5adda2df47ae8a1d30b9befa6, type: 3}
+  - {fileID: 2614269454857300624, guid: 3bb3f57f16c017a4585629b130db9a89, type: 3}
+  - {fileID: 7234586775349139828, guid: fced070cba559444585952a977cdc6e4, type: 3}
+  - {fileID: 1745913544709737389, guid: 29a724f32f0283e45a4cd32754d4afbb, type: 3}
+  - {fileID: 1898097635827891410, guid: 6707cf1bab2ef554e922b2a63a0288df, type: 3}
+  difficulty: 3
+  minRadius: 50
+  maxRadius: 120
+  minPeriod: 30
+  maxPeriod: 60
+  minResourceAmount: 5
+  maxResourceAmount: 30

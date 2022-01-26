@@ -3,17 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Cargo", menuName = "ScriptableObjects/CreateCargo", order = 1)]
-public class Cargo : ScriptableObject
+public class Cargo : MonoBehaviour
 {
     [SerializeField] int maxCapacity = 1000;
     public int currentCapacity = 0;
 
-    public int Purple { get; private set; }
-    public int Red { get; private set; }
-    public int Blue { get; private set; }
-    public int Green {get; private set; }
-    public int Brown {get; private set; }
+    public int Purple { get => PlayerPrefs.GetInt("Purple", 0); private set => PlayerPrefs.SetInt("Purple", value); }
+    public int Red { get => PlayerPrefs.GetInt("Red", 0); private set => PlayerPrefs.SetInt("Red", value); }
+    public int Blue { get => PlayerPrefs.GetInt("Blue", 0); private set => PlayerPrefs.SetInt("Blue", value); }
+    public int Green { get => PlayerPrefs.GetInt("Green", 0); private set => PlayerPrefs.SetInt("Green", value); }
+    public int Brown { get => PlayerPrefs.GetInt("Brown", 0); private set => PlayerPrefs.SetInt("Brown", value); }
 
     public void Fill(int resourceAmount, ResourceTypes type)
     {
@@ -47,10 +46,15 @@ public class Cargo : ScriptableObject
     public void ResetResources()
     {
         currentCapacity = 0;
-        Purple = 0;
-        Red = 0;
-        Green = 0;
-        Brown = 0;
-        Blue = 0;
+        //Purple = 0
+        PlayerPrefs.SetInt("Purple", 0);
+        PlayerPrefs.SetInt("Red", 0);
+        PlayerPrefs.SetInt("Green", 0);
+        PlayerPrefs.SetInt("Brown", 0);
+        PlayerPrefs.SetInt("Blue", 0);
+        //Red = 0;
+        //Green = 0;
+        //Brown = 0;
+        //Blue = 0;
     }
 }

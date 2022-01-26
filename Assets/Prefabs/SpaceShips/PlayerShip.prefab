@@ -236,10 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6be9d19b9b53cc4385adb28356cb1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cargo: {fileID: 11400000, guid: 0d604c6d738efb34597eb4fadec9e086, type: 2}
+  cargo: {fileID: 372344546252938911}
   harvestDelay: 1
   productivity: 5
-  isHarvesting: 0
 --- !u!114 &6750202481641218985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,3 +313,17 @@ MonoBehaviour:
   m_DefaultActionMap: Input
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &372344546252938911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521505153196468617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a4b01b86980347bd519d70197ba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCapacity: 1000
+  currentCapacity: 0

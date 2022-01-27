@@ -4,7 +4,7 @@ using UnityEngine;
 public class Cargo : MonoBehaviour
 {
     [SerializeField] private int maxCapacity = 1000;
-    [SerializeField] private int currentCapacity = 0;
+    private int currentCapacity = 0;
 
     private int purple;
     private int red;
@@ -12,6 +12,7 @@ public class Cargo : MonoBehaviour
     private int green;
     private int brown;
 
+    #region PROPERTIES
     public int MaxCapacity { get => maxCapacity; private set => maxCapacity = value; }
     public int CurrentCapacity { get => currentCapacity; private set => currentCapacity = value; }
 
@@ -20,6 +21,7 @@ public class Cargo : MonoBehaviour
     public int Blue { get => blue; private set => blue = value; }
     public int Green { get => green; private set => green = value; }
     public int Brown { get => brown; private set => brown = value; }
+    #endregion
 
     private void Awake()
     {
@@ -68,24 +70,11 @@ public class Cargo : MonoBehaviour
     public void ResetResources()
     {
         currentCapacity = 0;
-        PlayerPrefs.SetInt("Purple", 0);
-        PlayerPrefs.SetInt("Red", 0);
-        PlayerPrefs.SetInt("Green", 0);
-        PlayerPrefs.SetInt("Brown", 0);
-        PlayerPrefs.SetInt("Blue", 0);
+        purple = red = blue = green = brown = 0;
     }
 
     private int CalculateCapacity()
     {
         return purple + red + blue + green + brown;
-    }
-
-    private void Update()
-    {
-        Debug.Log("Purple: " + PlayerPrefs.GetInt("Purple", 0));
-        Debug.Log("Red: " + PlayerPrefs.GetInt("Red", 0));
-        Debug.Log("Green: " + PlayerPrefs.GetInt("Green", 0));
-        Debug.Log("Brown: " + PlayerPrefs.GetInt("Brown", 0));
-        Debug.Log("Blue: " + PlayerPrefs.GetInt("Blue", 0));
     }
 }

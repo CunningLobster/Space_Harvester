@@ -56,10 +56,12 @@ namespace SpaceCarrier.SpaceShips
             enabled = false;
         }
 
+#if UNITY_EDITOR
         private void Update()
         {
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 cargo.ResetResources();
         }
     }
+#endif
 }

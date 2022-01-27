@@ -20,6 +20,7 @@ namespace SpaceCarrier.Physics
             float forceMagnitude = g * rb.mass * otherRb.mass / sqrDistance;
             Vector3 force = direction * forceMagnitude;
 
+            Debug.Log($"{this.gameObject.name} pulls the ship with force: {force.sqrMagnitude}");
             otherRb.AddForce(force);
         }
 

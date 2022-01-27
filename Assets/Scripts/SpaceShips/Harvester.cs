@@ -1,25 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEngine;
 using SpaceCarrier.Celestials;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class Harvester : MonoBehaviour
     {
-        [SerializeField] Cargo cargo;
+        [SerializeField] private Cargo cargo;
         public Cargo Cargo { get => cargo; }
 
-        [SerializeField] float harvestDelay = .5f;
-        [SerializeField] int productivity = 5;
-        CelestialResources source;
-
-        bool isHarvesting = false;
+        [SerializeField] private float harvestDelay = .5f;
+        [SerializeField] private int productivity = 5;
+        private CelestialResources source;
+        private bool isHarvesting = false;
         public Coroutine HarvestRoutine { get; private set; }
 
-        IEnumerator Harvest()
+        private IEnumerator Harvest()
         {
 
             while (source.CurrentResource > 0)

@@ -1,17 +1,14 @@
 using SpaceCarrier.Wormholes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class HyperDriver : MonoBehaviour
     {
-        Wormhole wormhole;
-        [SerializeField] float preparationTime = 3f;
-        float timeToJump = 0;
-
-        Collider shipCollider;
+        private Wormhole wormhole;
+        [SerializeField] private float preparationTime = 3f;
+        private float timeToJump = 0;
+        private Collider shipCollider;
 
         private void Awake()
         {
@@ -40,7 +37,7 @@ namespace SpaceCarrier.SpaceShips
             wormhole.Gravity.PullObject(shipCollider);
 
             timeToJump += Time.fixedDeltaTime;
-            if(timeToJump >= preparationTime)
+            if (timeToJump >= preparationTime)
                 wormhole.PullShip();
         }
     }

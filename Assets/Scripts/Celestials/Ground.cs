@@ -1,6 +1,4 @@
 using SpaceCarrier.SpaceShips;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials

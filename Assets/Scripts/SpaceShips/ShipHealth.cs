@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +7,8 @@ namespace SpaceCarrier.SpaceShips
     public class ShipHealth : MonoBehaviour
     {
         public bool IDDQD = false;
-        [SerializeField] ParticleSystem dieFX;
-        [SerializeField] GameObject body;
+        [SerializeField] private ParticleSystem dieFX;
+        [SerializeField] private GameObject body;
 
         public IEnumerator Die()
         {

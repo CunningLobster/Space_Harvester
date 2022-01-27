@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials
 {
     public class CelestialResources : MonoBehaviour
     {
-        [SerializeField] ResourceDisplayer resourceDisplayer;
+        [SerializeField] private ResourceDisplayer resourceDisplayer;
 
-        [SerializeField] ResourceTypes resourceType;
+        [SerializeField] private ResourceTypes resourceType;
         public ResourceTypes ResourceType { get => resourceType; }
 
-        [SerializeField] int currentResource = 20;
+        [SerializeField] private int currentResource = 20;
         public int CurrentResource { get => currentResource; set => currentResource = value; }
 
         private void Start()

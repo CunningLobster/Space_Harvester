@@ -1,40 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials
 {
     public class CelestialGenerator : MonoBehaviour
     {
-        [SerializeField] CelestialBody[] stars;
-        [SerializeField] CelestialBody[] planets;
+        [SerializeField] private CelestialBody[] stars;
+        [SerializeField] private CelestialBody[] planets;
 
-        [SerializeField, Range(1, 3)] int difficulty = 1;
+        [SerializeField, Range(1, 3)] private int difficulty = 1;
 
-        [SerializeField] float minRadius = 50f;
-        [SerializeField] float maxRadius = 120f;
+        [SerializeField] private float minRadius = 50f;
+        [SerializeField] private float maxRadius = 120f;
 
-        [SerializeField] float minPeriod = 30f;
-        [SerializeField] float maxPeriod = 60f;
+        [SerializeField] private float minPeriod = 30f;
+        [SerializeField] private float maxPeriod = 60f;
 
-        [SerializeField] int minResourceAmount = 5;
-        [SerializeField] int maxResourceAmount = 30;
+        [SerializeField] private int minResourceAmount = 5;
+        [SerializeField] private int maxResourceAmount = 30;
 
         private void Awake()
         {
             CelestialBody star = GenerateStar();
-            if(star != null)
+            if (star != null)
                 GeneratePlanets(star);
         }
 
-        CelestialBody GenerateStar()
+        private CelestialBody GenerateStar()
         {
             CelestialBody star;
             star = Instantiate(stars[Random.Range(0, stars.Length - 1)]);
             return star;
         }
 
-        void GeneratePlanets(CelestialBody centralBody)
+        private void GeneratePlanets(CelestialBody centralBody)
         {
             float planetCount = 1;
             switch (difficulty)
@@ -51,7 +49,7 @@ namespace SpaceCarrier.Celestials
                     GeneratePlanet(centralBody, planetCount);
                     break;
             }
-                
+
         }
 
         private void GeneratePlanet(CelestialBody centralBody, float planetCount)
@@ -61,7 +59,7 @@ namespace SpaceCarrier.Celestials
 
             for (float i = 1; i <= planetCount; i++)
             {
-                float step = i/ planetCount;
+                float step = i / planetCount;
                 float maxRadius = Mathf.Min(this.maxRadius, this.minRadius + (this.maxRadius - this.minRadius) * step);
 
                 CelestialBody planet = Instantiate(planets[Random.Range(0, planets.Length - 1)], centralBody.transform);
@@ -73,7 +71,7 @@ namespace SpaceCarrier.Celestials
             }
         }
 
-        void SetPlanetPath(CelestialBody planet, float radius, float deltaX)
+        private void SetPlanetPath(CelestialBody planet, float radius, float deltaX)
         {
             var path = planet.GetComponent<OrbitPath>().path;
 
@@ -84,14 +82,14 @@ namespace SpaceCarrier.Celestials
             path.yAxis = y;
         }
 
-        void SetOrbitMotion(CelestialBody planet)
+        private void SetOrbitMotion(CelestialBody planet)
         {
             var motion = planet.GetComponent<OrbitMotion>();
             motion.orbitPeriod = Random.Range(minPeriod, maxPeriod);
             motion.orbitProgress = Random.Range(0, 1f);
         }
 
-        void SetResourceAmount(CelestialBody planet)
+        private void SetResourceAmount(CelestialBody planet)
         {
             planet.GetComponent<CelestialResources>().CurrentResource = Random.Range(minResourceAmount, maxResourceAmount);
         }

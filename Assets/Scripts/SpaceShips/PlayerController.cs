@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using SpaceCarrier.Controls;
+using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
 {
     [RequireComponent(typeof(InputProvider))]
     public class PlayerController : MonoBehaviour
     {
-        InputProvider inputProvider;
-        ShipMover shipMover;
-        HyperDriver hyperDriver;
+        private InputProvider inputProvider;
+        private ShipMover shipMover;
+        private HyperDriver hyperDriver;
 
-        void Awake()
+        private void Awake()
         {
             inputProvider = GetComponent<InputProvider>();
             shipMover = GetComponent<ShipMover>();
             hyperDriver = GetComponent<HyperDriver>();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             hyperDriver.Hyperjump(inputProvider.isJumping);
 

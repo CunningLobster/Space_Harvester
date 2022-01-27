@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials
@@ -8,12 +5,11 @@ namespace SpaceCarrier.Celestials
     [RequireComponent(typeof(LineRenderer))]
     public class OrbitPath : MonoBehaviour
     {
-        LineRenderer lr;
-        int segments = 36;
+        private LineRenderer lr;
+        private int segments = 36;
 
         public Ellipse path;
-
-        Transform centralBody = null;
+        private Transform centralBody = null;
 
         private void Awake()
         {

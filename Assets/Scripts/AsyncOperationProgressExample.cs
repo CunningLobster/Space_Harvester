@@ -14,19 +14,19 @@ public class AsyncOperationProgressExample : MonoBehaviour
     public Text m_Text;
     public Button m_Button;
 
-    void Start()
+    private void Start()
     {
         //Call the LoadButton() function when the user clicks this Button
         m_Button.onClick.AddListener(LoadButton);
     }
 
-    void LoadButton()
+    private void LoadButton()
     {
         //Start loading the Scene asynchronously and output the progress bar
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+    private IEnumerator LoadScene()
     {
         yield return null;
 

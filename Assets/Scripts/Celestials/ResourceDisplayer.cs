@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,8 +5,8 @@ namespace SpaceCarrier.Celestials
 {
     public class ResourceDisplayer : MonoBehaviour
     {
-        TMP_Text valueText;
-        int value;
+        private TMP_Text valueText;
+        private int value;
 
         private void Awake()
         {

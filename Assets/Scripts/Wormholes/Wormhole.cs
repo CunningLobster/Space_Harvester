@@ -1,6 +1,4 @@
 using SpaceCarrier.Physics;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +6,7 @@ namespace SpaceCarrier.Wormholes
 {
     public class Wormhole : MonoBehaviour
     {
-        [SerializeField] bool isHome;
+        [SerializeField] private bool isHome;
         public Gravity Gravity { get; private set; }
 
         private void Awake()
@@ -22,7 +20,7 @@ namespace SpaceCarrier.Wormholes
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
-            else 
+            else
             {
                 SceneManager.LoadScene("Home_System");
             }

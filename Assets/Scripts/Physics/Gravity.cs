@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Physics
 {
     public class Gravity : MonoBehaviour
     {
-        [SerializeField] float g = 0.667f;
-        [SerializeField] SphereCollider gravityField;
-        [SerializeField] float easing = 1f;
+        [SerializeField] private float g = 0.667f;
+        [SerializeField] private SphereCollider gravityField;
+        [SerializeField] private float easing = 1f;
 
         public void PullObject(Collider other)
         {

@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class ShipMover : MonoBehaviour
     {
-        [SerializeField] float forwardSpeed = 10f;
-        [SerializeField] float yawSpeed = 2f;
-        [SerializeField] float screenSpaceBorderOffset = .1f;
-
-        Camera mainCamera;
-        Rigidbody rb;
+        [SerializeField] private float forwardSpeed = 10f;
+        [SerializeField] private float yawSpeed = 2f;
+        [SerializeField] private float screenSpaceBorderOffset = .1f;
+        private Camera mainCamera;
+        private Rigidbody rb;
 
         private void Awake()
         {
@@ -37,11 +34,10 @@ namespace SpaceCarrier.SpaceShips
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed);
         }
 
-        void KeepShipOnScreen()
+        private void KeepShipOnScreen()
         {
             Vector3 newPosition = transform.position;
             Vector3 viewPortPosition = mainCamera.WorldToViewportPoint(transform.position);
-            Debug.Log(newPosition);
 
             if (viewPortPosition.x > 1)
             {

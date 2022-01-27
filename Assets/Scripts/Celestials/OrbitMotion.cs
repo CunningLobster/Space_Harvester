@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials
@@ -8,7 +7,7 @@ namespace SpaceCarrier.Celestials
     {
         [Range(0, 1f)] public float orbitProgress = 0f;
         public float orbitPeriod = 3f;
-        OrbitPath orbitPath;
+        private OrbitPath orbitPath;
 
         private void Start()
         {
@@ -17,13 +16,13 @@ namespace SpaceCarrier.Celestials
             StartCoroutine(AnimateOrbit());
         }
 
-        void SetOrbitingObjectPosition()
+        private void SetOrbitingObjectPosition()
         {
             Vector2 orbitPos = orbitPath.path.Evaluate(orbitProgress);
             transform.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
         }
 
-        IEnumerator AnimateOrbit()
+        private IEnumerator AnimateOrbit()
         {
             if (orbitPeriod < .1f)
                 orbitPeriod = .1f;

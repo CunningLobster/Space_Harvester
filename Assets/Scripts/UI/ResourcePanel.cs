@@ -1,18 +1,16 @@
 using SpaceCarrier.SpaceShips;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ResourcePanel : MonoBehaviour
 {
-    [SerializeField] TMP_Text white;
-    [SerializeField] TMP_Text red;
-    [SerializeField] TMP_Text blue;
-    [SerializeField] TMP_Text green;
-    [SerializeField] TMP_Text yellow;
-
-    Cargo cargo;
+    [SerializeField] private TMP_Text white;
+    [SerializeField] private TMP_Text red;
+    [SerializeField] private TMP_Text blue;
+    [SerializeField] private TMP_Text green;
+    [SerializeField] private TMP_Text yellow;
+    [SerializeField] private TMP_Text capacity;
+    private Cargo cargo;
 
     private void Awake()
     {
@@ -26,10 +24,11 @@ public class ResourcePanel : MonoBehaviour
         UpdateResourceAmount(blue, cargo.Blue);
         UpdateResourceAmount(green, cargo.Green);
         UpdateResourceAmount(yellow, cargo.Brown);
+        capacity.text = $"{cargo.CurrentCapacity}/{cargo.MaxCapacity}";
     }
 
-    void UpdateResourceAmount(TMP_Text text, int resourceAmount)
-    { 
+    private void UpdateResourceAmount(TMP_Text text, int resourceAmount)
+    {
         text.text = resourceAmount.ToString();
     }
 }

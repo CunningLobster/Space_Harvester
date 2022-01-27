@@ -1,6 +1,4 @@
 using SpaceCarrier.Physics;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,7 +7,7 @@ namespace SpaceCarrier.Celestials
     [RequireComponent(typeof(OrbitPath), typeof(OrbitMotion))]
     public class CelestialBody : MonoBehaviour
     {
-        Gravity gravity;
+        private Gravity gravity;
 
         private void Awake()
         {

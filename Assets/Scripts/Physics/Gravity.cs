@@ -44,6 +44,11 @@ namespace SpaceCarrier.Physics
             force = direction * forceMagnitude;
         }
 
+        public void ReleaseObject()
+        {
+            force = Vector3.zero;
+        }
+
         public void DefineDangerZone()
         {
             print("DD Defined");

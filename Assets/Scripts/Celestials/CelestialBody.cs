@@ -20,5 +20,10 @@ namespace SpaceCarrier.Celestials
 
             gravity.PullObject(other);
         }
+
+        private void OnTriggerExit(Collider other)
+        {
+            gravity.ReleaseObject();
+        }
     }
 }

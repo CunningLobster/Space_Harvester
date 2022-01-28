@@ -90,6 +90,11 @@ namespace SpaceCarrier.SpaceShips
         {
             currentCapacity = 0;
             purple = red = blue = green = brown = 0;
+            PlayerPrefs.SetInt("Purple", purple);
+            PlayerPrefs.SetInt("Red", red);
+            PlayerPrefs.SetInt("Blue", blue);
+            PlayerPrefs.SetInt("Green", green);
+            PlayerPrefs.SetInt("Brown", brown);
         }
 
         private int CalculateCapacity()
@@ -106,9 +111,14 @@ namespace SpaceCarrier.SpaceShips
                 {
                     Debug.Log("added listeners");
                     onCapacityChanged?.AddListener(celestial.DefineDangerZone);
-
                 }
             }
+
+            //print("Purple: " + PlayerPrefs.GetInt("Purple"));
+            //print("Red: " + PlayerPrefs.GetInt("Red"));
+            //print("Blue: " + PlayerPrefs.GetInt("Blue"));
+            //print("Green: " + PlayerPrefs.GetInt("Green"));
+            //print("Brown: " + PlayerPrefs.GetInt("Brown"));
         }
     }
 }

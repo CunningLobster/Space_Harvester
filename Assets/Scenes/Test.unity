@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &229264366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521505153196468617, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+  m_PrefabInstance: {fileID: 376958104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &229264378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229264366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3f38d3abb6c4845990425c1109e7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &251954761
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3826627081765382672, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: m_Drag
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3826627081765382672, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: m_Mass
@@ -318,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6260424950011285179, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6260424950011285183, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Pivot.x
@@ -480,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1572494970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8984054330080580068, guid: 775c6ab5adda2df47ae8a1d30b9befa6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8984054330080580070, guid: 775c6ab5adda2df47ae8a1d30b9befa6, type: 3}
       propertyPath: m_Mass

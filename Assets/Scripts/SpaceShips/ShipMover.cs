@@ -1,3 +1,4 @@
+using SpaceCarrier.Physics;
 using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
@@ -27,7 +28,7 @@ namespace SpaceCarrier.SpaceShips
         {
             rb.angularVelocity = Vector3.zero;
             thrust = transform.forward * movingVector.magnitude * forwardSpeed;
-            //rb.AddForce(thrust);
+
             if (movingVector == Vector3.zero) return;
             RotateShip(movingVector);
         }

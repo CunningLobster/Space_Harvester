@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class ForceInfluencer : MonoBehaviour
+namespace SpaceCarrier.Physics
 {
-    public abstract Vector3 GetForce();
+    public abstract class ForceInfluencer : MonoBehaviour
+    {
+        public abstract Vector3 GetForce();
+    }
 }

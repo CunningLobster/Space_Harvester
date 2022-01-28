@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 8764327089654714522}
   - component: {fileID: 884423013617710490}
   - component: {fileID: 2796447361849782661}
+  - component: {fileID: 5333347659467811780}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Pullable
@@ -4941,6 +4942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 70
   yawSpeed: 2.5
+  screenSpaceBorderOffset: 0.1
 --- !u!114 &2796447361849782661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,7 +4955,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b6d5bc73aa2a94bb21aae8da42e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
   IDDQD: 0
   dieFX: {fileID: 0}
   body: {fileID: 0}
+--- !u!114 &5333347659467811780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675350230885518959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3f38d3abb6c4845990425c1109e7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

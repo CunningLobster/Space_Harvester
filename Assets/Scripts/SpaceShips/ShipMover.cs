@@ -2,13 +2,15 @@ using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
 {
-    public class ShipMover : MonoBehaviour
+    public class ShipMover : ForceInfluencer
     {
         [SerializeField] private float forwardSpeed = 10f;
         [SerializeField] private float yawSpeed = 2f;
         [SerializeField] private float screenSpaceBorderOffset = .1f;
         private Camera mainCamera;
         private Rigidbody rb;
+
+        Vector3 thrust = new Vector3();
 
         private void Awake()
         {
@@ -24,8 +26,17 @@ namespace SpaceCarrier.SpaceShips
         public void MoveShip(Vector3 movingVector)
         {
             rb.angularVelocity = Vector3.zero;
-            rb.AddForce(transform.forward * movingVector.magnitude * forwardSpeed);
+            thrust = transform.forward * movingVector.magnitude * forwardSpeed;
+            //rb.AddForce(thrust);
+            if (movingVector == Vector3.zero) return;
             RotateShip(movingVector);
+        }
+
+        public float GetMaxMovingForceMagnitude()
+        {
+            Vector3 force = transform.forward * forwardSpeed;
+            Debug.Log("Ship Move Force: " + force.magnitude / rb.mass);
+            return force.magnitude / rb.mass;
         }
 
         private void RotateShip(Vector3 movingVector)
@@ -59,5 +70,9 @@ namespace SpaceCarrier.SpaceShips
             transform.position = newPosition;
         }
 
+        public override Vector3 GetForce()
+        {
+            return thrust;
+        }
     }
 }

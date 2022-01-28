@@ -20,8 +20,6 @@ namespace SpaceCarrier.SpaceShips
         private void FixedUpdate()
         {
             hyperDriver.Hyperjump(inputProvider.isJumping);
-
-            if (inputProvider.moveDirection == Vector2.zero) return;
             shipMover.MoveShip(new Vector3(inputProvider.moveDirection.x, 0, inputProvider.moveDirection.y));
         }
     }

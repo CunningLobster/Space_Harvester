@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.HomeSystem
 {
-    public class HomeResourcePanel : MonoBehaviour
+    public class ResourcePanel : MonoBehaviour
     {
         [SerializeField] private TMP_Text credits;
         [SerializeField] private TMP_Text purple;

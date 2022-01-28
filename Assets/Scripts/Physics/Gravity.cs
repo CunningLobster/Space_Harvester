@@ -43,7 +43,7 @@ namespace SpaceCarrier.Physics
 
             float forceMagnitude = g * mass * otherRb.mass / sqrDistance;
             force = direction * forceMagnitude;
-            Debug.Log(direction.magnitude);
+            //Debug.Log(direction.magnitude);
         }
 
         public void ReleaseObject()

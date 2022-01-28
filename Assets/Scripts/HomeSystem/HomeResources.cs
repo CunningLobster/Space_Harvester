@@ -9,7 +9,7 @@ namespace SpaceCarrier.HomeSystem
     public class HomeResources : MonoBehaviour
     {
         [SerializeField] Cargo shipCargo;
-        [SerializeField] HomeResourcePanel homeResourcePanel;
+        [SerializeField] ResourcePanel homeResourcePanel;
 
         [SerializeField]private int credits;
         [SerializeField]private int purple;

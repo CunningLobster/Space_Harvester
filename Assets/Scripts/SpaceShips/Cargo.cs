@@ -8,6 +8,7 @@ namespace SpaceCarrier.SpaceShips
 {
     public class Cargo : MonoBehaviour
     {
+        [SerializeField] ShipResoucePanel shipResoucePanel;
         [SerializeField] private int maxWeight = 1000;
         private int currentWeight = 0;
 
@@ -52,6 +53,10 @@ namespace SpaceCarrier.SpaceShips
 
         private void Start()
         {
+            if (shipResoucePanel == null) return;
+            currentWeight = CalculateCapacity();
+            shipResoucePanel.UpdatePanel(credits, purple, red, blue, green, brown);
+            shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
         private void OnDisable()
@@ -92,6 +97,8 @@ namespace SpaceCarrier.SpaceShips
             }
             currentWeight = CalculateCapacity();
             onCapacityChanged?.Invoke();
+            shipResoucePanel.UpdatePanel(credits, purple, red, blue, green, brown);
+            shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
         public void ResetResources()

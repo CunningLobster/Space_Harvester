@@ -8,22 +8,30 @@ namespace SpaceCarrier.SpaceShips
 {
     public class Cargo : MonoBehaviour
     {
-        [SerializeField] private int maxCapacity = 1000;
-        private int currentCapacity = 0;
+        [SerializeField] private int maxWeight = 1000;
+        private int currentWeight = 0;
 
+        private int credits;
         private int purple;
         private int red;
         private int blue;
         private int green;
         private int brown;
 
-        //delegate void OnCapacityChanged;
-        //event OnCapacityChanged onCapacityChanged;
         public UnityEvent onCapacityChanged;
 
+        #region RESOURCE_KEYS
+        string s_creditsKey = "S_Credits_Key";
+        string s_purpleKey = "S_Purple_Key";
+        string s_redKey = "S_Red_Key";
+        string s_blueKey = "S_Blue_Key";
+        string s_greenKey = "S_Green_Key";
+        string s_brownKey = "S_Brown_Key";
+        #endregion
+
         #region PROPERTIES
-        public int MaxCapacity { get => maxCapacity; private set => maxCapacity = value; }
-        public int CurrentCapacity { get => currentCapacity; private set => currentCapacity = value; }
+        public int MaxCapacity { get => maxWeight; private set => maxWeight = value; }
+        public int CurrentCapacity { get => currentWeight; private set => currentWeight = value; }
 
         public int Purple { get => purple; private set => purple = value; }
         public int Red { get => red; private set => red = value; }
@@ -34,12 +42,12 @@ namespace SpaceCarrier.SpaceShips
 
         private void Awake()
         {
-            purple = PlayerPrefs.GetInt("Purple", 0);
-            red = PlayerPrefs.GetInt("Red", 0);
-            blue = PlayerPrefs.GetInt("Blue", 0);
-            green = PlayerPrefs.GetInt("Green", 0);
-            brown = PlayerPrefs.GetInt("Brown", 0);
-            currentCapacity = CalculateCapacity();
+            purple = PlayerPrefs.GetInt(s_purpleKey, 0);
+            red = PlayerPrefs.GetInt(s_redKey, 0);
+            blue = PlayerPrefs.GetInt(s_blueKey, 0);
+            green = PlayerPrefs.GetInt(s_greenKey, 0);
+            brown = PlayerPrefs.GetInt(s_brownKey, 0);
+            currentWeight = CalculateCapacity();
         }
 
         private void Start()
@@ -53,7 +61,7 @@ namespace SpaceCarrier.SpaceShips
 
         public void Fill(int resourceAmount, ResourceTypes type)
         {
-            if (currentCapacity >= maxCapacity)
+            if (currentWeight >= maxWeight)
             {
                 Debug.Log("Cargo is full");
                 return;
@@ -63,38 +71,38 @@ namespace SpaceCarrier.SpaceShips
             {
                 case ResourceTypes.Purple:
                     purple += resourceAmount;
-                    PlayerPrefs.SetInt("Purple", purple);
+                    PlayerPrefs.SetInt(s_purpleKey, purple);
                     break;
                 case ResourceTypes.Red:
                     red += resourceAmount;
-                    PlayerPrefs.SetInt("Red", red);
+                    PlayerPrefs.SetInt(s_redKey, red);
                     break;
                 case ResourceTypes.Blue:
                     blue += resourceAmount;
-                    PlayerPrefs.SetInt("Blue", blue);
+                    PlayerPrefs.SetInt(s_blueKey, blue);
                     break;
                 case ResourceTypes.Green:
                     green += resourceAmount;
-                    PlayerPrefs.SetInt("Green", green);
+                    PlayerPrefs.SetInt(s_greenKey, green);
                     break;
                 case ResourceTypes.Brown:
                     brown += resourceAmount;
-                    PlayerPrefs.SetInt("Brown", brown);
+                    PlayerPrefs.SetInt(s_brownKey, brown);
                     break;
             }
-            currentCapacity = CalculateCapacity();
+            currentWeight = CalculateCapacity();
             onCapacityChanged?.Invoke();
         }
 
         public void ResetResources()
         {
-            currentCapacity = 0;
+            currentWeight = 0;
             purple = red = blue = green = brown = 0;
-            PlayerPrefs.SetInt("Purple", purple);
-            PlayerPrefs.SetInt("Red", red);
-            PlayerPrefs.SetInt("Blue", blue);
-            PlayerPrefs.SetInt("Green", green);
-            PlayerPrefs.SetInt("Brown", brown);
+            PlayerPrefs.SetInt(s_purpleKey, purple);
+            PlayerPrefs.SetInt(s_redKey, red);
+            PlayerPrefs.SetInt(s_blueKey, blue);
+            PlayerPrefs.SetInt(s_greenKey, green);
+            PlayerPrefs.SetInt(s_brownKey, brown);
         }
 
         private int CalculateCapacity()

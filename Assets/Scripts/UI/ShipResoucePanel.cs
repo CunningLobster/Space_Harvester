@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ShipResoucePanel : MonoBehaviour
 {
+    [SerializeField] private TMP_Text credits;
     [SerializeField] private TMP_Text purple;
     [SerializeField] private TMP_Text red;
     [SerializeField] private TMP_Text blue;
     [SerializeField] private TMP_Text green;
     [SerializeField] private TMP_Text brown;
-    [SerializeField] private TMP_Text capacity;
+    [SerializeField] private TMP_Text weight;
     private Cargo cargo;
 
     private void Awake()
@@ -24,7 +25,7 @@ public class ShipResoucePanel : MonoBehaviour
         UpdateResourceAmount(blue, cargo.Blue);
         UpdateResourceAmount(green, cargo.Green);
         UpdateResourceAmount(brown, cargo.Brown);
-        capacity.text = $"{cargo.CurrentCapacity}/{cargo.MaxCapacity}";
+        weight.text = $"{cargo.CurrentCapacity}/{cargo.MaxCapacity}";
     }
 
     private void UpdateResourceAmount(TMP_Text text, int resourceAmount)

@@ -19,7 +19,7 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField]private int brown;
 
         #region RESOURCE_KEYS
-        string h_creditKey = "H_Credit_Key";
+        string h_creditsKey = "H_Credits_Key";
         string h_purpleKey = "H_Purple_Key";
         string h_redKey = "H_Red_Key";
         string h_blueKey = "H_Blue_Key";

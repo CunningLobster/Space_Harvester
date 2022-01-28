@@ -10,6 +10,7 @@ namespace SpaceCarrier.Physics
         Rigidbody rb;
         ForceInfluencer[] forceInfluencers;
 
+        public Vector3 Force { get => force; }
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -24,7 +25,7 @@ namespace SpaceCarrier.Physics
         {
             force = GetResultForce();
             rb.AddForce(force);
-            Debug.Log(force);
+           // Debug.Log(force);
         }
 
         Vector3 GetResultForce()

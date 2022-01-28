@@ -30,6 +30,7 @@ namespace SpaceCarrier.Physics
         private void Start()
         {
             shipMover.GetMaxMovingForceMagnitude();
+            DefineDangerZone();
         }
 
         public void PullObject(Collider other)
@@ -42,6 +43,7 @@ namespace SpaceCarrier.Physics
 
             float forceMagnitude = g * mass * otherRb.mass / sqrDistance;
             force = direction * forceMagnitude;
+            Debug.Log(direction.magnitude);
         }
 
         public void ReleaseObject()

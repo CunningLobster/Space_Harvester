@@ -102,6 +102,7 @@ namespace SpaceCarrier.SpaceShips
             return purple + red + blue + green + brown;
         }
 
+#if UNITY_EDITOR
         private void Update()
         {
             if (Keyboard.current.lKey.wasPressedThisFrame)
@@ -114,6 +115,10 @@ namespace SpaceCarrier.SpaceShips
                 }
             }
 
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+                ResetResources();
+
+
             //print("Purple: " + PlayerPrefs.GetInt("Purple"));
             //print("Red: " + PlayerPrefs.GetInt("Red"));
             //print("Blue: " + PlayerPrefs.GetInt("Blue"));
@@ -121,4 +126,5 @@ namespace SpaceCarrier.SpaceShips
             //print("Brown: " + PlayerPrefs.GetInt("Brown"));
         }
     }
+#endif
 }

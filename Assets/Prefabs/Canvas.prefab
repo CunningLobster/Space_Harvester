@@ -1610,11 +1610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7c01fa7217999418240798d257e832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  white: {fileID: 5284111959245358230}
+  purple: {fileID: 5284111959245358230}
   red: {fileID: 5974982638699211963}
   blue: {fileID: 5729633155400012228}
   green: {fileID: 1078754708967132386}
-  yellow: {fileID: 2714791086819486615}
+  brown: {fileID: 2714791086819486615}
   capacity: {fileID: 21014776}
 --- !u!1 &6260424949556721341
 GameObject:

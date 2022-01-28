@@ -55,13 +55,5 @@ namespace SpaceCarrier.SpaceShips
             Cargo.ResetResources();
             enabled = false;
         }
-
-#if UNITY_EDITOR
-        private void Update()
-        {
-            if (Keyboard.current.rKey.wasPressedThisFrame)
-                cargo.ResetResources();
-        }
     }
-#endif
 }

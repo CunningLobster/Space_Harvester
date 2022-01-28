@@ -2,13 +2,13 @@ using SpaceCarrier.SpaceShips;
 using TMPro;
 using UnityEngine;
 
-public class ResourcePanel : MonoBehaviour
+public class ShipResoucePanel : MonoBehaviour
 {
-    [SerializeField] private TMP_Text white;
+    [SerializeField] private TMP_Text purple;
     [SerializeField] private TMP_Text red;
     [SerializeField] private TMP_Text blue;
     [SerializeField] private TMP_Text green;
-    [SerializeField] private TMP_Text yellow;
+    [SerializeField] private TMP_Text brown;
     [SerializeField] private TMP_Text capacity;
     private Cargo cargo;
 
@@ -19,11 +19,11 @@ public class ResourcePanel : MonoBehaviour
 
     private void Update()
     {
-        UpdateResourceAmount(white, cargo.Purple);
+        UpdateResourceAmount(purple, cargo.Purple);
         UpdateResourceAmount(red, cargo.Red);
         UpdateResourceAmount(blue, cargo.Blue);
         UpdateResourceAmount(green, cargo.Green);
-        UpdateResourceAmount(yellow, cargo.Brown);
+        UpdateResourceAmount(brown, cargo.Brown);
         capacity.text = $"{cargo.CurrentCapacity}/{cargo.MaxCapacity}";
     }
 

@@ -14,7 +14,7 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] private int productivity = 5;
         private CelestialResources source;
         private bool isHarvesting = false;
-        public Coroutine HarvestRoutine { get; private set; }
+        private Coroutine harvestRoutine;
 
         private IEnumerator Harvest()
         {
@@ -33,7 +33,7 @@ namespace SpaceCarrier.SpaceShips
             if (isHarvesting) return;
 
             this.source = source;
-            HarvestRoutine = StartCoroutine(Harvest());
+            harvestRoutine = StartCoroutine(Harvest());
             isHarvesting = true;
         }
 
@@ -42,16 +42,16 @@ namespace SpaceCarrier.SpaceShips
             if (source == null) return;
             if (other.gameObject != source.gameObject) return;
 
-            if (HarvestRoutine != null)
-                StopCoroutine(HarvestRoutine);
+            if (harvestRoutine != null)
+                StopCoroutine(harvestRoutine);
 
             isHarvesting = false;
         }
 
         public void OnDie()
         {
-            if (HarvestRoutine != null)
-                StopCoroutine(HarvestRoutine);
+            if (harvestRoutine != null)
+                StopCoroutine(harvestRoutine);
             Cargo.ResetResources();
             enabled = false;
         }

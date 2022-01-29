@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key0.r
       value: 0.40161088
       objectReference: {fileID: 0}
+    - target: {fileID: 2807383320983241970, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: g
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3960150126114381123, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.20828629

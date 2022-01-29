@@ -20,6 +20,7 @@ namespace SpaceCarrier.SpaceShips
         private int brown;
 
         public UnityEvent onCapacityChanged;
+        private Rigidbody rb;
 
         #region RESOURCE_KEYS
         string s_creditsKey = "S_Credits_Key";
@@ -43,18 +44,20 @@ namespace SpaceCarrier.SpaceShips
 
         private void Awake()
         {
+            rb = GetComponent<Rigidbody>();
+
             purple = PlayerPrefs.GetInt(s_purpleKey, 0);
             red = PlayerPrefs.GetInt(s_redKey, 0);
             blue = PlayerPrefs.GetInt(s_blueKey, 0);
             green = PlayerPrefs.GetInt(s_greenKey, 0);
             brown = PlayerPrefs.GetInt(s_brownKey, 0);
-            currentWeight = CalculateCapacity();
+            currentWeight = CalculateWeight();
         }
 
         private void Start()
         {
             if (shipResoucePanel == null) return;
-            currentWeight = CalculateCapacity();
+            currentWeight = CalculateWeight();
             shipResoucePanel.UpdatePanel(credits, purple, red, blue, green, brown);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
@@ -95,7 +98,7 @@ namespace SpaceCarrier.SpaceShips
                     PlayerPrefs.SetInt(s_brownKey, brown);
                     break;
             }
-            currentWeight = CalculateCapacity();
+            currentWeight = CalculateWeight();
             onCapacityChanged?.Invoke();
             shipResoucePanel.UpdatePanel(credits, purple, red, blue, green, brown);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
@@ -112,9 +115,11 @@ namespace SpaceCarrier.SpaceShips
             PlayerPrefs.SetInt(s_brownKey, brown);
         }
 
-        private int CalculateCapacity()
+        private int CalculateWeight()
         {
-            return purple + red + blue + green + brown;
+            int totalWeight = purple + red + blue + green + brown;
+            rb.mass = 1 + (float)totalWeight / 1000f;
+            return totalWeight;
         }
 
 #if UNITY_EDITOR

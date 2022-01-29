@@ -23,7 +23,7 @@ namespace SpaceCarrier.SpaceShips
         private Rigidbody rb;
 
         #region RESOURCE_KEYS
-        string s_creditsKey = "S_Credits_Key";
+        string creditsKey = "Credits_Key";
         string s_purpleKey = "S_Purple_Key";
         string s_redKey = "S_Red_Key";
         string s_blueKey = "S_Blue_Key";
@@ -46,6 +46,7 @@ namespace SpaceCarrier.SpaceShips
         {
             rb = GetComponent<Rigidbody>();
 
+            credits = PlayerPrefs.GetInt(creditsKey, 0);
             purple = PlayerPrefs.GetInt(s_purpleKey, 0);
             red = PlayerPrefs.GetInt(s_redKey, 0);
             blue = PlayerPrefs.GetInt(s_blueKey, 0);
@@ -120,6 +121,12 @@ namespace SpaceCarrier.SpaceShips
             int totalWeight = purple + red + blue + green + brown;
             rb.mass = 1 + (float)totalWeight / 1000f;
             return totalWeight;
+        }
+
+        public void EarnRiskReward()
+        {
+            credits += currentWeight;
+            PlayerPrefs.SetInt(creditsKey, credits);
         }
 
 #if UNITY_EDITOR

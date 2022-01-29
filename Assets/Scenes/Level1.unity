@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &86528484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 372344546252938911, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+  m_PrefabInstance: {fileID: 457971003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a4b01b86980347bd519d70197ba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &180244395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -873,6 +884,34 @@ PrefabInstance:
     - target: {fileID: 5870629332417499641, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 86528484}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EarnRiskReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpaceCarrier.SpaceShips.Cargo, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}

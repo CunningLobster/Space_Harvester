@@ -1,5 +1,6 @@
 using SpaceCarrier.Physics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace SpaceCarrier.Wormholes
@@ -8,6 +9,7 @@ namespace SpaceCarrier.Wormholes
     {
         [SerializeField] private bool isHome;
         public Gravity Gravity { get; private set; }
+        [SerializeField] UnityEvent onRightWormholeJump;
 
         private void Awake()
         {
@@ -19,11 +21,17 @@ namespace SpaceCarrier.Wormholes
             if (!isHome)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                onRightWormholeJump?.Invoke();
             }
             else
             {
                 SceneManager.LoadScene("Home_System");
             }
+        }
+
+        private void OnDisable()
+        {
+            onRightWormholeJump.RemoveAllListeners();
         }
     }
 }

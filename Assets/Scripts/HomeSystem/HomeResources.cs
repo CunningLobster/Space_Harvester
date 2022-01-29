@@ -19,7 +19,7 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField]private int brown;
 
         #region RESOURCE_KEYS
-        string h_creditsKey = "H_Credits_Key";
+        string creditsKey = "Credits_Key";
         string h_purpleKey = "H_Purple_Key";
         string h_redKey = "H_Red_Key";
         string h_blueKey = "H_Blue_Key";
@@ -50,6 +50,7 @@ namespace SpaceCarrier.HomeSystem
 
         private void DefineResourceValues()
         {
+            credits = PlayerPrefs.GetInt(creditsKey, 0);
             purple = PlayerPrefs.GetInt(h_purpleKey, 0);
             red = PlayerPrefs.GetInt(h_redKey, 0);
             blue = PlayerPrefs.GetInt(h_blueKey, 0);

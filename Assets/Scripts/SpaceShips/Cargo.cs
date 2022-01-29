@@ -152,6 +152,6 @@ namespace SpaceCarrier.SpaceShips
             //print("Green: " + PlayerPrefs.GetInt("Green"));
             //print("Brown: " + PlayerPrefs.GetInt("Brown"));
         }
-    }
 #endif
+    }
 }

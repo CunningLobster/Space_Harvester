@@ -31,8 +31,6 @@ namespace SpaceCarrier.HomeSystem
 
         public void OnSelectResource(ResourceTypes type)
         {
-            selectedResourceType = type;
-
             switch (type)
             {
                 case ResourceTypes.Purple:
@@ -51,6 +49,7 @@ namespace SpaceCarrier.HomeSystem
                     selectedResource.sprite = brown;
                     break;
             }
+            selectedResourceType = type;
         }
 
         public void OnChangeBalance(int resourceAmount)

@@ -1,5 +1,6 @@
 using SpaceCarrier.Celestials;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -14,44 +15,33 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] private TMP_Text green;
         [SerializeField] private TMP_Text brown;
 
-        //Panel with credits
-        public void UpdatePanel(int credits, int purple, int red, int blue, int green, int brown)
+        Dictionary<ResourceTypes, TMP_Text> panelResources = new Dictionary<ResourceTypes, TMP_Text>();
+        public Dictionary<ResourceTypes, TMP_Text> PanelResources { get => panelResources; private set => panelResources = value; }
+
+        private void Awake()
         {
-            this.credits.text = credits.ToString();
-            this.purple.text = purple.ToString();
-            this.red.text = red.ToString();
-            this.blue.text = blue.ToString();
-            this.green.text = green.ToString();
-            this.brown.text = brown.ToString();
+            panelResources[ResourceTypes.Purple] = purple;
+            panelResources[ResourceTypes.Red] = red;
+            panelResources[ResourceTypes.Blue] = blue;
+            panelResources[ResourceTypes.Green] = green;
+            panelResources[ResourceTypes.Brown] = brown;
         }
 
-        //Panel without credits
-        public void UpdatePanel(int purple, int red, int blue, int green, int brown)
-        {
-            this.purple.text = purple.ToString();
-            this.red.text = red.ToString();
-            this.blue.text = blue.ToString();
-            this.green.text = green.ToString();
-            this.brown.text = brown.ToString();
-        }
-
-        //Dictionary Based Panel
         public void UpdatePanel(Dictionary<ResourceTypes, int> resources, int credits)
         {
             this.credits.text = credits.ToString();
-            this.purple.text = resources[ResourceTypes.Purple].ToString();
-            this.red.text = resources[ResourceTypes.Red].ToString();
-            this.blue.text = resources[ResourceTypes.Blue].ToString();
-            this.green.text = resources[ResourceTypes.Green].ToString();
-            this.brown.text = resources[ResourceTypes.Brown].ToString();
+            foreach (var key in resources.Keys.ToList())
+            {
+                panelResources[key].text = resources[key].ToString();
+            }
         }
+
         public void UpdatePanel(Dictionary<ResourceTypes, int> resources)
         {
-            this.purple.text = resources[ResourceTypes.Purple].ToString();
-            this.red.text = resources[ResourceTypes.Red].ToString();
-            this.blue.text = resources[ResourceTypes.Blue].ToString();
-            this.green.text = resources[ResourceTypes.Green].ToString();
-            this.brown.text = resources[ResourceTypes.Brown].ToString();
+            foreach (var key in resources.Keys.ToList())
+            {
+                panelResources[key].text = resources[key].ToString();
+            }
         }
     }
 }

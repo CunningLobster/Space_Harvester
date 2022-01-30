@@ -26,6 +26,15 @@ namespace SpaceCarrier.HomeSystem
         #endregion
 
         #region PROPERTIES
+        public int Credits { get => credits; set => credits = value; }
+        public string CreditsKey { get => creditsKey; }
+        public string H_purpleKey { get => h_purpleKey; }
+        public string H_redKey { get => h_redKey; }
+        public string H_blueKey { get => h_blueKey; }
+        public string H_greenKey { get => h_greenKey; }
+        public string H_brownKey { get => h_brownKey; }
+
+
         public Dictionary<ResourceTypes, int> Resources { get => resources; private set => resources = value; }
         #endregion
 
@@ -51,9 +60,9 @@ namespace SpaceCarrier.HomeSystem
             resources[ResourceTypes.Brown] = PlayerPrefs.GetInt(h_brownKey, 0);
         }
 
-        private void SetResourceValue(ResourceTypes type, int onShipValue, string valueKey)
+        public void SetResourceValue(ResourceTypes type, int newValue, string valueKey)
         {
-            resources[type] += onShipValue;
+            resources[type] += newValue;
             PlayerPrefs.SetInt(valueKey, resources[type]);
             homeResourcePanel.UpdatePanel(resources, credits);
         }

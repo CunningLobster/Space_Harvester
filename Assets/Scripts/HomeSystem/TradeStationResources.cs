@@ -22,6 +22,11 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] ResourcePanel buyingPart;
         [SerializeField] ResourcePanel sellingPart;
 
+        #region PROPERTIES
+        public Dictionary<ResourceTypes, int> ResourcesSellingCosts { get => resourcesSellingCosts; }
+        public Dictionary<ResourceTypes, int> ResourcesBuyingCosts { get => resourcesBuyingCosts; }
+        #endregion
+
         private void Awake()
         {
             resourcesSellingCosts[ResourceTypes.Purple] = purpleSellingCost;

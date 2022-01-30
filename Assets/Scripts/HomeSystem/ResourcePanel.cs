@@ -16,6 +16,7 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] private TMP_Text brown;
 
         Dictionary<ResourceTypes, TMP_Text> panelResources = new Dictionary<ResourceTypes, TMP_Text>();
+        public TMP_Text Credits { get => credits; set => credits = value; }
         public Dictionary<ResourceTypes, TMP_Text> PanelResources { get => panelResources; private set => panelResources = value; }
 
         private void Awake()

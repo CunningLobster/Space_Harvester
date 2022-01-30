@@ -1,3 +1,5 @@
+using SpaceCarrier.Celestials;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -31,6 +33,25 @@ namespace SpaceCarrier.HomeSystem
             this.blue.text = blue.ToString();
             this.green.text = green.ToString();
             this.brown.text = brown.ToString();
+        }
+
+        //Dictionary Based Panel
+        public void UpdatePanel(Dictionary<ResourceTypes, int> resources, int credits)
+        {
+            this.credits.text = credits.ToString();
+            this.purple.text = resources[ResourceTypes.Purple].ToString();
+            this.red.text = resources[ResourceTypes.Red].ToString();
+            this.blue.text = resources[ResourceTypes.Blue].ToString();
+            this.green.text = resources[ResourceTypes.Green].ToString();
+            this.brown.text = resources[ResourceTypes.Brown].ToString();
+        }
+        public void UpdatePanel(Dictionary<ResourceTypes, int> resources)
+        {
+            this.purple.text = resources[ResourceTypes.Purple].ToString();
+            this.red.text = resources[ResourceTypes.Red].ToString();
+            this.blue.text = resources[ResourceTypes.Blue].ToString();
+            this.green.text = resources[ResourceTypes.Green].ToString();
+            this.brown.text = resources[ResourceTypes.Brown].ToString();
         }
     }
 }

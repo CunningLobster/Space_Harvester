@@ -19,15 +19,8 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] Sprite green;
         [SerializeField] Sprite brown;
 
-        [SerializeField] Button purpleButton;
-
         ResourceTypes selectedResourceType;
         private int balance;
-
-        private void Start()
-        {
-            purpleButton.onClick.AddListener(delegate { OnSelectResource(ResourceTypes.Purple); });
-        }
 
         public void OnSelectResource(ResourceTypes type)
         {

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 18077443}
   - component: {fileID: 18077444}
   m_Layer: 5
-  m_Name: Purple
+  m_Name: Purple Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 186119092}
   - component: {fileID: 186119093}
   m_Layer: 5
-  m_Name: Blue
+  m_Name: Blue Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5513,7 +5513,7 @@ GameObject:
   - component: {fileID: 1111943083}
   - component: {fileID: 1111943084}
   m_Layer: 5
-  m_Name: Red
+  m_Name: Red Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7642,7 +7642,7 @@ GameObject:
   - component: {fileID: 1767854930}
   - component: {fileID: 1767854931}
   m_Layer: 5
-  m_Name: Brown
+  m_Name: Brown Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7934,7 +7934,7 @@ GameObject:
   - component: {fileID: 1837586138}
   - component: {fileID: 1837586139}
   m_Layer: 5
-  m_Name: Green
+  m_Name: Green Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8109,7 +8109,6 @@ MonoBehaviour:
   blue: {fileID: 21300000, guid: 2cc42ba925fd5421fa0bae958962b79b, type: 3}
   green: {fileID: 21300000, guid: a5833503a1f1243e2b5419bfd4f81b18, type: 3}
   brown: {fileID: 21300000, guid: 2b2a034aa25ce4f7a818bb0df99f6ccc, type: 3}
-  purpleButton: {fileID: 722297727}
 --- !u!1 &1870514230
 GameObject:
   m_ObjectHideFlags: 0
@@ -9126,8 +9125,9 @@ GameObject:
   - component: {fileID: 1962298326}
   - component: {fileID: 1962298322}
   - component: {fileID: 1962298325}
+  - component: {fileID: 1962298327}
   m_Layer: 5
-  m_Name: Trade Resource Panel
+  m_Name: Trade Resource Button  Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9252,6 +9252,24 @@ MonoBehaviour:
   buySellRatio: 1.3
   buyingPart: {fileID: 1962298322}
   sellingPart: {fileID: 1962298325}
+--- !u!114 &1962298327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962298320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b691e91ec9f08468a3c57ebd192915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purpleButton: {fileID: 18077444}
+  redButton: {fileID: 1111943084}
+  blueButton: {fileID: 186119093}
+  greenButton: {fileID: 1837586139}
+  brownButton: {fileID: 1767854931}
+  tradeZone: {fileID: 1862611673}
 --- !u!1 &2029332136
 GameObject:
   m_ObjectHideFlags: 0

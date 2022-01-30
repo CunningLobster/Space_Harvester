@@ -15625,12 +15625,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipCargo: {fileID: 372344546795547663}
   homeResourcePanel: {fileID: 5822363442375980688}
-  credits: 0
-  purple: 0
-  red: 0
-  blue: 0
-  green: 0
-  brown: 0
 --- !u!114 &5822363442375980688
 MonoBehaviour:
   m_ObjectHideFlags: 0

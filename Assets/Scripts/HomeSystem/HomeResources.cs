@@ -1,6 +1,8 @@
+using SpaceCarrier.Celestials;
 using SpaceCarrier.SpaceShips;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +13,8 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] Cargo shipCargo;
         [SerializeField] ResourcePanel homeResourcePanel;
 
-        [SerializeField]private int credits;
-        [SerializeField]private int purple;
-        [SerializeField]private int red;
-        [SerializeField]private int blue;
-        [SerializeField]private int green;
-        [SerializeField]private int brown;
+        int credits;
+        Dictionary<ResourceTypes, int> resources = new Dictionary<ResourceTypes, int>();
 
         #region RESOURCE_KEYS
         string creditsKey = "Credits_Key";
@@ -28,22 +26,17 @@ namespace SpaceCarrier.HomeSystem
         #endregion
 
         #region PROPERTIES
-        public int Credits { get => credits; private set { credits = value; } }
-        public int Purple { get => purple; private set { purple = value; } }
-        public int Red { get => red; private set { red = value; } }
-        public int Blue { get => blue; private set { blue = value; } }
-        public int Green { get => green; private set { green = value; } }
-        public int Brown { get => brown; private set { brown = value; } }
+        public Dictionary<ResourceTypes, int> Resources { get => resources; private set => resources = value; }
         #endregion
 
         private void Start()
         {
             DefineResourceValues();
-            SetResourceValue(ref purple, shipCargo.Purple, h_purpleKey);
-            SetResourceValue(ref red, shipCargo.Red, h_redKey);
-            SetResourceValue(ref blue, shipCargo.Blue, h_blueKey);
-            SetResourceValue(ref green, shipCargo.Green, h_greenKey);
-            SetResourceValue(ref brown, shipCargo.Brown, h_brownKey);
+            SetResourceValue(ResourceTypes.Purple, shipCargo.CargoResources[ResourceTypes.Purple], h_purpleKey);
+            SetResourceValue(ResourceTypes.Red, shipCargo.CargoResources[ResourceTypes.Red], h_redKey);
+            SetResourceValue(ResourceTypes.Blue, shipCargo.CargoResources[ResourceTypes.Blue], h_blueKey);
+            SetResourceValue(ResourceTypes.Green, shipCargo.CargoResources[ResourceTypes.Green], h_greenKey);
+            SetResourceValue(ResourceTypes.Brown, shipCargo.CargoResources[ResourceTypes.Brown], h_brownKey);
 
             shipCargo.ResetResources();
         }
@@ -51,30 +44,34 @@ namespace SpaceCarrier.HomeSystem
         private void DefineResourceValues()
         {
             credits = PlayerPrefs.GetInt(creditsKey, 0);
-            purple = PlayerPrefs.GetInt(h_purpleKey, 0);
-            red = PlayerPrefs.GetInt(h_redKey, 0);
-            blue = PlayerPrefs.GetInt(h_blueKey, 0);
-            green = PlayerPrefs.GetInt(h_greenKey, 0);
-            brown = PlayerPrefs.GetInt(h_brownKey, 0);
+            resources[ResourceTypes.Purple] = PlayerPrefs.GetInt(h_purpleKey, 0);
+            resources[ResourceTypes.Red] = PlayerPrefs.GetInt(h_redKey, 0);
+            resources[ResourceTypes.Blue] = PlayerPrefs.GetInt(h_blueKey, 0);
+            resources[ResourceTypes.Green] = PlayerPrefs.GetInt(h_greenKey, 0);
+            resources[ResourceTypes.Brown] = PlayerPrefs.GetInt(h_brownKey, 0);
         }
 
-        private void SetResourceValue(ref int h_value, int s_value, string valueKey)
+        private void SetResourceValue(ResourceTypes type, int onShipValue, string valueKey)
         {
-            h_value += s_value;
-            Debug.Log("Home Value: " + h_value);
-            PlayerPrefs.SetInt(valueKey, h_value);
-            homeResourcePanel.UpdatePanel(credits, purple, red, blue, green, brown);
+            resources[type] += onShipValue;
+            PlayerPrefs.SetInt(valueKey, resources[type]);
+            homeResourcePanel.UpdatePanel(resources, credits);
         }
 
         private void ResetResources()
         {
-            credits = purple = red = blue = green = brown = 0;
-            PlayerPrefs.SetInt(h_purpleKey, purple);
-            PlayerPrefs.SetInt(h_redKey, red);
-            PlayerPrefs.SetInt(h_blueKey, blue);
-            PlayerPrefs.SetInt(h_greenKey, green);
-            PlayerPrefs.SetInt(h_brownKey, brown);
-            homeResourcePanel.UpdatePanel(credits, purple, red, blue, green, brown);
+            credits = 0;
+            foreach (var key in resources.Keys.ToList())
+            {
+                resources[key] = 0;
+            }
+            PlayerPrefs.SetInt(creditsKey, credits);
+            PlayerPrefs.SetInt(h_purpleKey, resources[ResourceTypes.Purple]);
+            PlayerPrefs.SetInt(h_redKey, resources[ResourceTypes.Red]);
+            PlayerPrefs.SetInt(h_blueKey, resources[ResourceTypes.Blue]);
+            PlayerPrefs.SetInt(h_greenKey, resources[ResourceTypes.Green]);
+            PlayerPrefs.SetInt(h_brownKey, resources[ResourceTypes.Brown]);
+            homeResourcePanel.UpdatePanel(resources, credits);
         }
 
 

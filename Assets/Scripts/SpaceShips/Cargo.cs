@@ -17,12 +17,6 @@ namespace SpaceCarrier.SpaceShips
         private int credits;
         Dictionary<ResourceTypes, int> cargoResources = new Dictionary<ResourceTypes, int>();
 
-        private int purple;
-        private int red;
-        private int blue;
-        private int green;
-        private int brown;
-
         public UnityEvent onCapacityChanged;
         private Rigidbody rb;
 
@@ -38,12 +32,7 @@ namespace SpaceCarrier.SpaceShips
         #region PROPERTIES
         public int MaxCapacity { get => maxWeight; private set => maxWeight = value; }
         public int CurrentCapacity { get => currentWeight; private set => currentWeight = value; }
-
-        public int Purple { get => purple; private set => purple = value; }
-        public int Red { get => red; private set => red = value; }
-        public int Blue { get => blue; private set => blue = value; }
-        public int Green { get => green; private set => green = value; }
-        public int Brown { get => brown; private set => brown = value; }
+        public Dictionary<ResourceTypes, int> CargoResources { get => cargoResources; private set => cargoResources = value; }
         #endregion
 
         private void Awake()
@@ -63,7 +52,7 @@ namespace SpaceCarrier.SpaceShips
         {
             if (shipResoucePanel == null) return;
             currentWeight = CalculateWeight();
-            shipResoucePanel.UpdatePanel(cargoResources);
+            shipResoucePanel.UpdatePanel(cargoResources, credits);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
@@ -105,7 +94,7 @@ namespace SpaceCarrier.SpaceShips
             }
             currentWeight = CalculateWeight();
             onCapacityChanged?.Invoke();
-            shipResoucePanel.UpdatePanel(cargoResources);
+            shipResoucePanel.UpdatePanel(cargoResources, credits);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
@@ -122,12 +111,17 @@ namespace SpaceCarrier.SpaceShips
             PlayerPrefs.SetInt(s_greenKey, cargoResources[ResourceTypes.Green]);
             PlayerPrefs.SetInt(s_brownKey, cargoResources[ResourceTypes.Brown]);
 
-            shipResoucePanel.UpdatePanel(cargoResources);
+            shipResoucePanel?.UpdatePanel(cargoResources, credits);
         }
 
         private int CalculateWeight()
         {
-            int totalWeight = purple + red + blue + green + brown;
+            int totalWeight = 0;
+            foreach (var key in cargoResources.Keys.ToList())
+            {
+                totalWeight += cargoResources[key];
+            }
+
             rb.mass = 1 + (float)totalWeight / 1000f;
             return totalWeight;
         }

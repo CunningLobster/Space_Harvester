@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TransactionButtonPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Button Sell1Button;
+    [SerializeField] Button Sell10Button;
+    [SerializeField] Button Sell100Button;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] Button Buy1Button;
+    [SerializeField] Button Buy10Button;
+    [SerializeField] Button Buy100Button;
+
+    [SerializeField] Button DealButton;
+    [SerializeField] Button SellAllButton;
+
 }

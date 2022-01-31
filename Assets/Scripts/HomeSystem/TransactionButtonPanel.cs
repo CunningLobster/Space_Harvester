@@ -30,7 +30,8 @@ namespace SpaceCarrier.HomeSystem
             Buy10Button.onClick.AddListener(delegate { tradeZone.OnChangeBalance(10); });
             Buy100Button.onClick.AddListener(delegate { tradeZone.OnChangeBalance(100); });
 
-            DealButton.onClick.AddListener(delegate { tradeZone.OnDealButton(); });
+            DealButton.onClick.AddListener(tradeZone.OnDealButton);
+            SellAllButton.onClick.AddListener(tradeZone.OnSellAllButton);
         }
     }
 }

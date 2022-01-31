@@ -1,4 +1,5 @@
 using SpaceCarrier.Celestials;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace SpaceCarrier.HomeSystem
         [SerializeField] Sprite blue;
         [SerializeField] Sprite green;
         [SerializeField] Sprite brown;
+        [SerializeField] Sprite none;
 
         ResourceTypes selectedResourceType;
         private int balance;
@@ -49,12 +51,17 @@ namespace SpaceCarrier.HomeSystem
                 case ResourceTypes.Brown:
                     selectedResource.sprite = brown;
                     break;
+                case ResourceTypes.None:
+                    selectedResource.sprite = none;
+                    break;
             }
             selectedResourceType = type;
         }
 
         public void OnChangeBalance(int deltaResourceAmount)
         {
+            if (selectedResourceType == ResourceTypes.None) return;
+
             Dictionary<ResourceTypes, TMP_Text> panelResources = homeResourcePanel.PanelResources;
 
             string resourceValueString = panelResources[selectedResourceType].text;
@@ -107,6 +114,20 @@ namespace SpaceCarrier.HomeSystem
             PlayerPrefs.SetInt(homeResources.H_brownKey, int.Parse(panelResources[ResourceTypes.Brown].text));
 
             homeResourcePanel.Credits.text = homeResources.Credits.ToString();
+        }
+
+        public void OnSellAllButton()
+        {
+            ResourceTypes selected = selectedResourceType;
+
+            var values = Enum.GetValues(typeof(ResourceTypes)).Cast<ResourceTypes>();
+            foreach (var value in values)
+            {
+                OnSelectResource(value);
+                OnChangeBalance(int.MinValue);
+            }
+
+            OnSelectResource(selected);
         }
 
         void UpdateBalanceText()

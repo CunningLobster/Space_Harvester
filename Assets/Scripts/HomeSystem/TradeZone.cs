@@ -62,34 +62,32 @@ namespace SpaceCarrier.HomeSystem
 
             int newResourceValue = Mathf.Max(0, resourceValue + deltaResourceAmount);
 
-            panelResources[selectedResourceType].text = newResourceValue.ToString();
-
             int finalDelta = newResourceValue - resourceValue;
 
             for (int i = 1; i <= Mathf.Abs(finalDelta); i++)
             {
-                int value = newResourceValue;
-
                 //Buying
                 if (deltaResourceAmount > 0)
                 {
-                    if (value > homeResources.Resources[selectedResourceType])
+                    if (resourceValue >= homeResources.Resources[selectedResourceType])
                         balance -= tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
                     else
                         balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
+                    resourceValue++;
                 }
                 //Selling
                 else if (deltaResourceAmount < 0)
                 {
 
-                    if (value < homeResources.Resources[selectedResourceType])
+                    if (resourceValue <= homeResources.Resources[selectedResourceType])
                         balance += tradeStationResources.ResourcesSellingCosts[selectedResourceType];
                     else
                         balance += tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
+                    resourceValue--;
                 }
-                UpdateBalanceText();
-                value++;
             }
+            panelResources[selectedResourceType].text = resourceValue.ToString();
+            UpdateBalanceText();
         }
 
         public void OnDealButton()

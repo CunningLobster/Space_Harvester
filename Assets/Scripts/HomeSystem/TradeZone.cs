@@ -99,6 +99,8 @@ namespace SpaceCarrier.HomeSystem
 
         public void OnDealButton()
         {
+            if (balance < homeResources.Credits) return;
+
             homeResources.Credits += balance;
             balance = 0;
             UpdateBalanceText();

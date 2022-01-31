@@ -2523,6 +2523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeSystemMainMenu: {fileID: 641945635}
+  homeResourcePanel: {fileID: 5822363442375980688}
+  homeResources: {fileID: 5822363442375980687}
 --- !u!1 &490832100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5257,7 @@ MonoBehaviour:
   Buy100Button: {fileID: 1233516881}
   DealButton: {fileID: 568106550}
   SellAllButton: {fileID: 1179365527}
+  ResetButton: {fileID: 509175825}
   tradeZone: {fileID: 1862611673}
 --- !u!1 &1007067478
 GameObject:

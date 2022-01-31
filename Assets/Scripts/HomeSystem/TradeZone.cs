@@ -25,8 +25,6 @@ namespace SpaceCarrier.HomeSystem
         private int balance;
         [SerializeField] private TMP_Text balanceText;
 
-        Dictionary<ResourceTypes, int> resourcesBeforeDeal;
-
         private void Start()
         {
             UpdateBalanceText();
@@ -71,31 +69,25 @@ namespace SpaceCarrier.HomeSystem
             for (int i = 1; i <= Mathf.Abs(finalDelta); i++)
             {
                 int value = newResourceValue;
+
+                //Buying
                 if (deltaResourceAmount > 0)
                 {
                     if (value > homeResources.Resources[selectedResourceType])
-                    {
-                        balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
-                    }
-                    else
-                    {
                         balance -= tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
-                    }
-                    UpdateBalanceText();
+                    else
+                        balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
                 }
+                //Selling
                 else if (deltaResourceAmount < 0)
                 {
 
-                    if (value > homeResources.Resources[selectedResourceType])
-                    {
-                        balance -= tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
-                    }
-                    else 
-                    {
-                        balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
-                    }
-                    UpdateBalanceText();
+                    if (value < homeResources.Resources[selectedResourceType])
+                        balance += tradeStationResources.ResourcesSellingCosts[selectedResourceType];
+                    else
+                        balance += tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
                 }
+                UpdateBalanceText();
                 value++;
             }
         }

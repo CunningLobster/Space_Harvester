@@ -1,6 +1,7 @@
 using SpaceCarrier.Celestials;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ namespace SpaceCarrier.HomeSystem
         ResourceTypes selectedResourceType;
         private int balance;
         [SerializeField] private TMP_Text balanceText;
+
+        Dictionary<ResourceTypes, int> resourcesBeforeDeal;
 
         private void Start()
         {
@@ -54,28 +57,46 @@ namespace SpaceCarrier.HomeSystem
 
         public void OnChangeBalance(int deltaResourceAmount)
         {
-            Dictionary<ResourceTypes, TMPro.TMP_Text> panelResources = homeResourcePanel.PanelResources;
+            Dictionary<ResourceTypes, TMP_Text> panelResources = homeResourcePanel.PanelResources;
 
             string resourceValueString = panelResources[selectedResourceType].text;
             int.TryParse(resourceValueString, out int resourceValue);
-            Debug.Log("resourceValueString" + resourceValueString);
-            Debug.Log("resourceValue " + resourceValue);
-
 
             int newResourceValue = Mathf.Max(0, resourceValue + deltaResourceAmount);
+
             panelResources[selectedResourceType].text = newResourceValue.ToString();
 
-            int newDelta = resourceValue - newResourceValue;
+            int finalDelta = newResourceValue - resourceValue;
 
-            if (deltaResourceAmount > 0)
+            for (int i = 1; i <= Mathf.Abs(finalDelta); i++)
             {
-                balance += newDelta * tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
-                UpdateBalanceText();
-            }
-            else if (deltaResourceAmount < 0)
-            {
-                balance += newDelta * tradeStationResources.ResourcesSellingCosts[selectedResourceType];
-                UpdateBalanceText();
+                int value = newResourceValue;
+                if (deltaResourceAmount > 0)
+                {
+                    if (value > homeResources.Resources[selectedResourceType])
+                    {
+                        balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
+                    }
+                    else
+                    {
+                        balance -= tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
+                    }
+                    UpdateBalanceText();
+                }
+                else if (deltaResourceAmount < 0)
+                {
+
+                    if (value > homeResources.Resources[selectedResourceType])
+                    {
+                        balance -= tradeStationResources.ResourcesBuyingCosts[selectedResourceType];
+                    }
+                    else 
+                    {
+                        balance -= tradeStationResources.ResourcesSellingCosts[selectedResourceType];
+                    }
+                    UpdateBalanceText();
+                }
+                value++;
             }
         }
 

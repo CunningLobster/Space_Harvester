@@ -1,13 +1,13 @@
-using SpaceCarrier.Celestials;
+using SpaceCarrier.HomeSystem;
+using SpaceCarrier.Resoures;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.TradeStation
 {
     public class TradeZone : MonoBehaviour
     {

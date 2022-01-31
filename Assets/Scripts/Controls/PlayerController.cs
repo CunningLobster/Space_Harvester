@@ -1,7 +1,8 @@
 using SpaceCarrier.Controls;
+using SpaceCarrier.SpaceShips;
 using UnityEngine;
 
-namespace SpaceCarrier.SpaceShips
+namespace SpaceCarrier.Controlls
 {
     [RequireComponent(typeof(InputProvider))]
     public class PlayerController : MonoBehaviour

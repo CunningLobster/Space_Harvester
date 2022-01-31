@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SpaceCarrier.Celestials
+namespace SpaceCarrier.OrbitalMotion
 {
     public class OrbitMotion : MonoBehaviour
     {

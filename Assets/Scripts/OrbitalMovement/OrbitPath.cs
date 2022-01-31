@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpaceCarrier.Celestials
+namespace SpaceCarrier.OrbitalMotion
 {
     [RequireComponent(typeof(LineRenderer))]
     public class OrbitPath : MonoBehaviour

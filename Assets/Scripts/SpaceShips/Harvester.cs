@@ -1,7 +1,6 @@
 using SpaceCarrier.Celestials;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace SpaceCarrier.SpaceShips
 {

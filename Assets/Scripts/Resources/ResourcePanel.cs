@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.Resoures
 {
     public class ResourcePanel : MonoBehaviour
     {

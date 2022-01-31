@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.TradeStation
 {
     public class TransactionButtonPanel : MonoBehaviour
     {

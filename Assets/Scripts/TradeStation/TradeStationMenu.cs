@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using SpaceCarrier.HomeSystem;
+using SpaceCarrier.Resoures;
 using UnityEngine;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.TradeStation
 {
     public class TradeStationMenu : MonoBehaviour
     {

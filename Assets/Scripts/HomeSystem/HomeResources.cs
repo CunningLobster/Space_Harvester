@@ -1,6 +1,5 @@
-using SpaceCarrier.Celestials;
+using SpaceCarrier.Resoures;
 using SpaceCarrier.SpaceShips;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

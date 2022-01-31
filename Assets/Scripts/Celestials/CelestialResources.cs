@@ -1,3 +1,4 @@
+using SpaceCarrier.Resoures;
 using UnityEngine;
 
 namespace SpaceCarrier.Celestials

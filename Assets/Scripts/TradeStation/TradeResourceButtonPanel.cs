@@ -1,10 +1,8 @@
-using SpaceCarrier.Celestials;
-using System.Collections;
-using System.Collections.Generic;
+using SpaceCarrier.Resoures;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.TradeStation
 {
     public class TradeResourceButtonPanel : MonoBehaviour
     {

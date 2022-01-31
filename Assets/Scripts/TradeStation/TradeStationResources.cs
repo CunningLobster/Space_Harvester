@@ -1,10 +1,9 @@
-using SpaceCarrier.Celestials;
-using System.Collections;
+using SpaceCarrier.Resoures;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace SpaceCarrier.HomeSystem
+namespace SpaceCarrier.TradeStation
 {
     public class TradeStationResources : MonoBehaviour
     {

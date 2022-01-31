@@ -2523,8 +2523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeSystemMainMenu: {fileID: 641945635}
-  homeResourcePanel: {fileID: 5822363442375980688}
-  homeResources: {fileID: 5822363442375980687}
 --- !u!1 &490832100
 GameObject:
   m_ObjectHideFlags: 0

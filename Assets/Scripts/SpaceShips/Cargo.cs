@@ -1,3 +1,4 @@
+using SpaceCarrier.Prefs;
 using SpaceCarrier.Physics;
 using SpaceCarrier.Resoures;
 using System.Collections.Generic;
@@ -20,18 +21,7 @@ namespace SpaceCarrier.SpaceShips
         public UnityEvent onCapacityChanged;
         private Rigidbody rb;
 
-        #region RESOURCE_KEYS
-        string creditsKey = "Credits_Key";
-        string s_purpleKey = "S_Purple_Key";
-        string s_redKey = "S_Red_Key";
-        string s_blueKey = "S_Blue_Key";
-        string s_greenKey = "S_Green_Key";
-        string s_brownKey = "S_Brown_Key";
-        #endregion
-
         #region PROPERTIES
-        public int MaxCapacity { get => maxWeight; private set => maxWeight = value; }
-        public int CurrentCapacity { get => currentWeight; private set => currentWeight = value; }
         public Dictionary<ResourceTypes, int> CargoResources { get => cargoResources; private set => cargoResources = value; }
         #endregion
 
@@ -39,12 +29,13 @@ namespace SpaceCarrier.SpaceShips
         {
             rb = GetComponent<Rigidbody>();
 
-            credits = PlayerPrefs.GetInt(creditsKey, 0);
-            cargoResources[ResourceTypes.Purple] = PlayerPrefs.GetInt(s_purpleKey, 0);
-            cargoResources[ResourceTypes.Red] = PlayerPrefs.GetInt(s_redKey, 0);
-            cargoResources[ResourceTypes.Blue] = PlayerPrefs.GetInt(s_blueKey, 0);
-            cargoResources[ResourceTypes.Green] = PlayerPrefs.GetInt(s_greenKey, 0);
-            cargoResources[ResourceTypes.Brown] = PlayerPrefs.GetInt(s_brownKey, 0);
+            credits = PlayerPrefs.GetInt(PrefsKeys.creditsKey, 0);
+
+            foreach (var key in PrefsKeys.shipResourcesKeys.Keys.ToList())
+            {
+                cargoResources[key] = PlayerPrefs.GetInt(PrefsKeys.shipResourcesKeys[key], 0);
+            }
+
             currentWeight = CalculateWeight();
         }
 
@@ -69,33 +60,18 @@ namespace SpaceCarrier.SpaceShips
                 return;
             }
 
-            switch (type)
-            {
-                case ResourceTypes.Purple:
-                    cargoResources[ResourceTypes.Purple] += resourceAmount;
-                    PlayerPrefs.SetInt(s_purpleKey, cargoResources[ResourceTypes.Purple]);
-                    break;
-                case ResourceTypes.Red:
-                    cargoResources[ResourceTypes.Red] += resourceAmount;
-                    PlayerPrefs.SetInt(s_redKey, cargoResources[ResourceTypes.Red]);
-                    break;
-                case ResourceTypes.Blue:
-                    cargoResources[ResourceTypes.Blue] += resourceAmount;
-                    PlayerPrefs.SetInt(s_blueKey, cargoResources[ResourceTypes.Blue]);
-                    break;
-                case ResourceTypes.Green:
-                    cargoResources[ResourceTypes.Green] += resourceAmount;
-                    PlayerPrefs.SetInt(s_greenKey, cargoResources[ResourceTypes.Green]);
-                    break;
-                case ResourceTypes.Brown:
-                    cargoResources[ResourceTypes.Brown] += resourceAmount;
-                    PlayerPrefs.SetInt(s_brownKey, cargoResources[ResourceTypes.Brown]);
-                    break;
-            }
+            AddResources(type, resourceAmount);
+
             currentWeight = CalculateWeight();
             onCapacityChanged?.Invoke();
             shipResoucePanel.UpdatePanel(cargoResources, credits);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
+        }
+
+        private void AddResources(ResourceTypes type ,int resourceAmount)
+        {
+            cargoResources[type] += resourceAmount;
+            PlayerPrefs.SetInt(PrefsKeys.shipResourcesKeys[type], cargoResources[type]);
         }
 
         public void ResetResources()
@@ -103,13 +79,8 @@ namespace SpaceCarrier.SpaceShips
             currentWeight = 0;
             foreach (var key in cargoResources.Keys.ToList())
             {
-                cargoResources[key] = 0;
+                PlayerPrefs.SetInt(PrefsKeys.shipResourcesKeys[key], cargoResources[key]);
             }
-            PlayerPrefs.SetInt(s_purpleKey, cargoResources[ResourceTypes.Purple]);
-            PlayerPrefs.SetInt(s_redKey, cargoResources[ResourceTypes.Red]);
-            PlayerPrefs.SetInt(s_blueKey, cargoResources[ResourceTypes.Blue]);
-            PlayerPrefs.SetInt(s_greenKey, cargoResources[ResourceTypes.Green]);
-            PlayerPrefs.SetInt(s_brownKey, cargoResources[ResourceTypes.Brown]);
 
             shipResoucePanel?.UpdatePanel(cargoResources, credits);
         }
@@ -129,7 +100,7 @@ namespace SpaceCarrier.SpaceShips
         public void EarnRiskReward()
         {
             credits += currentWeight;
-            PlayerPrefs.SetInt(creditsKey, credits);
+            PlayerPrefs.SetInt(PrefsKeys.creditsKey, credits);
         }
 
 #if UNITY_EDITOR

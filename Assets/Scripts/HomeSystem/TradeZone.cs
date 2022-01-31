@@ -116,6 +116,14 @@ namespace SpaceCarrier.HomeSystem
             homeResourcePanel.Credits.text = homeResources.Credits.ToString();
         }
 
+        public void OnResetButton()
+        { 
+            balance = 0;
+
+            homeResourcePanel.UpdatePanel(homeResources.Resources);
+            UpdateBalanceText();
+        }
+
         public void OnSellAllButton()
         {
             ResourceTypes selected = selectedResourceType;

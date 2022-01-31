@@ -17,6 +17,7 @@ namespace SpaceCarrier.HomeSystem
 
         [SerializeField] Button DealButton;
         [SerializeField] Button SellAllButton;
+        [SerializeField] Button ResetButton;
 
         [SerializeField] TradeZone tradeZone;
 
@@ -32,6 +33,7 @@ namespace SpaceCarrier.HomeSystem
 
             DealButton.onClick.AddListener(tradeZone.OnDealButton);
             SellAllButton.onClick.AddListener(tradeZone.OnSellAllButton);
+            ResetButton.onClick.AddListener(tradeZone.OnResetButton);
         }
     }
 }

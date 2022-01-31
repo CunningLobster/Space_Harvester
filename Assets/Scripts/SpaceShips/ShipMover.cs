@@ -7,6 +7,7 @@ namespace SpaceCarrier.SpaceShips
     {
         [SerializeField] private float forwardSpeed = 10f;
         [SerializeField] private float yawSpeed = 2f;
+        [SerializeField] private float rollSpeed = 100f;
         [SerializeField] private float screenSpaceBorderOffset = .1f;
         private Camera mainCamera;
         private Rigidbody rb;
@@ -36,14 +37,21 @@ namespace SpaceCarrier.SpaceShips
         public float GetMaxMovingForceMagnitude()
         {
             Vector3 force = transform.forward * forwardSpeed;
-            Debug.Log("Ship Move Force: " + force.magnitude / rb.mass);
             return force.magnitude / rb.mass;
         }
 
         private void RotateShip(Vector3 movingVector)
         {
+            float targetRoll = -Mathf.Atan2(movingVector.x, movingVector.z) * Mathf.Rad2Deg / 2;
             Quaternion targetRotation = Quaternion.Euler(0, Mathf.Atan2(movingVector.x, movingVector.z) * Mathf.Rad2Deg, 0);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed * Time.deltaTime);
+        }
+
+        private void RollShip(float delta)
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, 0, delta);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rollSpeed * Time.deltaTime);
         }
 
         private void KeepShipOnScreen()

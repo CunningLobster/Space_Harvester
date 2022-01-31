@@ -21,9 +21,7 @@ namespace SpaceCarrier.Celestials
 
         private void Awake()
         {
-            CelestialBody star = GenerateStar();
-            if (star != null)
-                GeneratePlanets(star);
+            GenerateSystem();
         }
 
         private CelestialBody GenerateStar()
@@ -33,27 +31,29 @@ namespace SpaceCarrier.Celestials
             return star;
         }
 
-        private void GeneratePlanets(CelestialBody centralBody)
+        private void GenerateSystem()
         {
+            CelestialBody star = GenerateStar();
+
             float planetCount = 1;
             switch (difficulty)
             {
                 case 1:
-                    GeneratePlanet(centralBody, planetCount);
+                    GeneratePlanets(star, planetCount);
                     break;
                 case 2:
                     planetCount = 2;
-                    GeneratePlanet(centralBody, planetCount);
+                    GeneratePlanets(star, planetCount);
                     break;
                 case 3:
                     planetCount = 3;
-                    GeneratePlanet(centralBody, planetCount);
+                    GeneratePlanets(star, planetCount);
                     break;
             }
 
         }
 
-        private void GeneratePlanet(CelestialBody centralBody, float planetCount)
+        private void GeneratePlanets(CelestialBody centralBody, float planetCount)
         {
             float minRadius = this.minRadius;
             float deltaX = Random.Range(1, 1.5f);
@@ -94,7 +94,5 @@ namespace SpaceCarrier.Celestials
         {
             planet.GetComponent<CelestialResources>().CurrentResource = Random.Range(minResourceAmount, maxResourceAmount);
         }
-
-
     }
 }

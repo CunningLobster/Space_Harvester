@@ -33,7 +33,7 @@ namespace SpaceCarrier.Physics
             DefineDangerZone();
         }
 
-        public void PullObject(Collider other)
+        public void CalculateGravityForce(Collider other)
         {
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
 

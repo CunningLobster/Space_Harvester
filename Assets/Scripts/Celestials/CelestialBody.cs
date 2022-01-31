@@ -19,7 +19,7 @@ namespace SpaceCarrier.Celestials
         {
             if (!other.gameObject.CompareTag("Pullable")) return;
 
-            gravity.PullObject(other);
+            gravity.CalculateGravityForce(other);
         }
 
         private void OnTriggerExit(Collider other)

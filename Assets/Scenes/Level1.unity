@@ -343,6 +343,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7951698723215659644, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: yawSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951698723215659644, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: screenSpaceBorderOffset
       value: 0.2
       objectReference: {fileID: 0}

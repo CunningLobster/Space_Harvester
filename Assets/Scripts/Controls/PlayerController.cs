@@ -18,7 +18,7 @@ namespace SpaceCarrier.Controlls
             hyperDriver = GetComponent<HyperDriver>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             hyperDriver.Hyperjump(inputProvider.isJumping);
             shipMover.MoveShip(new Vector3(inputProvider.moveDirection.x, 0, inputProvider.moveDirection.y));

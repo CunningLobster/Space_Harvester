@@ -1,4 +1,5 @@
 using SpaceCarrier.Prefs;
+using SpaceCarrier.Resoures;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace SpaceCarrier.ShipStats
         [SerializeField] private float[] values = new float[10];
 
         private int currentLevel;
+
+        [SerializeField] private PriceSet[] prices;
 
         private void Awake()
         {
@@ -28,5 +31,19 @@ namespace SpaceCarrier.ShipStats
         { 
             return values[currentLevel];
         }
+    }
+
+    [System.Serializable]
+    public struct PriceToUpgrade
+    {
+        public ResourceTypes type;
+        public int value;
+    }
+
+    [System.Serializable]
+    public struct PriceSet
+    {
+        public PriceToUpgrade[] set;
+        public int credits;
     }
 }

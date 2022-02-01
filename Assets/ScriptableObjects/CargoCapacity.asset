@@ -24,3 +24,62 @@ MonoBehaviour:
   - 800
   - 900
   - 1000
+  prices:
+  - set:
+    - type: 4
+      value: 30
+    credits: 100
+  - set:
+    - type: 4
+      value: 60
+    credits: 200
+  - set:
+    - type: 4
+      value: 80
+    - type: 2
+      value: 30
+    credits: 300
+  - set:
+    - type: 4
+      value: 120
+    - type: 2
+      value: 50
+    credits: 500
+  - set:
+    - type: 4
+      value: 150
+    - type: 2
+      value: 80
+    credits: 700
+  - set:
+    - type: 4
+      value: 200
+    - type: 2
+      value: 120
+    - type: 3
+      value: 100
+    credits: 1000
+  - set:
+    - type: 4
+      value: 250
+    - type: 2
+      value: 160
+    - type: 3
+      value: 120
+    credits: 1400
+  - set:
+    - type: 4
+      value: 300
+    - type: 2
+      value: 200
+    - type: 3
+      value: 170
+    credits: 1800
+  - set:
+    - type: 4
+      value: 350
+    - type: 2
+      value: 250
+    - type: 3
+      value: 300
+    credits: 2500

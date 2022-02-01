@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: Maneurability
   m_EditorClassIdentifier: 
   type: 1
-  values: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  values:
+  - 100
+  - 120
+  - 140
+  - 160
+  - 180
+  - 200
+  - 220
+  - 240
+  - 260
+  - 280

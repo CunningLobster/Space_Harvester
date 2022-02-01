@@ -23,5 +23,10 @@ namespace SpaceCarrier.ShipStats
             PlayerPrefs.SetInt(PrefsKeys.statsKeys[type], value);
             currentLevel = value;
         }
+
+        public float GetCurrentValue()
+        { 
+            return values[currentLevel];
+        }
     }
 }

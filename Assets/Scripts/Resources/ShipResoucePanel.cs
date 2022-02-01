@@ -7,7 +7,7 @@ namespace SpaceCarrier.Resoures
     {
         [SerializeField] private TMP_Text weight;
 
-        public void UpdateWeightValue(int currentWeight, int maxWeight)
+        public void UpdateWeightValue(float currentWeight, float maxWeight)
         {
             this.weight.text = $"{currentWeight} / {maxWeight}";
         }

@@ -1,12 +1,13 @@
 using SpaceCarrier.Physics;
+using SpaceCarrier.ShipStats;
 using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
 {
     public class ShipMover : ForceInfluencer
     {
-        [SerializeField] private float forwardSpeed = 10f;
-        [SerializeField] private float yawSpeed = 2f;
+        private float forwardSpeed;
+        private float yawSpeed;
         [SerializeField] private float screenSpaceBorderOffset = .1f;
         private Camera mainCamera;
         private Rigidbody rb;
@@ -15,8 +16,14 @@ namespace SpaceCarrier.SpaceShips
 
         Vector3 thrust = new Vector3();
 
+        [SerializeField] private ShipStat engine;
+        [SerializeField] private ShipStat maneurability;
+
         private void Awake()
         {
+            forwardSpeed = engine.GetCurrentValue();
+            yawSpeed = maneurability.GetCurrentValue();
+
             mainCamera = Camera.main;
             rb = GetComponent<Rigidbody>();
         }

@@ -1,4 +1,5 @@
 using SpaceCarrier.Celestials;
+using SpaceCarrier.ShipStats;
 using System.Collections;
 using UnityEngine;
 
@@ -8,11 +9,18 @@ namespace SpaceCarrier.SpaceShips
     {
         [SerializeField] private Cargo cargo;
 
-        [SerializeField] private float harvestDelay = .5f;
-        [SerializeField] private int productivity = 5;
         private CelestialResources source;
         private bool isHarvesting = false;
         private Coroutine harvestRoutine;
+
+        private int productivity;
+        [SerializeField] private ShipStat harvesting;
+        [SerializeField] private float harvestDelay = .5f;
+
+        private void Awake()
+        {
+            productivity = (int)harvesting.GetCurrentValue();
+        }
 
         private IEnumerator Harvest()
         {

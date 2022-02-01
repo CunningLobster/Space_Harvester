@@ -28,7 +28,7 @@ namespace SpaceCarrier.SpaceShips
 
         public void Hyperjump(bool jumpStarted)
         {
-            if (!jumpStarted)
+            if (!jumpStarted || wormhole == null)
             {
                 wormhole?.Gravity.ReleaseObject();
                 timeToJump = 0;

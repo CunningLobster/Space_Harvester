@@ -271,6 +271,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 372344546252938911, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: shipMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 372344546252938911, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: maxWeight
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 372344546252938911, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: shipResoucePanel
       value: 
       objectReference: {fileID: 1213329533}
@@ -342,6 +350,10 @@ PrefabInstance:
       propertyPath: IDDQD
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7951698723215659644, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1613533729}
     - target: {fileID: 7951698723215659644, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: yawSpeed
       value: 120
@@ -946,6 +958,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91920d7b68b899428a344942de260bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1613533729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2243799859172096335, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+  m_PrefabInstance: {fileID: 457971003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7699776953632073099
 PrefabInstance:
   m_ObjectHideFlags: 0

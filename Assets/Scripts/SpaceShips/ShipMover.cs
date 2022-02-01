@@ -7,10 +7,11 @@ namespace SpaceCarrier.SpaceShips
     {
         [SerializeField] private float forwardSpeed = 10f;
         [SerializeField] private float yawSpeed = 2f;
-        [SerializeField] private float rollSpeed = 100f;
         [SerializeField] private float screenSpaceBorderOffset = .1f;
         private Camera mainCamera;
         private Rigidbody rb;
+
+        [SerializeField] GameObject body;
 
         Vector3 thrust = new Vector3();
 
@@ -42,16 +43,10 @@ namespace SpaceCarrier.SpaceShips
 
         private void RotateShip(Vector3 movingVector)
         {
-            float targetRoll = -Mathf.Atan2(movingVector.x, movingVector.z) * Mathf.Rad2Deg / 2;
-            Quaternion targetRotation = Quaternion.Euler(0, Mathf.Atan2(movingVector.x, movingVector.z) * Mathf.Rad2Deg, 0);
-
+            float yawAngleRad = Mathf.Atan2(movingVector.x, movingVector.z);
+            float yawAngleDeg = yawAngleRad * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, yawAngleDeg, 0);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed * Time.deltaTime);
-        }
-
-        private void RollShip(float delta)
-        {
-            Quaternion targetRotation = Quaternion.Euler(0, 0, delta);
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rollSpeed * Time.deltaTime);
         }
 
         private void KeepShipOnScreen()

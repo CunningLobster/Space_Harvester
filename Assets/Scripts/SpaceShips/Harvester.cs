@@ -7,7 +7,6 @@ namespace SpaceCarrier.SpaceShips
     public class Harvester : MonoBehaviour
     {
         [SerializeField] private Cargo cargo;
-        public Cargo Cargo { get => cargo; }
 
         [SerializeField] private float harvestDelay = .5f;
         [SerializeField] private int productivity = 5;
@@ -18,11 +17,11 @@ namespace SpaceCarrier.SpaceShips
         private IEnumerator Harvest()
         {
 
-            while (source.CurrentResource > 0)
+            while (source.CurrentResource > 0 && !cargo.IsFull)
             {
                 yield return new WaitForSeconds(harvestDelay);
-                cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType);
-                source.Loose(productivity);
+                cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
+                source.Loose(amountToFill);
             }
         }
 
@@ -51,7 +50,7 @@ namespace SpaceCarrier.SpaceShips
         {
             if (harvestRoutine != null)
                 StopCoroutine(harvestRoutine);
-            Cargo.ResetResources();
+            cargo.ResetResources();
             enabled = false;
         }
     }

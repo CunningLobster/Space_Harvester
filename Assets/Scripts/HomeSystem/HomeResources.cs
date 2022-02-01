@@ -54,7 +54,8 @@ namespace SpaceCarrier.HomeSystem
             credits = 0;
             foreach (var key in resources.Keys.ToList())
             {
-                PlayerPrefs.SetInt(PrefsKeys.homeResourcesKeys[key], resources[key]);
+                PlayerPrefs.SetInt(PrefsKeys.homeResourcesKeys[key], 0);
+                resources[key] = PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[key], 0);
             }
             PlayerPrefs.SetInt(PrefsKeys.creditsKey, credits);
             homeResourcePanel.UpdatePanel(resources, credits);

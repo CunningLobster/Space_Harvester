@@ -21,8 +21,11 @@ namespace SpaceCarrier.SpaceShips
         public UnityEvent onCapacityChanged;
         private Rigidbody rb;
 
+        [SerializeField] private float shipMass = 1;
+
         #region PROPERTIES
         public Dictionary<ResourceTypes, int> CargoResources { get => cargoResources; private set => cargoResources = value; }
+        public bool IsFull { get => currentWeight >= maxWeight; }
         #endregion
 
         private void Awake()
@@ -42,7 +45,6 @@ namespace SpaceCarrier.SpaceShips
         private void Start()
         {
             if (shipResoucePanel == null) return;
-            currentWeight = CalculateWeight();
             shipResoucePanel.UpdatePanel(cargoResources, credits);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
@@ -52,15 +54,17 @@ namespace SpaceCarrier.SpaceShips
             onCapacityChanged?.RemoveAllListeners();
         }
 
-        public void Fill(int resourceAmount, ResourceTypes type)
+        public void Fill(int resourceAmount, ResourceTypes type, out int amountToFill)
         {
             if (currentWeight >= maxWeight)
             {
                 Debug.Log("Cargo is full");
+                amountToFill = 0;
                 return;
             }
 
-            AddResources(type, resourceAmount);
+            AddResources(type, resourceAmount, out int amountToAdd);
+            amountToFill = amountToAdd;
 
             currentWeight = CalculateWeight();
             onCapacityChanged?.Invoke();
@@ -68,20 +72,25 @@ namespace SpaceCarrier.SpaceShips
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
-        private void AddResources(ResourceTypes type ,int resourceAmount)
+        private void AddResources(ResourceTypes type, int resourceAmount, out int amountToAdd)
         {
-            cargoResources[type] += resourceAmount;
+            amountToAdd = Mathf.Min(resourceAmount, maxWeight - currentWeight);
+
+            cargoResources[type] += amountToAdd;
             PlayerPrefs.SetInt(PrefsKeys.shipResourcesKeys[type], cargoResources[type]);
         }
 
         public void ResetResources()
         {
             currentWeight = 0;
-            foreach (var key in cargoResources.Keys.ToList())
+            foreach (var key in PrefsKeys.shipResourcesKeys.Keys.ToList())
             {
-                PlayerPrefs.SetInt(PrefsKeys.shipResourcesKeys[key], cargoResources[key]);
+                PlayerPrefs.SetInt(PrefsKeys.shipResourcesKeys[key], 0);
+                cargoResources[key] = PlayerPrefs.GetInt(PrefsKeys.shipResourcesKeys[key], 0);
             }
 
+            currentWeight = CalculateWeight();
+            shipResoucePanel?.UpdateWeightValue(currentWeight, maxWeight);
             shipResoucePanel?.UpdatePanel(cargoResources, credits);
         }
 
@@ -93,7 +102,7 @@ namespace SpaceCarrier.SpaceShips
                 totalWeight += cargoResources[key];
             }
 
-            rb.mass = 1 + (float)totalWeight / 1000f;
+            rb.mass = shipMass + (float)totalWeight / 1000f;
             return totalWeight;
         }
 

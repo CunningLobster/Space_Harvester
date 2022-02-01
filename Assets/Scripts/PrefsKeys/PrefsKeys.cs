@@ -1,4 +1,5 @@
 using SpaceCarrier.Resoures;
+using SpaceCarrier.ShipStats;
 using System.Collections.Generic;
 
 namespace SpaceCarrier.Prefs
@@ -8,33 +9,33 @@ namespace SpaceCarrier.Prefs
         public const string creditsKey = "Credits_Key";
 
         //On ship resources
-        public const string s_purpleKey = "S_Purple_Key";
-        public const string s_redKey = "S_Red_Key";
-        public const string s_blueKey = "S_Blue_Key";
-        public const string s_greenKey = "S_Green_Key";
-        public const string s_brownKey = "S_Brown_Key";
         public static readonly Dictionary<ResourceTypes, string> shipResourcesKeys = new Dictionary<ResourceTypes, string>()
         {
-            [ResourceTypes.Purple] = s_purpleKey,
-            [ResourceTypes.Red] = s_redKey,
-            [ResourceTypes.Blue] = s_blueKey,
-            [ResourceTypes.Green] = s_greenKey,
-            [ResourceTypes.Brown] = s_brownKey
+            [ResourceTypes.Purple] = "S_Purple_Key",
+            [ResourceTypes.Red] = "S_Red_Key",
+            [ResourceTypes.Blue] = "S_Blue_Key",
+            [ResourceTypes.Green] = "S_Green_Key",
+            [ResourceTypes.Brown] = "S_Brown_Key"
         };
 
         //Home system resources
-        public const string h_purpleKey = "H_Purple_Key";
-        public const string h_redKey = "H_Red_Key";
-        public const string h_blueKey = "H_Blue_Key";
-        public const string h_greenKey = "H_Green_Key";
-        public const string h_brownKey = "H_Brown_Key";
         public static readonly Dictionary<ResourceTypes, string> homeResourcesKeys = new Dictionary<ResourceTypes, string>()
         {
-            [ResourceTypes.Purple] = h_purpleKey,
-            [ResourceTypes.Red] = h_redKey,
-            [ResourceTypes.Blue] = h_blueKey,
-            [ResourceTypes.Green] = h_greenKey,
-            [ResourceTypes.Brown] = h_brownKey
+            [ResourceTypes.Purple] = "H_Purple_Key",
+            [ResourceTypes.Red] = "H_Red_Key",
+            [ResourceTypes.Blue] = "H_Blue_Key",
+            [ResourceTypes.Green] = "H_Green_Key",
+            [ResourceTypes.Brown] = "H_Brown_Key"
+        };
+
+        //Ship Stats
+        public static readonly Dictionary<Stats, string> statsKeys = new Dictionary<Stats, string>()
+        {
+            [Stats.Engine] = "Engine_Key",
+            [Stats.Maneurability] = "Maneurability_Key",
+            [Stats.Mass] = "Mass_Key",
+            [Stats.CargoCapacity] = "CargoCapacity_Key",
+            [Stats.Harvesting] = "Harvesting_Key"
         };
 
     }

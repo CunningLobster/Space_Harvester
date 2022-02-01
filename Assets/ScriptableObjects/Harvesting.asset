@@ -9,8 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 009a4b01b86980347bd519d70197ba8e, type: 3}
-  m_Name: PlayerCargo
+  m_Script: {fileID: 11500000, guid: 744f9795f791f1243b3a7e4ec20ba9f3, type: 3}
+  m_Name: Harvesting
   m_EditorClassIdentifier: 
-  maxCapacity: 1000
-  currentCapacity: 5
+  type: 0
+  values:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

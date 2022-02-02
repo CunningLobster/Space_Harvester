@@ -24,6 +24,7 @@ MonoBehaviour:
   - 140
   - 150
   - 160
+  currentLevel: 0
   prices:
   - set:
     - type: 4

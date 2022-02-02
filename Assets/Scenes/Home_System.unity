@@ -3027,16 +3027,16 @@ MonoBehaviour:
   - {fileID: 751087277}
   - {fileID: 1218732597}
   maneurabilityProgressCells:
-  - {fileID: 1552417844}
-  - {fileID: 1723388675}
-  - {fileID: 45382663}
-  - {fileID: 2091622779}
-  - {fileID: 1113209640}
-  - {fileID: 160081967}
-  - {fileID: 278366754}
-  - {fileID: 1333733636}
-  - {fileID: 751087277}
-  - {fileID: 1218732597}
+  - {fileID: 744478487}
+  - {fileID: 1579346536}
+  - {fileID: 1298970593}
+  - {fileID: 1534672655}
+  - {fileID: 1695876094}
+  - {fileID: 1242706454}
+  - {fileID: 651450946}
+  - {fileID: 323151929}
+  - {fileID: 1041925890}
+  - {fileID: 960002573}
   massProgressCells:
   - {fileID: 36521940}
   - {fileID: 3831713}

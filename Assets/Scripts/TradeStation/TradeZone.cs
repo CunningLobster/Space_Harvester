@@ -24,7 +24,7 @@ namespace SpaceCarrier.TradeStation
         [SerializeField] Sprite brown;
         [SerializeField] Sprite none;
 
-        ResourceTypes selectedResourceType;
+        ResourceTypes selectedResourceType = ResourceTypes.None;
         private int balance;
         [SerializeField] private TMP_Text balanceText;
 
@@ -113,9 +113,12 @@ namespace SpaceCarrier.TradeStation
             foreach (var key in PrefsKeys.homeResourcesKeys.Keys.ToList())
             {
                 PlayerPrefs.SetInt(PrefsKeys.homeResourcesKeys[key], int.Parse(panelResources[key].text));
+                homeResources.Resources[key] = int.Parse(panelResources[key].text);
             }
 
             homeResourcePanel.Credits.text = homeResources.Credits.ToString();
+
+            homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
         public void OnResetButton()
@@ -138,6 +141,14 @@ namespace SpaceCarrier.TradeStation
             }
 
             OnSelectResource(selected);
+        }
+
+        public void OnBack()
+        {
+            balance = 0;
+            UpdateBalanceText();
+
+            homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
         void UpdateBalanceText()

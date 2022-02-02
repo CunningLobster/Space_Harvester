@@ -12,7 +12,8 @@ namespace SpaceCarrier.ShipStats
         [SerializeField] Stats type = Stats.Engine;
         [SerializeField] private float[] values = new float[10];
 
-        private int currentLevel;
+        [SerializeField] private int currentLevel;
+        public int CurrentLevel { get => currentLevel; }
 
         [SerializeField] private PriceSet[] prices;
 

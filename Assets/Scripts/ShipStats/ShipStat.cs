@@ -37,7 +37,7 @@ namespace SpaceCarrier.ShipStats
     [System.Serializable]
     public struct PriceToUpgrade
     {
-        public ResourceTypes type;
+        public Resource resource;
         public int value;
     }
 

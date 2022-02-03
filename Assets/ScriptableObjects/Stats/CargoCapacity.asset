@@ -27,60 +27,60 @@ MonoBehaviour:
   currentLevel: 0
   prices:
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 30
     credits: 100
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 60
     credits: 200
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 80
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 30
     credits: 300
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 120
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 50
     credits: 500
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 150
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 80
     credits: 700
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 200
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 120
-    - type: 3
+    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
       value: 100
     credits: 1000
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 250
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 160
-    - type: 3
+    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
       value: 120
     credits: 1400
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 300
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 200
-    - type: 3
+    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
       value: 170
     credits: 1800
   - set:
-    - type: 4
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 350
-    - type: 2
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 250
-    - type: 3
+    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
       value: 300
     credits: 2500

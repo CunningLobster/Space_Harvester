@@ -15,6 +15,9 @@ namespace SpaceCarrier.Shipyard
         [SerializeField] private Image[] cargoCapacityProgressCells = new Image[10];
         [SerializeField] private Image[] harvestingProgressCells = new Image[10];
 
+        [SerializeField] private Sprite acceptedSprite;
+        [SerializeField] private Sprite reservedSprite;
+
         [SerializeField] private ShipStat engine;
         [SerializeField] private ShipStat maneurability;
         [SerializeField] private ShipStat mass;
@@ -42,19 +45,54 @@ namespace SpaceCarrier.Shipyard
                 for (int i = 0; i < stats[key].CurrentLevel + 1; i++)
                 {
                     progressCells[key][i].gameObject.SetActive(true);
+                    progressCells[key][i].sprite = acceptedSprite;
                 }
             }
         }
 
         public void OnUpgradeStat(Stats type)
         {
-            int nextLevel = stats[type].CurrentLevel + 1;
+            for (int i = 0; i < progressCells[type].Length; i++)
+            {
+                if (!progressCells[type][i].gameObject.activeInHierarchy)
+                {
+                    progressCells[type][i].gameObject.SetActive(true);
+                    break;
+                }
+            }
+        }
 
-            if (nextLevel > progressCells[type].Length) return;
-            stats[type].ChangeLevel(nextLevel);
-            progressCells[type][nextLevel].gameObject.SetActive(true);
+        public void OnAccept()
+        {
+            foreach (var key in progressCells.Keys.ToList())
+            {
+                int lastActive = 0;
+                for (int i = 1; i < progressCells[key].Length; i++)
+                {
+                    if (!progressCells[key][i].gameObject.activeInHierarchy)
+                    {
+                        break;
+                    }
+                    lastActive++;
 
-            ActivateCells();
+                    if(progressCells[key][i].sprite != acceptedSprite)
+                        progressCells[key][i].sprite = acceptedSprite;
+                }
+                stats[key].ChangeLevel(lastActive);
+            }
+        }
+
+        public void OnReset()
+        {
+            foreach (var key in progressCells.Keys.ToList())
+            {
+                for (int i = 1; i < progressCells[key].Length; i++)
+                {
+                    if (!progressCells[key][i].gameObject.activeInHierarchy) break;
+                    if (progressCells[key][i].gameObject.activeInHierarchy && progressCells[key][i].sprite == reservedSprite)
+                        progressCells[key][i].gameObject.SetActive(false);
+                }
+            }
         }
 
         private void DefineStats()

@@ -16,6 +16,7 @@ namespace SpaceCarrier.ShipStats
         public int CurrentLevel { get => currentLevel; }
 
         [SerializeField] private PriceSet[] prices;
+        public PriceSet[] Prices { get => prices; }
 
         private void Awake()
         {

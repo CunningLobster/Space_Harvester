@@ -10,6 +10,7 @@ namespace SpaceCarrier.ShipStats
     public class ShipStat : ScriptableObject
     {
         [SerializeField] Stats type = Stats.Engine;
+        public Stats Type { get => type; }
         [SerializeField] private float[] values = new float[10];
 
         [SerializeField] private int currentLevel;

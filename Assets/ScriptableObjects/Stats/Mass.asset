@@ -31,7 +31,9 @@ MonoBehaviour:
       value: 30
     credits: 100
   - set:
-    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+      value: 60
+    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
       value: 60
     credits: 200
   - set:
@@ -41,9 +43,9 @@ MonoBehaviour:
       value: 30
     credits: 300
   - set:
-    - resource: {fileID: 0}
+    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
       value: 120
-    - resource: {fileID: 0}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 50
     credits: 500
   - set:

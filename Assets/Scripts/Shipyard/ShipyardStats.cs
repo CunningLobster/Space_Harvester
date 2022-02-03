@@ -24,6 +24,8 @@ namespace SpaceCarrier.Shipyard
         [SerializeField] private ShipStat cargoCapacity;
         [SerializeField] private ShipStat harvesting;
 
+        [SerializeField] ShipyardPriceTable priceTable;
+
         Dictionary<Stats, Image[]> progressCells = new Dictionary<Stats, Image[]>();
         Dictionary<Stats,ShipStat> stats = new Dictionary<Stats, ShipStat>();
 
@@ -36,6 +38,15 @@ namespace SpaceCarrier.Shipyard
         private void Start()
         {
             ActivateCells();
+            ShowCurrentPrices();
+        }
+
+        private void ShowCurrentPrices()
+        {
+            foreach (var key in stats.Keys.ToList())
+            {
+                priceTable.UpdatePriceTable(stats[key], stats[key].CurrentLevel);
+            }
         }
 
         private void ActivateCells()
@@ -52,6 +63,7 @@ namespace SpaceCarrier.Shipyard
 
         public void OnUpgradeStat(Stats type)
         {
+            int lastActive = 0;
             for (int i = 0; i < progressCells[type].Length; i++)
             {
                 if (!progressCells[type][i].gameObject.activeInHierarchy)
@@ -59,7 +71,10 @@ namespace SpaceCarrier.Shipyard
                     progressCells[type][i].gameObject.SetActive(true);
                     break;
                 }
+                lastActive++;
             }
+
+            priceTable.UpdatePriceTable(stats[type], lastActive);
         }
 
         public void OnAccept()
@@ -93,6 +108,8 @@ namespace SpaceCarrier.Shipyard
                         progressCells[key][i].gameObject.SetActive(false);
                 }
             }
+
+            ShowCurrentPrices();
         }
 
         private void DefineStats()

@@ -1,4 +1,5 @@
 using SpaceCarrier.HomeSystem;
+using SpaceCarrier.Prefs;
 using SpaceCarrier.Resoures;
 using SpaceCarrier.ShipStats;
 using System.Collections;
@@ -68,10 +69,29 @@ namespace SpaceCarrier.Shipyard
 
         public void OnUpgradeStat(Stats type)
         {
-            int lastActive = 0;
             ShipStat chosenStat = stats[type];
+            int lastActive = 0;
+
+            for (int i = 0; i < progressCells[type].Length; i++)
+            {
+                if (!progressCells[type][i].gameObject.activeInHierarchy)
+                {
+                    break;
+                }
+
+                lastActive++;
+            }
 
 
+            if (!SubstractFromResourcePanel(lastActive - 1, chosenStat)) return;
+            else
+            {
+                ReserveCell(type, chosenStat, lastActive);
+            }
+        }
+
+        private void ReserveCell(Stats type, ShipStat chosenStat, int lastActive)
+        {
             for (int i = 0; i < progressCells[type].Length; i++)
             {
                 if (!progressCells[type][i].gameObject.activeInHierarchy)
@@ -79,14 +99,12 @@ namespace SpaceCarrier.Shipyard
                     progressCells[type][i].gameObject.SetActive(true);
                     break;
                 }
-                lastActive++;
             }
-            SubstractFromResourcePanel(lastActive - 1, chosenStat);
 
             priceTable.UpdatePriceTable(chosenStat, lastActive);
         }
 
-        private void SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
+        private bool SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
         {
             Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive]];
             int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive]];
@@ -94,17 +112,28 @@ namespace SpaceCarrier.Shipyard
             foreach (var key in currentResoursePriceSet.Keys.ToList())
             {
                 int panelResourceValue = int.Parse(homeResourcePanel.PanelResources[key].text);
+                if (panelResourceValue < currentResoursePriceSet[key])
+                {
+                    return false;
+                }
                 panelResourceValue -= currentResoursePriceSet[key];
                 homeResourcePanel.PanelResources[key].text = panelResourceValue.ToString();
             }
 
             int panelResourceCredits = int.Parse(homeResourcePanel.Credits.text);
             panelResourceCredits -= currentCreditsPrice;
+            if (panelResourceCredits < currentCreditsPrice)
+            {
+                return false;
+            }
+
             homeResourcePanel.Credits.text = panelResourceCredits.ToString();
+            return true;
         }
 
         public void OnAccept()
         {
+
             foreach (var key in progressCells.Keys.ToList())
             {
                 int lastActive = 0;
@@ -121,6 +150,14 @@ namespace SpaceCarrier.Shipyard
                 }
                 stats[key].ChangeLevel(lastActive);
             }
+
+            foreach (var key in PrefsKeys.homeResourcesKeys.Keys.ToList())
+            {
+                PlayerPrefs.SetInt(PrefsKeys.homeResourcesKeys[key], int.Parse(homeResourcePanel.PanelResources[key].text));
+                homeResources.Resources[key] = int.Parse(homeResourcePanel.PanelResources[key].text);
+            }
+            homeResources.Credits = int.Parse(homeResourcePanel.Credits.text);
+            homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
         public void OnReset()
@@ -136,6 +173,7 @@ namespace SpaceCarrier.Shipyard
             }
 
             ShowCurrentPrices();
+            homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
         private void DefineStats()

@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: harvestDelay
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4959303076760327779, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: IDDQD
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
 --- !u!1001 &483428124

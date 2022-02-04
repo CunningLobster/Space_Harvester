@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959303076760327779, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: IDDQD
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
@@ -482,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 6215887674739915293, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260424949556721315, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_MovementRange
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6260424950011285179, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Name

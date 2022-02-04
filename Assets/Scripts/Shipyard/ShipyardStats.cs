@@ -82,12 +82,8 @@ namespace SpaceCarrier.Shipyard
                 lastActive++;
             }
 
-
-            if (!SubstractFromResourcePanel(lastActive - 1, chosenStat)) return;
-            else
-            {
-                ReserveCell(type, chosenStat, lastActive);
-            }
+            SubstractFromResourcePanel(lastActive - 1, chosenStat);
+            ReserveCell(type, chosenStat, lastActive);
         }
 
         private void ReserveCell(Stats type, ShipStat chosenStat, int lastActive)
@@ -104,11 +100,28 @@ namespace SpaceCarrier.Shipyard
             priceTable.UpdatePriceTable(chosenStat, lastActive);
         }
 
-        private bool SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
+        private void SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
         {
             Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive]];
             int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive]];
 
+            int panelResourceCredits = int.Parse(homeResourcePanel.Credits.text);
+            if(!IfAvailableToUpgrage(currentResoursePriceSet, currentCreditsPrice)) return;
+
+            foreach (var key in currentResoursePriceSet.Keys.ToList())
+            {
+                int panelResourceValue = int.Parse(homeResourcePanel.PanelResources[key].text);
+                panelResourceValue -= currentResoursePriceSet[key];
+                homeResourcePanel.PanelResources[key].text = panelResourceValue.ToString();
+            }
+
+            panelResourceCredits -= currentCreditsPrice;
+
+            homeResourcePanel.Credits.text = panelResourceCredits.ToString();
+        }
+
+        private bool IfAvailableToUpgrage(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
+        {
             foreach (var key in currentResoursePriceSet.Keys.ToList())
             {
                 int panelResourceValue = int.Parse(homeResourcePanel.PanelResources[key].text);
@@ -116,18 +129,14 @@ namespace SpaceCarrier.Shipyard
                 {
                     return false;
                 }
-                panelResourceValue -= currentResoursePriceSet[key];
-                homeResourcePanel.PanelResources[key].text = panelResourceValue.ToString();
             }
 
             int panelResourceCredits = int.Parse(homeResourcePanel.Credits.text);
-            panelResourceCredits -= currentCreditsPrice;
             if (panelResourceCredits < currentCreditsPrice)
             {
                 return false;
             }
 
-            homeResourcePanel.Credits.text = panelResourceCredits.ToString();
             return true;
         }
 

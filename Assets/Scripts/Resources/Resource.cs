@@ -9,5 +9,6 @@ namespace SpaceCarrier.Resoures
         [SerializeField] private Sprite sprite;
 
         public Sprite Sprite { get => sprite; }
+        public ResourceTypes Type { get => type; }
     }
 }

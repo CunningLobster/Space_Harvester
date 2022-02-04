@@ -10,18 +10,24 @@ namespace SpaceCarrier.ShipStats
     public class ShipStat : ScriptableObject
     {
         [SerializeField] Stats type = Stats.Engine;
-        public Stats Type { get => type; }
         [SerializeField] private float[] values = new float[10];
-
         [SerializeField] private int currentLevel;
-        public int CurrentLevel { get => currentLevel; }
-
         [SerializeField] private PriceSet[] prices;
+
+        Dictionary<PriceSet, Dictionary<ResourceTypes, int>> resourcePriceSets = new Dictionary<PriceSet, Dictionary<ResourceTypes,int>>();
+        Dictionary<PriceSet, int> creditsPriceSet = new Dictionary<PriceSet, int>();
+
+
+        public Dictionary<PriceSet, Dictionary<ResourceTypes, int>> ResourcePriceSets { get => resourcePriceSets; }
+        public Dictionary<PriceSet, int> CreditsPriceSet { get => creditsPriceSet; }
+        public Stats Type { get => type; }
+        public int CurrentLevel { get => currentLevel; }
         public PriceSet[] Prices { get => prices; }
 
         private void Awake()
         {
             currentLevel = PlayerPrefs.GetInt(PrefsKeys.statsKeys[type], 0);
+            WrapPriceSets();
         }
 
         public void ChangeLevel(int value)
@@ -34,10 +40,27 @@ namespace SpaceCarrier.ShipStats
         { 
             return values[currentLevel];
         }
+
+        public void WrapPriceSets()
+        {
+            foreach (PriceSet price in prices)
+            {
+                Dictionary<ResourceTypes, int> resourcePrices = new Dictionary<ResourceTypes, int>();
+
+                foreach (var resourcePrice in price.resourceSet)
+                {
+                    resourcePrices[resourcePrice.resource.Type] = resourcePrice.value;
+                }
+
+                resourcePriceSets[price] = resourcePrices;
+                creditsPriceSet[price] = price.credits;
+            }
+
+        }
     }
 
     [System.Serializable]
-    public struct PriceToUpgrade
+    public struct ResourcePrice
     {
         public Resource resource;
         public int value;
@@ -46,7 +69,7 @@ namespace SpaceCarrier.ShipStats
     [System.Serializable]
     public struct PriceSet
     {
-        public PriceToUpgrade[] set;
+        public ResourcePrice[] resourceSet;
         public int credits;
     }
 }

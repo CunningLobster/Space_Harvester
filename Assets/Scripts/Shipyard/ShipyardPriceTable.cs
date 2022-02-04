@@ -37,7 +37,7 @@ namespace SpaceCarrier.Shipyard
 
             PriceSet currentPriceSet = stat.Prices[priceIndex];
 
-            foreach (var item in currentPriceSet.set)
+            foreach (var item in currentPriceSet.resourceSet)
             {
                 currentSprites.Add(item.resource.Sprite);
             }
@@ -53,7 +53,7 @@ namespace SpaceCarrier.Shipyard
             PriceSet currentPriceSet = stat.Prices[priceIndex];
             int credits = currentPriceSet.credits;
 
-            foreach (var item in currentPriceSet.set)
+            foreach (var item in currentPriceSet.resourceSet)
             {
                 currentPrices.Add(item.value);
             }
@@ -64,8 +64,9 @@ namespace SpaceCarrier.Shipyard
 
         public void UpdatePriceTable(ShipStat stat, int priceIndex)
         {
-            if (priceIndex > stat.Prices.Length - 1) return;
             priceDisplayers[stat.Type].HideUpgradePrice(currentSprites, currentPrices);
+
+            if (priceIndex > stat.Prices.Length - 1) return;
 
             GetCurrentPriceSet(stat, priceIndex);
             GetCurrentSpriteSet(stat, priceIndex);

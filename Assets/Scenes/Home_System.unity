@@ -3065,6 +3065,8 @@ MonoBehaviour:
   cargoCapacity: {fileID: 11400000, guid: d7f90f382b444304a8014c335fd4cd70, type: 2}
   harvesting: {fileID: 11400000, guid: 0cf863e2eb1a6f5428cce2d0645643a0, type: 2}
   priceTable: {fileID: 675959839}
+  homeResourcePanel: {fileID: 5822363442375980688}
+  homeResources: {fileID: 5822363442375980687}
 --- !u!1 &209254841
 GameObject:
   m_ObjectHideFlags: 0

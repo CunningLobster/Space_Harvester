@@ -1,3 +1,5 @@
+using SpaceCarrier.HomeSystem;
+using SpaceCarrier.Resoures;
 using SpaceCarrier.ShipStats;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +30,9 @@ namespace SpaceCarrier.Shipyard
 
         Dictionary<Stats, Image[]> progressCells = new Dictionary<Stats, Image[]>();
         Dictionary<Stats,ShipStat> stats = new Dictionary<Stats, ShipStat>();
+
+        [SerializeField] ResourcePanel homeResourcePanel;
+        [SerializeField] HomeResources homeResources;
 
         private void Awake()
         {
@@ -64,6 +69,9 @@ namespace SpaceCarrier.Shipyard
         public void OnUpgradeStat(Stats type)
         {
             int lastActive = 0;
+            ShipStat chosenStat = stats[type];
+
+
             for (int i = 0; i < progressCells[type].Length; i++)
             {
                 if (!progressCells[type][i].gameObject.activeInHierarchy)
@@ -73,8 +81,26 @@ namespace SpaceCarrier.Shipyard
                 }
                 lastActive++;
             }
+            SubstractFromResourcePanel(lastActive - 1, chosenStat);
 
-            priceTable.UpdatePriceTable(stats[type], lastActive);
+            priceTable.UpdatePriceTable(chosenStat, lastActive);
+        }
+
+        private void SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
+        {
+            Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive]];
+            int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive]];
+
+            foreach (var key in currentResoursePriceSet.Keys.ToList())
+            {
+                int panelResourceValue = int.Parse(homeResourcePanel.PanelResources[key].text);
+                panelResourceValue -= currentResoursePriceSet[key];
+                homeResourcePanel.PanelResources[key].text = panelResourceValue.ToString();
+            }
+
+            int panelResourceCredits = int.Parse(homeResourcePanel.Credits.text);
+            panelResourceCredits -= currentCreditsPrice;
+            homeResourcePanel.Credits.text = panelResourceCredits.ToString();
         }
 
         public void OnAccept()

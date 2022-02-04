@@ -8750,7 +8750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &661388246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8763,12 +8763,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6dd56361f370a479dffcc5288f3d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 1000
-  purple: 0
-  red: 0
-  blue: 0
-  green: 0
-  brown: 30
+  credits: 10000
+  purple: 1000
+  red: 1000
+  blue: 1000
+  green: 1000
+  brown: 1000
 --- !u!4 &661388247
 Transform:
   m_ObjectHideFlags: 0

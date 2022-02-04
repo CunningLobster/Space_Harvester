@@ -82,7 +82,12 @@ namespace SpaceCarrier.Shipyard
                 lastActive++;
             }
 
-            SubstractFromResourcePanel(lastActive - 1, chosenStat);
+            Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive - 1]];
+            int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive - 1]];
+
+            if (!AvailableToUpgrage(currentResoursePriceSet, currentCreditsPrice)) return;
+
+            SubstractFromResourcePanel(currentResoursePriceSet, currentCreditsPrice);
             ReserveCell(type, chosenStat, lastActive);
         }
 
@@ -99,14 +104,11 @@ namespace SpaceCarrier.Shipyard
 
             priceTable.UpdatePriceTable(chosenStat, lastActive);
         }
-
-        private void SubstractFromResourcePanel(int lastActive, ShipStat chosenStat)
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        private void SubstractFromResourcePanel(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
         {
-            Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive]];
-            int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive]];
 
             int panelResourceCredits = int.Parse(homeResourcePanel.Credits.text);
-            if(!IfAvailableToUpgrage(currentResoursePriceSet, currentCreditsPrice)) return;
 
             foreach (var key in currentResoursePriceSet.Keys.ToList())
             {
@@ -120,7 +122,7 @@ namespace SpaceCarrier.Shipyard
             homeResourcePanel.Credits.text = panelResourceCredits.ToString();
         }
 
-        private bool IfAvailableToUpgrage(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
+        private bool AvailableToUpgrage(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
         {
             foreach (var key in currentResoursePriceSet.Keys.ToList())
             {
@@ -139,7 +141,7 @@ namespace SpaceCarrier.Shipyard
 
             return true;
         }
-
+        //---------------------------------------------------------------------------------------------------------------------------------------
         public void OnAccept()
         {
 

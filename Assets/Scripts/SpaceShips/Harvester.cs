@@ -17,9 +17,12 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] private ShipStat harvesting;
         [SerializeField] private float harvestDelay = .5f;
 
+        ShipAudio shipAudio;
+
         private void Awake()
         {
             productivity = (int)harvesting.GetCurrentValue();
+            shipAudio = GetComponent<ShipAudio>();
         }
 
         private IEnumerator Harvest()
@@ -30,6 +33,7 @@ namespace SpaceCarrier.SpaceShips
                 yield return new WaitForSeconds(harvestDelay);
                 cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
                 source.Loose(amountToFill);
+                shipAudio.PlayHarvestingAudioClip();
             }
         }
 

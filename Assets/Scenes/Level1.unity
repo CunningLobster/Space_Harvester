@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c68449c6787522249a403971e93ababa, type: 3}
+    - target: {fileID: 4135108497960759027, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4173741548064138108, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: harvestDelay
       value: 0.5
@@ -334,6 +338,10 @@ PrefabInstance:
       propertyPath: IDDQD
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7597254462838501508, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: harvestingAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: da9801cae0ef1b045a2bd58509beccf5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
 --- !u!1001 &483428124

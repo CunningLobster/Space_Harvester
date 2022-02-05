@@ -339,6 +339,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1310350746, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5137255
+      objectReference: {fileID: 0}
     - target: {fileID: 1310350748, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -347,6 +351,22 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1497314702}
+    - target: {fileID: 6260424949556721314, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d436bf7489cf0e249a549a91f7a11b63, type: 3}
+    - target: {fileID: 6260424949556721314, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260424949556721340, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260424949556721340, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 6260424950011285179, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
       propertyPath: m_Name
       value: Canvas

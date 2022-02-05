@@ -73,6 +73,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 824967417482581858, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: thrustAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c68449c6787522249a403971e93ababa, type: 3}
+    - target: {fileID: 824967417482581858, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: explosionAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6543501fda452b24e92234e39a0e5a1d, type: 3}
     - target: {fileID: 884423013617710490, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: body
       value: 
@@ -283,9 +291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cargo: {fileID: 372344546252938911}
-  harvestDelay: 1
-  productivity: 5
   harvesting: {fileID: 11400000, guid: 0cf863e2eb1a6f5428cce2d0645643a0, type: 2}
+  harvestDelay: 1
 --- !u!114 &6750202481641218985
 MonoBehaviour:
   m_ObjectHideFlags: 0

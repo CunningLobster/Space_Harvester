@@ -6,18 +6,22 @@ namespace SpaceCarrier.SpaceShips
 {
     public class ShipMover : ForceInfluencer
     {
-        private float forwardSpeed;
-        private float yawSpeed;
-        [SerializeField] private float screenSpaceBorderOffset = .1f;
-        private Camera mainCamera;
         private Rigidbody rb;
 
-        [SerializeField] GameObject body;
+        //Moving parameters
+        private float forwardSpeed;
+        private float yawSpeed;
+        Vector3 movingResultVector = new Vector3();
 
-        Vector3 thrust = new Vector3();
-
+        //Moving Stats
         [SerializeField] private ShipStat engine;
         [SerializeField] private ShipStat maneurability;
+
+        //Parametrs required for keeping the ship on screen
+        [SerializeField] private float screenSpaceBorderOffset = .1f;
+        private Camera mainCamera;
+
+        private ShipAudio shipAudio;
 
         private void Awake()
         {
@@ -26,6 +30,8 @@ namespace SpaceCarrier.SpaceShips
 
             mainCamera = Camera.main;
             rb = GetComponent<Rigidbody>();
+
+            shipAudio = GetComponent<ShipAudio>();
         }
 
         private void Update()
@@ -35,8 +41,10 @@ namespace SpaceCarrier.SpaceShips
 
         public void MoveShip(Vector3 movingVector)
         {
+            shipAudio.PlayThrustAudioEffect(movingVector);
+
             rb.angularVelocity = Vector3.zero;
-            thrust = transform.forward * movingVector.magnitude * forwardSpeed;
+            movingResultVector = transform.forward * movingVector.magnitude * forwardSpeed;
 
             if (movingVector == Vector3.zero) return;
             RotateShip(movingVector);
@@ -83,7 +91,7 @@ namespace SpaceCarrier.SpaceShips
 
         public override Vector3 GetForce()
         {
-            return thrust;
+            return movingResultVector;
         }
     }
 }

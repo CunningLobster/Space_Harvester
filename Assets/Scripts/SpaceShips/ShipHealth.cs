@@ -16,6 +16,8 @@ namespace SpaceCarrier.SpaceShips
             if (IDDQD) yield break;
 
             float deathDuration = 2f;
+            GetComponent<ShipAudio>().PlayExplosionAudioEffect();
+            GetComponent<Collider>().enabled = false;
             GetComponent<PlayerController>().enabled = false;
             body.SetActive(false);
             dieFX.gameObject.SetActive(true);

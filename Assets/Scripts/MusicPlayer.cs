@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class MusicPlayer : Singleton
 {
+    [SerializeField] AudioSource eventPlayer;
 }

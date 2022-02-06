@@ -30,6 +30,8 @@ namespace SpaceCarrier.SpaceShips
         #region PROPERTIES
         public Dictionary<ResourceTypes, int> CargoResources { get => cargoResources; private set => cargoResources = value; }
         public bool IsFull { get => currentWeight >= maxWeight; }
+        public int CurrentWeight { get => currentWeight; }
+        public int Credits { get => credits; }
         #endregion
 
         private void Awake()
@@ -107,24 +109,11 @@ namespace SpaceCarrier.SpaceShips
             return totalWeight;
         }
 
-        public void EarnRiskReward()
-        {
-            credits += currentWeight;
-            PlayerPrefs.SetInt(PrefsKeys.creditsKey, credits);
-        }
-
 #if UNITY_EDITOR
         private void Update()
         {
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 ResetResources();
-
-
-            //print("Purple: " + PlayerPrefs.GetInt("Purple"));
-            //print("Red: " + PlayerPrefs.GetInt("Red"));
-            //print("Blue: " + PlayerPrefs.GetInt("Blue"));
-            //print("Green: " + PlayerPrefs.GetInt("Green"));
-            //print("Brown: " + PlayerPrefs.GetInt("Brown"));
         }
 #endif
     }

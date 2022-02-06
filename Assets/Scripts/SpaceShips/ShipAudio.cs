@@ -1,3 +1,4 @@
+using SpaceCarrier.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] private AudioClip hyperJumpSlowDownClip;
 
         bool isThrusting;
-        bool a = true;
+        bool readyToJump = true;
+        bool isJumping = false;
         public void PlayThrustAudioEffect(Vector3 movingVector)
         {
             if (movingVector == Vector3.zero)
@@ -44,31 +46,31 @@ namespace SpaceCarrier.SpaceShips
             eventAudioSource.PlayOneShot(harvestingAudioClip);
         }
 
-        public void PlayHyperJumpChargingClip(bool isJumping)
+        public void PlayHyperJumpChargingClip(bool jumpStarted)
         {
-            if (!isJumping && !a)
-            {
-                eventAudioSource.Stop();
-                PlayHyperJumpSlowDownClip();
-                a = true;
-                return;
-            }
-
-            else if(isJumping && a)
+            if(jumpStarted && readyToJump)
             {
                 eventAudioSource.PlayOneShot(hyperJumpChargingClip);
-                a = false;
+                readyToJump = false;
             }
         }
 
-        public void PlayHyperJumpSlowDownClip()
+        public void PlayHyperJumpSlowDownClip(bool jumpStarted)
         {
-            eventAudioSource.PlayOneShot(hyperJumpSlowDownClip);
+            if (!jumpStarted && !readyToJump)
+            {
+                eventAudioSource.Stop();
+                FindObjectOfType<UILogDisplayer>().ClearLog();
+                eventAudioSource.PlayOneShot(hyperJumpSlowDownClip);
+                readyToJump = true;
+            }
         }
 
         public void PlayHyperJumpJumpingClip()
         {
+            if (isJumping) return;
             eventAudioSource.PlayOneShot(hyperJumpJumpingClip);
+            isJumping = true;
         }
     }
 }

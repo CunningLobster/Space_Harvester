@@ -27,8 +27,14 @@ namespace SpaceCarrier.UI
             log.text = $"Hyperjump in {time} sec";
         }
 
+        public void ShowRiskRewardLog(int reward)
+        {
+            log.text = $"Risk Reward: {reward} <sprite=\"game_resources\" name=\"Credits\">" ;
+        }
+
         public void ClearLog()
         {
+            Debug.Log("Clear");
             log.text = "";
             harvested = 0;
         }

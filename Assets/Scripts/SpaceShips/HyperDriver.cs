@@ -39,8 +39,7 @@ namespace SpaceCarrier.SpaceShips
             {
                 wormhole?.Gravity.ReleaseObject();
                 timeToJump = 0;
-                shipAudio.PlayHyperJumpChargingClip(jumpStarted);
-                logDisplayer.ClearLog();
+                shipAudio.PlayHyperJumpSlowDownClip(jumpStarted);
                 return;
             }
 
@@ -49,9 +48,13 @@ namespace SpaceCarrier.SpaceShips
             wormhole.Gravity.CalculateGravityForce(shipCollider);
 
             logDisplayer.ShowHyperJumpLog(Mathf.FloorToInt(preparationTime - timeToJump));
+
             timeToJump += Time.deltaTime;
             if (timeToJump >= preparationTime)
-                wormhole.PullShip();
+            {
+                StartCoroutine(wormhole.PullShip());
+                return;
+            }
         }
     }
 }

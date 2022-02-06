@@ -3,6 +3,7 @@ using SpaceCarrier.ShipStats;
 using System.Collections;
 using UnityEngine;
 using SpaceCarrier.UI;
+using SpaceCarrier.Rewards;
 
 namespace SpaceCarrier.SpaceShips
 {
@@ -35,6 +36,7 @@ namespace SpaceCarrier.SpaceShips
                 yield return new WaitForSeconds(harvestDelay);
                 cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
                 source.Loose(amountToFill);
+                RewardManager.CollectedResources += amountToFill;
                 logDisplayer.ShowHarvestingLog(amountToFill, source.ResourceType);
                 shipAudio.PlayHarvestingAudioClip();
             }

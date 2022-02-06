@@ -35,22 +35,7 @@ namespace SpaceCarrier.Celestials
         {
             CelestialBody star = GenerateStar();
 
-            float planetCount = 1;
-            switch (difficulty)
-            {
-                case 1:
-                    GeneratePlanets(star, planetCount);
-                    break;
-                case 2:
-                    planetCount = 2;
-                    GeneratePlanets(star, planetCount);
-                    break;
-                case 3:
-                    planetCount = 3;
-                    GeneratePlanets(star, planetCount);
-                    break;
-            }
-
+            GeneratePlanets(star, difficulty);
         }
 
         private void GeneratePlanets(CelestialBody centralBody, float planetCount)

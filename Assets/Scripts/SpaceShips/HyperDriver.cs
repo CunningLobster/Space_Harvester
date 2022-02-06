@@ -1,5 +1,7 @@
+using SpaceCarrier.UI;
 using SpaceCarrier.Wormholes;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SpaceCarrier.SpaceShips
 {
@@ -9,6 +11,8 @@ namespace SpaceCarrier.SpaceShips
         [SerializeField] private float preparationTime = 3f;
         private float timeToJump = 0;
         private Collider shipCollider;
+
+        [SerializeField] private UILogDisplayer logDisplayer;
 
         private void Awake()
         {
@@ -32,11 +36,13 @@ namespace SpaceCarrier.SpaceShips
             {
                 wormhole?.Gravity.ReleaseObject();
                 timeToJump = 0;
+                logDisplayer.ClearLog();
                 return;
             }
 
             wormhole.Gravity.CalculateGravityForce(shipCollider);
 
+            logDisplayer.ShowHyperJumpLog(Mathf.FloorToInt(preparationTime - timeToJump));
             timeToJump += Time.deltaTime;
             if (timeToJump >= preparationTime)
                 wormhole.PullShip();

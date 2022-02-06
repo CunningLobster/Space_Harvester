@@ -2,6 +2,7 @@ using SpaceCarrier.Celestials;
 using SpaceCarrier.ShipStats;
 using System.Collections;
 using UnityEngine;
+using SpaceCarrier.UI;
 
 namespace SpaceCarrier.SpaceShips
 {
@@ -19,6 +20,8 @@ namespace SpaceCarrier.SpaceShips
 
         ShipAudio shipAudio;
 
+        [SerializeField] UILogDisplayer logDisplayer;
+
         private void Awake()
         {
             productivity = (int)harvesting.GetCurrentValue();
@@ -27,12 +30,12 @@ namespace SpaceCarrier.SpaceShips
 
         private IEnumerator Harvest()
         {
-
             while (source.CurrentResource > 0 && !cargo.IsFull)
             {
                 yield return new WaitForSeconds(harvestDelay);
                 cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
                 source.Loose(amountToFill);
+                logDisplayer.ShowHarvestingLog(amountToFill, source.ResourceType);
                 shipAudio.PlayHarvestingAudioClip();
             }
         }
@@ -56,6 +59,8 @@ namespace SpaceCarrier.SpaceShips
                 StopCoroutine(harvestRoutine);
 
             isHarvesting = false;
+
+            logDisplayer.ClearLog();
         }
 
         public void OnDie()

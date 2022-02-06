@@ -1,6 +1,4 @@
 using UnityEngine;
-using SpaceCarrier.SpaceShips;
-using UnityEngine.InputSystem;
 
 namespace SpaceCarrier.Physics
 {

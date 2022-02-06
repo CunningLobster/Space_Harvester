@@ -32,7 +32,7 @@ namespace SpaceCarrier.Rewards
             int reward = Mathf.CeilToInt(riskMultiplier * collectedResources * (collectedResources + cargo.CurrentWeight));
             
             PlayerPrefs.SetInt(PrefsKeys.creditsKey, cargo.Credits + reward);
-            shipResoucePanel.UpdatePanel(cargo.CargoResources, cargo.Credits);
+            shipResoucePanel.UpdatePanel(cargo.CargoResources, PlayerPrefs.GetInt(PrefsKeys.creditsKey));
             logDisplayer.ShowRiskRewardLog(reward);
 
             collectedResources = 0;

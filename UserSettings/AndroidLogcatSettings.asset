@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "CLCDU18921000613",
         "name": "com.DefaultCompany.Space_Carrier",
-        "processId": 17856,
+        "processId": 19242,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -13,12 +13,6 @@
             "name": "com.huawei.android.launcher",
             "processId": 2061,
             "exited": false
-        },
-        {
-            "deviceId": "CLCDU18921000613",
-            "name": "com.DefaultCompany.Space_Carrier",
-            "processId": 32253,
-            "exited": true
         },
         {
             "deviceId": "CLCDU18921000613",
@@ -48,6 +42,12 @@
             "deviceId": "CLCDU18921000613",
             "name": "com.DefaultCompany.Space_Carrier",
             "processId": 17856,
+            "exited": true
+        },
+        {
+            "deviceId": "CLCDU18921000613",
+            "name": "com.DefaultCompany.Space_Carrier",
+            "processId": 19242,
             "exited": false
         },
         {

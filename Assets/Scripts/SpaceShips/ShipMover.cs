@@ -50,12 +50,6 @@ namespace SpaceCarrier.SpaceShips
             RotateShip(movingVector);
         }
 
-        public float GetMaxMovingForceMagnitude()
-        {
-            Vector3 force = transform.forward * forwardSpeed;
-            return force.magnitude / rb.mass;
-        }
-
         private void RotateShip(Vector3 movingVector)
         {
             float yawAngleRad = Mathf.Atan2(movingVector.x, movingVector.z);

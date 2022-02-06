@@ -11,8 +11,13 @@ namespace SpaceCarrier.SpaceShips
 
         [SerializeField] private AudioClip explosionAudioClip;
         [SerializeField] private AudioClip harvestingAudioClip;
-        public bool isThrusting;
 
+        [SerializeField] private AudioClip hyperJumpChargingClip;
+        [SerializeField] private AudioClip hyperJumpJumpingClip;
+        [SerializeField] private AudioClip hyperJumpSlowDownClip;
+
+        bool isThrusting;
+        bool a = true;
         public void PlayThrustAudioEffect(Vector3 movingVector)
         {
             if (movingVector == Vector3.zero)
@@ -37,6 +42,33 @@ namespace SpaceCarrier.SpaceShips
         public void PlayHarvestingAudioClip()
         {
             eventAudioSource.PlayOneShot(harvestingAudioClip);
+        }
+
+        public void PlayHyperJumpChargingClip(bool isJumping)
+        {
+            if (!isJumping && !a)
+            {
+                eventAudioSource.Stop();
+                PlayHyperJumpSlowDownClip();
+                a = true;
+                return;
+            }
+
+            else if(isJumping && a)
+            {
+                eventAudioSource.PlayOneShot(hyperJumpChargingClip);
+                a = false;
+            }
+        }
+
+        public void PlayHyperJumpSlowDownClip()
+        {
+            eventAudioSource.PlayOneShot(hyperJumpSlowDownClip);
+        }
+
+        public void PlayHyperJumpJumpingClip()
+        {
+            eventAudioSource.PlayOneShot(hyperJumpJumpingClip);
         }
     }
 }

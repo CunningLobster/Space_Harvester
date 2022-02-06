@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: logDisplayer
       value: 
       objectReference: {fileID: 1965305792}
+    - target: {fileID: 2657315265991156628, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: preparationTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4135108497960759027, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -350,6 +354,18 @@ PrefabInstance:
       propertyPath: harvestingAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: da9801cae0ef1b045a2bd58509beccf5, type: 3}
+    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: hyperJumpJumpingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a2200cd82fc7a1f47ad99fd4dd55cb88, type: 3}
+    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: hyperJumpChargingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83c8b8c9742d421468b0800c33b31518, type: 3}
+    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+      propertyPath: hyperJumpSlowDownClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f838514ac44d40e4c8485604a75409d9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
 --- !u!1001 &483428124

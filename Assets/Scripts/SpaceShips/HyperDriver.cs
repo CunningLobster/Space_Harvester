@@ -14,9 +14,12 @@ namespace SpaceCarrier.SpaceShips
 
         [SerializeField] private UILogDisplayer logDisplayer;
 
+        private ShipAudio shipAudio;
+
         private void Awake()
         {
             shipCollider = GetComponent<Collider>();
+            shipAudio = GetComponent<ShipAudio>();
         }
 
         private void OnTriggerStay(Collider other)
@@ -36,9 +39,12 @@ namespace SpaceCarrier.SpaceShips
             {
                 wormhole?.Gravity.ReleaseObject();
                 timeToJump = 0;
+                shipAudio.PlayHyperJumpChargingClip(jumpStarted);
                 logDisplayer.ClearLog();
                 return;
             }
+
+            shipAudio.PlayHyperJumpChargingClip(jumpStarted);
 
             wormhole.Gravity.CalculateGravityForce(shipCollider);
 

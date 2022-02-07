@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -166,6 +166,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
@@ -177,11 +181,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 637617747}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1923168141}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
@@ -193,6 +205,10 @@ PrefabInstance:
       value: FadeIn
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisaleController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SpaceCarrier.SpaceShips.ShipAudio, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -201,11 +217,19 @@ PrefabInstance:
       value: Fader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SpaceCarrier.Controlls.PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554394903771191872, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8554394903771191875, guid: 9fbfdad4f97438848a0c0d8069e5cfdc, type: 3}
@@ -406,18 +430,6 @@ PrefabInstance:
       propertyPath: harvestingAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: da9801cae0ef1b045a2bd58509beccf5, type: 3}
-    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
-      propertyPath: hyperJumpJumpingClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a2200cd82fc7a1f47ad99fd4dd55cb88, type: 3}
-    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
-      propertyPath: hyperJumpChargingClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 83c8b8c9742d421468b0800c33b31518, type: 3}
-    - target: {fileID: 7840800549053107036, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
-      propertyPath: hyperJumpSlowDownClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f838514ac44d40e4c8485604a75409d9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
 --- !u!1001 &483428124
@@ -749,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc2a9d0305ddbc46a37a857e715bf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  riskMultiplier: 0.2
   cargo: {fileID: 86528484}
   shipResoucePanel: {fileID: 1213329533}
   logDisplayer: {fileID: 1965305792}
@@ -1036,6 +1049,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52de195233b0a664f967cf7bfedddec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1923168141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6750202481641218985, guid: 1c18739f3b74b5045ab03b6bba54dd54, type: 3}
+  m_PrefabInstance: {fileID: 457971003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd427804addf4a04faa8e4acbd5d86e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1965305792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1965305792, guid: b3126c3b6f3cc254d8f00f50998470d4, type: 3}
@@ -1104,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.size
@@ -1119,6 +1143,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1711703371}
@@ -1126,6 +1154,10 @@ PrefabInstance:
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 637617747}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1923168141}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -1139,12 +1171,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayHyperJumpJumpingClip
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: FadeIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DisaleController
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1167,6 +1207,10 @@ PrefabInstance:
       value: Fader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SpaceCarrier.Controlls.PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onRightWormholeJump.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SpaceCarrier.SpaceShips.Cargo, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -1176,6 +1220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
       propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}
+      propertyPath: onWormholeJump.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5870629332417499642, guid: a4ff4fa2ce75b364988bc413967a4a9a, type: 3}

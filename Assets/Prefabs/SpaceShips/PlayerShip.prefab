@@ -97,6 +97,18 @@ PrefabInstance:
       propertyPath: screenSpaceBorderOffset
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1066261703640018106, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: hyperJumpJumpingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a2200cd82fc7a1f47ad99fd4dd55cb88, type: 3}
+    - target: {fileID: 1066261703640018106, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: hyperJumpChargingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83c8b8c9742d421468b0800c33b31518, type: 3}
+    - target: {fileID: 1066261703640018106, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
+      propertyPath: hyperJumpSlowDownClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f838514ac44d40e4c8485604a75409d9, type: 3}
     - target: {fileID: 2796447361849782661, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: body
       value: 
@@ -203,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8224708739713847739, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8636024181194090333, guid: 1c853977c70800c4c870aeca5cd8f76c, type: 3}
       propertyPath: m_Height
@@ -266,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preparationTime: 2
+  logDisplayer: {fileID: 0}
 --- !u!114 &2983678637773982009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +306,7 @@ MonoBehaviour:
   cargo: {fileID: 372344546252938911}
   harvesting: {fileID: 11400000, guid: 0cf863e2eb1a6f5428cce2d0645643a0, type: 2}
   harvestDelay: 1
+  logDisplayer: {fileID: 0}
 --- !u!114 &6750202481641218985
 MonoBehaviour:
   m_ObjectHideFlags: 0

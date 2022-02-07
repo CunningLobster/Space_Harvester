@@ -24,7 +24,7 @@ MonoBehaviour:
   - 8
   - 9
   - 10
-  currentLevel: 0
+  currentLevel: 9
   prices:
   - resourceSet:
     - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}

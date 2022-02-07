@@ -71,7 +71,7 @@ namespace SpaceCarrier.SpaceShips
             amountToFill = amountToAdd;
 
             currentWeight = CalculateWeight();
-            shipResoucePanel.UpdatePanel(cargoResources, credits);
+            shipResoucePanel.UpdatePanel(cargoResources);
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 

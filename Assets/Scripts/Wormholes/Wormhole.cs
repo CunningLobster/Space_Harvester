@@ -1,4 +1,5 @@
 using SpaceCarrier.Physics;
+using SpaceCarrier.Rewards;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,17 +20,16 @@ namespace SpaceCarrier.Wormholes
 
         public IEnumerator PullShip()
         {
+            onWormholeJump?.Invoke();
+            yield return new WaitForSeconds(1f);
+
             if (!isHome)
             {
-                onWormholeJump?.Invoke();
-                yield return new WaitForSeconds(1f);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
             }
             else
             {
-                onWormholeJump?.Invoke();
-                yield return new WaitForSeconds(1f);
+                RewardManager.ResetCollectedResources();
                 SceneManager.LoadScene("Home_System");
             }
         }

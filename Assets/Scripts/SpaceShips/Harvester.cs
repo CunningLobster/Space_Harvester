@@ -36,7 +36,7 @@ namespace SpaceCarrier.SpaceShips
                 yield return new WaitForSeconds(harvestDelay);
                 cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
                 source.Loose(amountToFill);
-                RewardManager.CollectedResources += amountToFill;
+                RewardManager.CollectResources(amountToFill);
                 logDisplayer.ShowHarvestingLog(amountToFill, source.ResourceType);
                 shipAudio.PlayHarvestingAudioClip();
             }

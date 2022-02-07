@@ -23,5 +23,10 @@ namespace SpaceCarrier.Controlls
             hyperDriver.Hyperjump(inputProvider.isJumping);
             shipMover.MoveShip(new Vector3(inputProvider.moveDirection.x, 0, inputProvider.moveDirection.y));
         }
+
+        public void DisaleController()
+        { 
+            GetComponent<PlayerController>().enabled = false;
+        }
     }
 }

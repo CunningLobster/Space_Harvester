@@ -8928,7 +8928,7 @@ GameObject:
   - component: {fileID: 661388247}
   - component: {fileID: 661388246}
   m_Layer: 0
-  m_Name: ResourceCheat
+  m_Name: Resource Cheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

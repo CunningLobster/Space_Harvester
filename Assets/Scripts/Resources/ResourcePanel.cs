@@ -28,6 +28,7 @@ namespace SpaceCarrier.Resoures
             panelResources[ResourceTypes.Brown] = brown;
         }
 
+        //Update panel with credits
         public void UpdatePanel(Dictionary<ResourceTypes, int> resources, int credits)
         {
             this.credits.text = credits.ToString();
@@ -36,7 +37,7 @@ namespace SpaceCarrier.Resoures
                 panelResources[key].text = resources[key].ToString();
             }
         }
-
+         //Update panel without credits
         public void UpdatePanel(Dictionary<ResourceTypes, int> resources)
         {
             foreach (var key in resources.Keys.ToList())

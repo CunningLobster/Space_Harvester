@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Used only for Music Player
 public class Singleton : MonoBehaviour
 {
     public static Singleton Instance;

@@ -8,8 +8,10 @@ namespace SpaceCarrier.SpaceShips
     public class HyperDriver : MonoBehaviour
     {
         private Wormhole wormhole;
+
         [SerializeField] private float preparationTime = 3f;
         private float timeToJump = 0;
+
         private Collider shipCollider;
 
         [SerializeField] private UILogDisplayer logDisplayer;
@@ -33,6 +35,7 @@ namespace SpaceCarrier.SpaceShips
             this.wormhole = null;
         }
 
+        //Called from PlayerController
         public void Hyperjump(bool jumpStarted)
         {
             if (!jumpStarted || wormhole == null)
@@ -53,7 +56,6 @@ namespace SpaceCarrier.SpaceShips
             if (timeToJump >= preparationTime)
             {
                 StartCoroutine(wormhole.PullShip());
-                return;
             }
         }
     }

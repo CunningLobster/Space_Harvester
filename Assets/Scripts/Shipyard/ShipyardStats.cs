@@ -10,17 +10,21 @@ using UnityEngine.UI;
 
 namespace SpaceCarrier.Shipyard
 {
+    //Class is managing all operations in Shipyard
     public class ShipyardStats : MonoBehaviour
     {
+        //Stats progress bar cells, will be wrapped in a dictionary
         [SerializeField] private Image[] engineProgressCells = new Image[10];
         [SerializeField] private Image[] maneurabilityProgressCells = new Image[10];
         [SerializeField] private Image[] massProgressCells = new Image[10];
         [SerializeField] private Image[] cargoCapacityProgressCells = new Image[10];
         [SerializeField] private Image[] harvestingProgressCells = new Image[10];
 
+        //Cell is accepted when upgrades are accepted, Cell is reserved when upgrade was purchased but not accepted
         [SerializeField] private Sprite acceptedSprite;
         [SerializeField] private Sprite reservedSprite;
 
+        //Wrap it in a dictionary
         [SerializeField] private ShipStat engine;
         [SerializeField] private ShipStat maneurability;
         [SerializeField] private ShipStat mass;
@@ -29,6 +33,7 @@ namespace SpaceCarrier.Shipyard
 
         [SerializeField] ShipyardPriceTable priceTable;
 
+        //Dictionaries for work with cells and stats
         Dictionary<Stats, Image[]> progressCells = new Dictionary<Stats, Image[]>();
         Dictionary<Stats,ShipStat> stats = new Dictionary<Stats, ShipStat>();
 
@@ -47,6 +52,7 @@ namespace SpaceCarrier.Shipyard
             ShowCurrentPrices();
         }
 
+        //Current prices for upgrade to next stat level
         private void ShowCurrentPrices()
         {
             foreach (var key in stats.Keys.ToList())
@@ -55,6 +61,7 @@ namespace SpaceCarrier.Shipyard
             }
         }
 
+        //Make cells accepted
         private void ActivateCells()
         {
             foreach (var key in stats.Keys.ToList())
@@ -67,6 +74,23 @@ namespace SpaceCarrier.Shipyard
             }
         }
 
+        //Make cells reserved
+        private void ReserveCell(Stats type, ShipStat chosenStat, int lastActive)
+        {
+            for (int i = 0; i < progressCells[type].Length; i++)
+            {
+                if (!progressCells[type][i].gameObject.activeInHierarchy)
+                {
+                    progressCells[type][i].gameObject.SetActive(true);
+                    break;
+                }
+            }
+
+            priceTable.UpdatePriceTable(chosenStat, lastActive);
+        }
+
+
+        //When Upgrade button is pushed
         public void OnUpgradeStat(Stats type)
         {
             ShipStat chosenStat = stats[type];
@@ -82,6 +106,7 @@ namespace SpaceCarrier.Shipyard
                 lastActive++;
             }
 
+            //Define price set for upgrade
             Dictionary<ResourceTypes, int> currentResoursePriceSet = chosenStat.ResourcePriceSets[chosenStat.Prices[lastActive - 1]];
             int currentCreditsPrice = chosenStat.CreditsPriceSet[chosenStat.Prices[lastActive - 1]];
 
@@ -91,20 +116,7 @@ namespace SpaceCarrier.Shipyard
             ReserveCell(type, chosenStat, lastActive);
         }
 
-        private void ReserveCell(Stats type, ShipStat chosenStat, int lastActive)
-        {
-            for (int i = 0; i < progressCells[type].Length; i++)
-            {
-                if (!progressCells[type][i].gameObject.activeInHierarchy)
-                {
-                    progressCells[type][i].gameObject.SetActive(true);
-                    break;
-                }
-            }
-
-            priceTable.UpdatePriceTable(chosenStat, lastActive);
-        }
-        //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Substract stat current price set from appropriate resources in home resource panel
         private void SubstractFromResourcePanel(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
         {
 
@@ -122,6 +134,7 @@ namespace SpaceCarrier.Shipyard
             homeResourcePanel.Credits.text = panelResourceCredits.ToString();
         }
 
+        //Check if player has enough resources to upgrade
         private bool AvailableToUpgrage(Dictionary<ResourceTypes, int> currentResoursePriceSet, int currentCreditsPrice)
         {
             foreach (var key in currentResoursePriceSet.Keys.ToList())
@@ -141,7 +154,9 @@ namespace SpaceCarrier.Shipyard
 
             return true;
         }
-        //---------------------------------------------------------------------------------------------------------------------------------------
+
+
+        //Whe Accept button is pressed
         public void OnAccept()
         {
 
@@ -171,6 +186,7 @@ namespace SpaceCarrier.Shipyard
             homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
+        //When Reset button is pressed
         public void OnReset()
         {
             foreach (var key in progressCells.Keys.ToList())
@@ -187,6 +203,7 @@ namespace SpaceCarrier.Shipyard
             homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
+        //Wrap stats in a dictionary
         private void DefineStats()
         {
             stats[Stats.Engine] = engine;
@@ -196,6 +213,7 @@ namespace SpaceCarrier.Shipyard
             stats[Stats.Harvesting] = harvesting;
         }
 
+        //Wrap cells in a dictionry
         private void DefineProgressCells()
         {
             progressCells[Stats.Engine] = engineProgressCells;

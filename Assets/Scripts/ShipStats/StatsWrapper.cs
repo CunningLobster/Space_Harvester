@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.ShipStats
 {
+    //Wrap price sets in Editor because awake doesn't work with Scriptable Objects
     public class StatsWrapper : MonoBehaviour
     {
+#if UNITY_EDITOR
         [SerializeField] private ShipStat[] stats;
 
         private void Awake()
@@ -15,5 +15,6 @@ namespace SpaceCarrier.ShipStats
                 stat.WrapPriceSets();
             }
         }
+#endif
     }
 }

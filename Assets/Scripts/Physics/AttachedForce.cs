@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.Physics
 {
+    //The class respresents attached sum of all forces which influence to the ship
     public class AttachedForce : MonoBehaviour
     {
         Vector3 force = new Vector3();
@@ -21,11 +20,11 @@ namespace SpaceCarrier.Physics
             forceInfluencers = FindObjectsOfType<ForceInfluencer>();
         }
 
+        //All fixed update is here
         private void FixedUpdate()
         {
             force = GetResultForce();
             rb.AddForce(force);
-           // Debug.Log(force);
         }
 
         Vector3 GetResultForce()

@@ -24,60 +24,60 @@ MonoBehaviour:
   - 8
   - 9
   - 10
-  currentLevel: 9
+  currentLevel: 6
   prices:
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 30
     credits: 100
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 60
     credits: 200
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 100
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
       value: 50
     credits: 300
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 5516047af26fcfa4faf1f28d383a5505, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 130
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
       value: 80
     credits: 500
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 100
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 64d6a120d71866e43860c5cd00e5cda2, type: 2}
       value: 120
     credits: 700
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+    - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 150
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 64d6a120d71866e43860c5cd00e5cda2, type: 2}
       value: 200
     credits: 1000
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+    - resource: {fileID: 11400000, guid: 64d6a120d71866e43860c5cd00e5cda2, type: 2}
       value: 200
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
       value: 300
     - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 200
     credits: 1400
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+    - resource: {fileID: 11400000, guid: 64d6a120d71866e43860c5cd00e5cda2, type: 2}
       value: 300
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
       value: 500
     - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 400
     credits: 1800
   - resourceSet:
-    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
+    - resource: {fileID: 11400000, guid: 64d6a120d71866e43860c5cd00e5cda2, type: 2}
       value: 500
-    - resource: {fileID: 11400000, guid: c8f13aaf87f0c2d4db3ca75a9ccbafbe, type: 2}
+    - resource: {fileID: 11400000, guid: 3406ac8abe0573b4288b370ec657e9ab, type: 2}
       value: 900
     - resource: {fileID: 11400000, guid: 638ef34c4a1886041baf10c7cf360def, type: 2}
       value: 600

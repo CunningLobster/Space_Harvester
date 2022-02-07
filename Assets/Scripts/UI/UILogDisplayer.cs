@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace SpaceCarrier.UI
 {
+
+    //Displays log in some events
     public class UILogDisplayer : MonoBehaviour
     {
         TMP_Text log;

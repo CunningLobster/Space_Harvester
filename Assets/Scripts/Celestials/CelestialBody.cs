@@ -15,6 +15,7 @@ namespace SpaceCarrier.Celestials
             gravity = GetComponent<Gravity>();
         }
 
+        //Calculating force to attach it to a Pullable obj
         private void OnTriggerStay(Collider other)
         {
             if (!other.gameObject.CompareTag("Pullable")) return;
@@ -22,6 +23,7 @@ namespace SpaceCarrier.Celestials
             gravity.CalculateGravityForce(other);
         }
 
+        //Remove gravity force if obj is out of gravity field
         private void OnTriggerExit(Collider other)
         {
             gravity.ReleaseObject();

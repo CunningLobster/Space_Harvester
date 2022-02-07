@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 namespace SpaceCarrier.TradeStation
 {
+    //Class is managing all operations in Trade station
     public class TradeZone : MonoBehaviour
     {
         [SerializeField] ResourcePanel homeResourcePanel;
@@ -59,6 +60,7 @@ namespace SpaceCarrier.TradeStation
             selectedResourceType = type;
         }
 
+        //When any transaction button is pressed
         public void OnChangeBalance(int deltaResourceAmount)
         {
             if (selectedResourceType == ResourceTypes.None) return;
@@ -98,6 +100,7 @@ namespace SpaceCarrier.TradeStation
             UpdateBalanceText();
         }
 
+        //When deal button is pressed
         public void OnDealButton()
         {
             if (homeResources.Credits + balance < 0) return;
@@ -121,6 +124,7 @@ namespace SpaceCarrier.TradeStation
             homeResourcePanel.UpdatePanel(homeResources.Resources, homeResources.Credits);
         }
 
+        //When Reset button is pressed
         public void OnResetButton()
         { 
             balance = 0;
@@ -129,6 +133,7 @@ namespace SpaceCarrier.TradeStation
             UpdateBalanceText();
         }
 
+        //When Sell All Resources button is pressed
         public void OnSellAllButton()
         {
             ResourceTypes selected = selectedResourceType;

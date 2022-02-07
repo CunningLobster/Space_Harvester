@@ -14,11 +14,14 @@ namespace SpaceCarrier.Controls
             moveDirection = context.ReadValue<Vector2>();
         }
 
+
+        //Jump Performs on Space button or On Screen Hyperjump Button
         public void OnHyperjump(InputAction.CallbackContext context)
         {
             isJumping = context.ReadValueAsButton();
         }
 
+        //For On Screen button
         public void OnBtnEnter()
         {
             isJumping = true;

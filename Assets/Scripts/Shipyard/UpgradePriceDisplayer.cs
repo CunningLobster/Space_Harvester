@@ -20,6 +20,8 @@ public class UpgradePriceDisplayer : MonoBehaviour
             this.prices[i].text = prices[i].ToString();
         }
     }
+
+    //When reached max level
     public void HideUpgradePrice(List<Sprite> sprites, List<int> prices)
     {
         for (int i = 0; i < resourceImages.Length; i++)

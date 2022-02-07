@@ -5,17 +5,18 @@ namespace SpaceCarrier.Celestials
 {
     public class CelestialGenerator : MonoBehaviour
     {
+        //Collections of spawnable celestials
         [SerializeField] private CelestialBody[] stars;
         [SerializeField] private CelestialBody[] planets;
-
+        //Difficulty considers how many planets will be generated and other modificators, which will be added in later versions
         [SerializeField, Range(1, 3)] private int difficulty = 1;
-
+        //Range of orbit radius
         [SerializeField] private float minRadius = 50f;
         [SerializeField] private float maxRadius = 120f;
-
+        //Range of orbit oeriods
         [SerializeField] private float minPeriod = 30f;
         [SerializeField] private float maxPeriod = 60f;
-
+        //Range of planet resources amounts
         [SerializeField] private int minResourceAmount = 5;
         [SerializeField] private int maxResourceAmount = 30;
 
@@ -45,6 +46,7 @@ namespace SpaceCarrier.Celestials
 
             for (float i = 1; i <= planetCount; i++)
             {
+                //Step defines distance between planet orbits
                 float step = i / planetCount;
                 float maxRadius = Mathf.Min(this.maxRadius, this.minRadius + (this.maxRadius - this.minRadius) * step);
 
@@ -68,6 +70,7 @@ namespace SpaceCarrier.Celestials
             path.yAxis = y;
         }
 
+        //Define period and progress of orbit motion
         private void SetOrbitMotion(CelestialBody planet)
         {
             var motion = planet.GetComponent<OrbitMotion>();

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Cheat to define any resource amount in the Editor
 public class ResourceCheat : MonoBehaviour
 {
     [SerializeField] int credits;

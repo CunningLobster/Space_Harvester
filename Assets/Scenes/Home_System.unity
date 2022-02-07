@@ -8946,12 +8946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6dd56361f370a479dffcc5288f3d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: 0
-  purple: 0
-  red: 0
-  blue: 0
-  green: 0
-  brown: 0
+  credits: 10000
+  purple: 1000
+  red: 1000
+  blue: 1000
+  green: 1000
+  brown: 1000
 --- !u!4 &661388247
 Transform:
   m_ObjectHideFlags: 0
@@ -9713,7 +9713,6 @@ GameObject:
   - component: {fileID: 712519581}
   - component: {fileID: 712519580}
   - component: {fileID: 712519579}
-  - component: {fileID: 712519582}
   m_Layer: 5
   m_Name: Leave Button
   m_TagString: Untagged
@@ -9847,18 +9846,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712519577}
   m_CullTransparentMesh: 1
---- !u!114 &712519582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712519577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436acb92bd20a09459fafc2948d1017d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &714118733
 GameObject:
   m_ObjectHideFlags: 0
@@ -17011,7 +16998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome Home Captain!
+  m_text: Welcome Back Captain!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17038,7 +17025,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.25
+  m_fontSize: 55.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23395,7 +23382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871252403
 RectTransform:
   m_ObjectHideFlags: 0

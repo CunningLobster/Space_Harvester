@@ -24,8 +24,10 @@ namespace SpaceCarrier.OrbitalMotion
 
         private IEnumerator AnimateOrbit()
         {
+            //Zero protection
             if (orbitPeriod < .1f)
                 orbitPeriod = .1f;
+
             float orbitSpeed = 1f / orbitPeriod;
             while (true)
             {

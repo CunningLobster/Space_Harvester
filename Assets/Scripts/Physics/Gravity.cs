@@ -6,10 +6,11 @@ namespace SpaceCarrier.Physics
     {
         [SerializeField] private float g = 0.667f;
         [SerializeField] private SphereCollider gravityField;
+
+        //Easing is used to avoid deviding by close to zero values
         [SerializeField] private float easing = 1f;
 
         Rigidbody rb;
-        [SerializeField] private float dangerRadius;
         private float mass;
 
         Vector3 force = new Vector3();
@@ -20,6 +21,7 @@ namespace SpaceCarrier.Physics
             mass = rb.mass;
         }
 
+        //Calculating force according Gravity Foece formula
         public void CalculateGravityForce(Collider other)
         {
             Rigidbody otherRb = other.GetComponent<Rigidbody>();
@@ -41,8 +43,6 @@ namespace SpaceCarrier.Physics
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, gravityField.radius * transform.lossyScale.x);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, dangerRadius * transform.lossyScale.x);
         }
 
         public override Vector3 GetForce()

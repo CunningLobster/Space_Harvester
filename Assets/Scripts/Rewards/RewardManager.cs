@@ -8,6 +8,8 @@ using SpaceCarrier.Resoures;
 
 namespace SpaceCarrier.Rewards
 {
+    //Rewards is needed to stimulate player jumping into next system
+    //Extra rewards will be added in the next versions
     public class RewardManager : MonoBehaviour
     { 
         static int collectedResources;

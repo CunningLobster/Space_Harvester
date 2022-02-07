@@ -9,7 +9,9 @@ namespace SpaceCarrier.SpaceShips
 {
     public class ShipHealth : MonoBehaviour
     {
+        //God Mode for testing
         public bool IDDQD = false;
+
         [SerializeField] private ParticleSystem dieFX;
         [SerializeField] private GameObject body;
 
@@ -18,17 +20,13 @@ namespace SpaceCarrier.SpaceShips
             if (IDDQD) yield break;
 
             float deathDuration = 2f;
-            GetComponent<ShipAudio>().PlayExplosionAudioEffect();
+            GetComponent<ShipAudio>().PlayExplosionClip();
             GetComponent<Collider>().enabled = false;
             GetComponent<PlayerController>().DisaleController();
             body.SetActive(false);
             RewardManager.ResetCollectedResources();
             dieFX.gameObject.SetActive(true);
-
-            if (TryGetComponent<Harvester>(out Harvester harvester))
-            {
-                harvester.OnDie();
-            }
+            GetComponent<Harvester>().OnDie();
 
             yield return new WaitForSeconds(deathDuration);
             SceneManager.LoadScene(0);

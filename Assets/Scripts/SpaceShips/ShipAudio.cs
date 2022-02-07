@@ -1,6 +1,4 @@
 using SpaceCarrier.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceCarrier.SpaceShips
@@ -20,6 +18,7 @@ namespace SpaceCarrier.SpaceShips
         bool isThrusting;
         bool readyToJump = true;
         bool isJumping = false;
+
         public void PlayThrustAudioEffect(Vector3 movingVector)
         {
             if (movingVector == Vector3.zero)
@@ -35,13 +34,13 @@ namespace SpaceCarrier.SpaceShips
             thrustSource.pitch = movingVector.sqrMagnitude * 1.5f;
         }
 
-        public void PlayExplosionAudioEffect()
+        public void PlayExplosionClip()
         {
             thrustSource.Stop();
             eventAudioSource.PlayOneShot(explosionAudioClip);
         }
 
-        public void PlayHarvestingAudioClip()
+        public void PlayHarvestingClip()
         {
             eventAudioSource.PlayOneShot(harvestingAudioClip);
         }

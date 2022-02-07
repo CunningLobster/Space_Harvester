@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//For Debug
 public class KeyValuesDisplayer : MonoBehaviour
 {
     TMP_Text creditKey;

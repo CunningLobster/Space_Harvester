@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.TradeStation
 {
+    //Class defines buy/sell resource prices
     public class TradeStationResources : MonoBehaviour
     {
         [SerializeField] private int purpleSellingCost;

@@ -29,6 +29,7 @@ namespace SpaceCarrier.SpaceShips
             shipAudio = GetComponent<ShipAudio>();
         }
 
+        //Starts when ship enters planet Gravity field
         private IEnumerator Harvest()
         {
             while (source.CurrentResource > 0 && !cargo.IsFull)
@@ -36,9 +37,11 @@ namespace SpaceCarrier.SpaceShips
                 yield return new WaitForSeconds(harvestDelay);
                 cargo.Fill(Mathf.Min(source.CurrentResource, productivity), source.ResourceType, out int amountToFill);
                 source.Loose(amountToFill);
+
                 RewardManager.CollectResources(amountToFill);
+
                 logDisplayer.ShowHarvestingLog(amountToFill, source.ResourceType);
-                shipAudio.PlayHarvestingAudioClip();
+                shipAudio.PlayHarvestingClip();
             }
         }
 

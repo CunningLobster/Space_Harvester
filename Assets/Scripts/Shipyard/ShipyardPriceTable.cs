@@ -7,16 +7,16 @@ namespace SpaceCarrier.Shipyard
 {
     public class ShipyardPriceTable : MonoBehaviour
     {
-
+        //Price displayer for all stats
         [SerializeField] private UpgradePriceDisplayer engineUPD;
         [SerializeField] private UpgradePriceDisplayer maneurabilityUPD;
         [SerializeField] private UpgradePriceDisplayer massUPD;
         [SerializeField] private UpgradePriceDisplayer cargoCapacityUPD;
         [SerializeField] private UpgradePriceDisplayer harvestingUPD;
-
+        
         private Dictionary<Stats, UpgradePriceDisplayer> priceDisplayers = new Dictionary<Stats, UpgradePriceDisplayer>();
-        public Dictionary<Stats, UpgradePriceDisplayer> PriceDisplayers { get => priceDisplayers; }
 
+        //Sprites and prices for uprading current stat
         List<Sprite> currentSprites = new List<Sprite>();
         List<int> currentPrices = new List<int>();
 
@@ -30,6 +30,7 @@ namespace SpaceCarrier.Shipyard
             priceDisplayers[Stats.CargoCapacity] = cargoCapacityUPD;
             priceDisplayers[Stats.Harvesting] = harvestingUPD;
         }
+
 
         private List<Sprite> GetCurrentSpriteSet(ShipStat stat, int priceIndex)
         {

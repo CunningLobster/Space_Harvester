@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//For Debug
 public class ForceDisplayer : MonoBehaviour
 {
     [SerializeField] TMP_Text forceMg;

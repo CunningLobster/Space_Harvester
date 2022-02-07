@@ -1,15 +1,14 @@
 using SpaceCarrier.Prefs;
-using SpaceCarrier.Physics;
 using SpaceCarrier.Resoures;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using SpaceCarrier.ShipStats;
 
 namespace SpaceCarrier.SpaceShips
 {
+
     public class Cargo : MonoBehaviour
     {
         private Rigidbody rb;
@@ -20,7 +19,6 @@ namespace SpaceCarrier.SpaceShips
 
         [SerializeField] private ShipStat mass;
         [SerializeField] private ShipStat cargoCapacity;
-
 
         [SerializeField] ShipResoucePanel shipResoucePanel;
         private int credits;
@@ -67,6 +65,7 @@ namespace SpaceCarrier.SpaceShips
                 return;
             }
 
+            //Out parameters required for controlling fill amount in case when Harvester productivity is more then free cargo weight or remaining planet resources
             AddResources(type, resourceAmount, out int amountToAdd);
             amountToFill = amountToAdd;
 
@@ -75,6 +74,7 @@ namespace SpaceCarrier.SpaceShips
             shipResoucePanel.UpdateWeightValue(currentWeight, maxWeight);
         }
 
+        
         private void AddResources(ResourceTypes type, int resourceAmount, out int amountToAdd)
         {
             amountToAdd = Mathf.Min(resourceAmount, (int)maxWeight - currentWeight);

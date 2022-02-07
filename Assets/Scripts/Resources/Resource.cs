@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.Resoures
 {
+    //Used only for displaying ship stats upgrade prices
     [CreateAssetMenu(fileName = "Resource", menuName = "ScriptableObjects/SpawnResource", order = 2)]
     public class Resource : ScriptableObject
     {

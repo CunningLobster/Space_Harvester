@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.OrbitalMotion
 {
+    //The Class containes ellipce data for orbit motion
     [System.Serializable]
     public class Ellipse
     {

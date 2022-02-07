@@ -58,6 +58,7 @@ namespace SpaceCarrier.SpaceShips
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, yawSpeed * Time.deltaTime);
         }
 
+        //When ship goes out of screen it appears at another side
         private void KeepShipOnScreen()
         {
             Vector3 newPosition = transform.position;

@@ -8,14 +8,16 @@ using UnityEngine.InputSystem;
 
 namespace SpaceCarrier.HomeSystem
 {
+    //This class contains all operations with resources in the Home System
     public class HomeResources : MonoBehaviour
     {
+        //Interracts with shipCargo
         [SerializeField] Cargo shipCargo;
         [SerializeField] ResourcePanel homeResourcePanel;
 
+        //Values of credits and planet Resources
         private int credits;
         Dictionary<ResourceTypes, int> resources = new Dictionary<ResourceTypes, int>();
-
 
         #region PROPERTIES
         public int Credits { get => credits; set => credits = value; }
@@ -25,11 +27,15 @@ namespace SpaceCarrier.HomeSystem
 
         private void Start()
         {
+            //Peek home resource values and credits directly from playerPrefs
             DefineResourceValues();
+
+            //Load resources from ship cargo
             foreach (var key in resources.Keys.ToList())
             {
                 SetResourceValue(key, shipCargo.CargoResources[key]);
             }
+
             homeResourcePanel.UpdatePanel(resources, credits);
             shipCargo.ResetResources();
         }
@@ -49,6 +55,7 @@ namespace SpaceCarrier.HomeSystem
             PlayerPrefs.SetInt(PrefsKeys.homeResourcesKeys[type], resources[type]);
         }
 
+        //Set all home resources to 0. It's used only in edit mode
         private void ResetResources()
         {
             credits = 0;
@@ -67,12 +74,6 @@ namespace SpaceCarrier.HomeSystem
         {
             if (Keyboard.current.rKey.wasPressedThisFrame)
                 ResetResources();
-
-            //Debug.Log(PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[ResourceTypes.Purple], 0));
-            //Debug.Log(PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[ResourceTypes.Red], 0));
-            //Debug.Log(PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[ResourceTypes.Blue], 0));
-            //Debug.Log(PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[ResourceTypes.Green], 0));
-            //Debug.Log(PlayerPrefs.GetInt(PrefsKeys.homeResourcesKeys[ResourceTypes.Brown], 0));
         }
 #endif
     }

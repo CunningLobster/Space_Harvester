@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SpaceCarrier.Resoures
 {
+    //Resource Panel but with weight value
     public class ShipResoucePanel : ResourcePanel
     {
         [SerializeField] private TMP_Text weight;
